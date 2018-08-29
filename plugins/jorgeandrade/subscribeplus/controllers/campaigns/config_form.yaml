@@ -1,0 +1,41 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Campaign
+
+# Model Form Field configuration
+form: $/jorgeandrade/subscribeplus/models/campaign/fields.yaml
+
+# Model Class name
+modelClass: JorgeAndrade\SubscribePlus\Models\Campaign
+
+# Default redirect location
+defaultRedirect: jorgeandrade/subscribeplus/campaigns
+
+# Create page
+create:
+    title: Create Campaign
+    redirect: jorgeandrade/subscribeplus/campaigns/update/:id
+    redirectClose: jorgeandrade/subscribeplus/campaigns
+    form:
+        fields:
+            name:
+                label: Name
+                disabled: false
+                required: required
+            template:
+                label: Templates
+                type: relation
+                nameFrom: name
+
+# Update page
+update:
+    title: Edit Campaign
+    redirect: jorgeandrade/subscribeplus/campaigns
+    redirectClose: jorgeandrade/subscribeplus/campaigns
+
+# Preview page
+preview:
+    title: Preview Campaign

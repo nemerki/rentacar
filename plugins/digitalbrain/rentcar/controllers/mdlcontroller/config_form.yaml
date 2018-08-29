@@ -1,0 +1,10 @@
+name: MdlController
+form: $/digitalbrain/rentcar/models/mdl/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Mdl
+defaultRedirect: digitalbrain/rentcar/mdlcontroller
+create:
+    redirect: 'digitalbrain/rentcar/mdlcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/mdlcontroller
+update:
+    redirect: digitalbrain/rentcar/mdlcontroller
+    redirectClose: digitalbrain/rentcar/mdlcontroller

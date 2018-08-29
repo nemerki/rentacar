@@ -1,0 +1,25 @@
+{% if partialsRecords.lastPage > 1 %}
+
+    <div class="col-lg-12 text-center">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+
+                {% for page in 1..partialsRecords.lastPage %}
+                    <li class="pagination-number {{ partialsRecords.currentPage == page ? 'active' : null }}">
+                        <a class="{% if filterClass %} {{ filterClass }} {% elseif searchClass %} {{ searchClass }}{% else %} ajaxPagination {% endif %}"
+
+                           href="{{ this.page.baseFileName }}/{{ page }}">{{ page }}</a>
+                    </li>
+
+                {% endfor %}
+
+
+            </ul>
+        </nav>
+    </div>
+
+
+{% endif %}
+
+
+

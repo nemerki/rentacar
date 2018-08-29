@@ -1,0 +1,54 @@
+<div class="top">
+    <h1 style="color: red;">RESERVATION DETAILS </h1>
+    <div class="rezervation">
+        <p>Rezervation ID: <?=$model->id?></p>
+        <p>Rezervation Date: <?=$model->created_at?></p>
+    </div>
+</div>
+<br><br>
+<div class="row">
+    <div class="col-md-3">
+        <h3>Seller Detail</h3>
+        <p>Name : <?= $model->car->user->full_name ?></p>
+        <?php if($model->car->user->company) {?>
+        <p>Company: <?= $model->car->user->company ?></p>
+        <?php }?>
+        <p>Phone : <?= $model->car->user->phone ?></p>
+        <p>City : <?= $model->car->location->city->name ?></p>
+        <p>Address : <?= $model->car->location->street_address ?></p>
+    </div>
+    <div class="col-md-3">
+        <h3>Custemer Detail</h3>
+        <p>Name : <?= $model->name ?></p>
+        <p>Telephone : <?= $model->phone ?></p>
+        <p>Adress : <?= $model->address ?></p>
+
+    </div>
+    <div class="col-md-3">
+        <h3>Car Detail</h3>
+        <p>Brand : <?= $model->car->brand->name ?></p>
+        <p>Model : <?= $model->car->mdl->name ?></p>
+        <p>Trim : <?= $model->car->trim->name ?></p>
+        <p>Car Link : <a target="_blank" href="/transfer/detail/<?= $model->car->slug ?>">Clik Here</a></p>
+
+    </div>
+    <div class="col-md-3">
+        <h3>Purches Detail</h3>
+        <p>Location : <?php if($model->transfer_invoice->is_city == "1"){ echo "City Center";}else{echo "Airport to Hotel"; }?></p>
+        <p>Date : <?= $model->start_date ?></p>
+        <p>Rent Price : <?= $model->transfer_invoice->car_transfer_price ?></p>
+        <p>EDV : <?= $model->transfer_invoice->edv ?></p>
+        <p>Service Tax : <?= $model->transfer_invoice->service_tax ?></p>
+        <p>Total Amount : <?= $model->transfer_invoice->total_amount_payable ?></p>
+    </div>
+
+    <div class="col-md-12">
+        <h3>Additional notes and comments </h3>
+        <br>
+        <?php if($model->remarks){ ?>
+        <p><?= $model->remarks ?></p>
+        <?php } else{ ?>
+        No Comment
+        <?php }?>
+    </div>
+</div>

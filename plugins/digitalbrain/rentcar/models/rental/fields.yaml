@@ -1,0 +1,13 @@
+fields:
+    confirm:
+        label: 'digitalbrain.rentcar::lang.all.status'
+        options:
+            - Waiting
+            - Confirmated
+            - Rejected
+        span: auto
+        type: dropdown
+    rental:
+        span: full
+        type: rental
+        tab: 'Tab 1'

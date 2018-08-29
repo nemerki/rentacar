@@ -1,0 +1,5 @@
+title: BrandController
+modelClass: DigitalBrain\RentCar\Models\Brand
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,104 @@
+name: Footer
+items:
+    -
+        title: Homepage
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: homepage
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Rent Catalog'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: rent-catalog
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Transfer Catalog'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: transfer-catalog
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Add new car'
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: new
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Profile
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: profile
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Contact
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: contact
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Terms & Conditions'
+        nesting: '0'
+        type: static-page
+        url: ''
+        code: ''
+        reference: terms-conditions
+        cmsPage: ''
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Adwords
+        nesting: '0'
+        type: static-page
+        code: ''
+        reference: adwords
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

@@ -1,0 +1,15 @@
+title: CarController
+modelClass: DigitalBrain\RentCar\Models\Car
+list: $/digitalbrain/rentcar/models/car/columns.yaml
+recordUrl: 'digitalbrain/rentcar/carcontroller/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: created_at
+    direction: desc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

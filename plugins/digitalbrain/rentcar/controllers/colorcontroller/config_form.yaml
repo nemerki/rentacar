@@ -1,0 +1,10 @@
+name: ColorController
+form: $/digitalbrain/rentcar/models/color/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Color
+defaultRedirect: digitalbrain/rentcar/colorcontroller
+create:
+    redirect: 'digitalbrain/rentcar/colorcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/colorcontroller
+update:
+    redirect: digitalbrain/rentcar/colorcontroller
+    redirectClose: digitalbrain/rentcar/colorcontroller

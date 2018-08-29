@@ -1,0 +1,5 @@
+title: BanController
+modelClass: DigitalBrain\RentCar\Models\Ban
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

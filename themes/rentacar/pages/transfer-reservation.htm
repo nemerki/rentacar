@@ -1,0 +1,155 @@
+title = "Transfer reservation"
+url = "/transfer/reservation"
+layout = "userDefault"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[az] = "/transfer-reservation"
+
+[TransferReservation]
+==
+<!-- Reservation car modal -->
+<main class="bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- form -->
+                <form class="reservation-form clearfix">
+                    <input type="hidden" name="car_id" value="{{ car.id }}">
+                    <input type="hidden" name="seller_id" value="{{ car.user_id }}">
+                    <input type="hidden" name="start_date" value="{{ startDate }}">
+                    <input type="hidden" name="user_id" value="{{ user.id }}">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-6">
+                            <div class="car-preview">
+                                <h3>{{ car.brand.name }} {{ car.mdl.name }} {{ car.trim.name }}
+                                    <span>{{ car.year.year }}</span></h3>
+                                <img src="{{ car.image.path|resize(650, 350) }}" alt="car-preview-image"
+                                     class="img-responsive">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-6">
+                            <h4 class="title">Payment details</h4>
+
+                            <ul class="list-unstyled result-dates">
+                                <li class="clearfix">
+                                    <span class="pull-left">{{ 'Dates'|_ }}:</span>
+                                    <span class="pull-right">
+                        <b id="startR">{{ startDate }}</b>
+                      </span>
+                                </li>
+
+
+                                <li class="clearfix">
+                                    <span class="pull-left">Price per Transfer:</span>
+                                    <span class="pull-right">
+
+                        <b id="dayP">&dollar;{{ price }}</b>
+                      </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="pull-left">Total: </span>
+                                    <span class="pull-right">
+ <input type="hidden" name="car_transfer_price" value="{{ price - (price*18)/100 }}">
+                                    <input type="hidden" name="service_tax" value="{{ (price *0)/100 }}">
+                                        <input type="hidden" name="edv" value="{{ (price*18)/100 }}">
+                                        <input type="hidden" name="total_amount_payable" value="{{ price }}">
+
+                                        {% if is_city=="1" %}
+                                            <input type="hidden" name="is_city" value="1">
+                                            <input type="hidden" name="is_airport" value="0">
+                                            {% else %}
+                                            <input type="hidden" name="is_city" value="0">
+                                            <input type="hidden" name="is_airport" value="1">
+                                        {% endif %}
+
+                                        <b id="totDayP">&dollar;{{ price }}</b>
+                      </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-12 col-lg-12">
+                            <hr class="separator">
+                        </div>
+                        <div class="col-sm-12 col-lg-12">
+                            <h4 class="title">{{ 'Contact information'|_ }}</h4>
+                            <div class="form-group col-sm-6">
+                                <label>{{ 'Full name'|_ }}</label>
+                                <input type="text" class="form-control" name="name"
+                                       value="{{ user.name }} ">
+                            </div>
+
+                            <div class="form-group col-sm-6 ">
+                                <label>{{ 'Phone number'|_ }}</label>
+                                <input type="tel" name="phone" class="form-control" value="{{ user.mobile }}"
+                                       placeholder="phone">
+                            </div>
+
+                            <div class="form-group col-sm-12">
+                                <label>{{ 'Address'|_ }}</label>
+                                <textarea name="address" class="form-control"
+                                          placeholder="Please write address">{{ user.street_addr }} {{ user.city }} </textarea>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-lg-12">
+                            <hr class="separator">
+                        </div>
+                        <div class="col-sm-12 col-lg-12">
+                            <div class="form-group col-sm-12 col-lg-12">
+                                <label>{{ 'Additional notes and comments'|_ }}</label>
+                                <textarea name="remarks" class="form-control"
+                                          placeholder="Please write down all your questions or concerns and we’ll get back with an answer at the earliest convenience"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="display: inline-block; float: right; margin-bottom: 32px;">
+                        <button type="button" class="reserveBtn btn btn-default">Reserve</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+<!-- /.Reservation car modal -->
+{% put scripts %}
+    <script>
+        // $(function () {
+        //
+        //     $('form').on('click', '.reserveBtn', function (e) {
+        //
+        //         console.log("dfds");
+        //         // $.oc.stripeLoadIndicator.show()
+        //         // $('form').request('onSave', {
+        //         //
+        //         //     complete: function () {
+        //         //         caruselUpdate();
+        //         //         jQuery(".preloader").fadeOut();
+        //         //     }
+        //         // });
+        //     });
+        // })
+        $(function () {
+            $(document).on('click', '.reserveBtn', function (e) {
+                console.log("dfds");
+                $.oc.stripeLoadIndicator.show()
+
+                $('form').request('onSave', {
+
+                    complete: function () {
+                        window.location.href = "{{ 'profile'|page }}";
+                    }
+
+
+                });
+
+            });
+        })
+    </script>
+
+{% endput %}

@@ -1,0 +1,11 @@
+name: InsuranceController
+modelClass: DigitalBrain\RentCar\Models\Insurance
+form: $/digitalbrain/rentcar/models/insurance/fields.yaml
+defaultRedirect: digitalbrain/rentcar/insurancecontroller
+create:
+    redirect: 'digitalbrain/rentcar/insurancecontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/insurancecontroller
+update:
+    redirect: digitalbrain/rentcar/insurancecontroller
+    redirectClose: digitalbrain/rentcar/insurancecontroller
+preview: {  }

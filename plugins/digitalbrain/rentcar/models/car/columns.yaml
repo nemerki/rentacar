@@ -1,0 +1,46 @@
+columns:
+    brand:
+        label: 'digitalbrain.rentcar::lang.car.brand'
+        type: text
+        select: name
+        relation: brand
+    mdl:
+        label: 'digitalbrain.rentcar::lang.car.mdl'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: mdl
+    trim:
+        label: 'digitalbrain.rentcar::lang.car.trim'
+        type: text
+        select: name
+        relation: trim
+    seller_name:
+        label: 'digitalbrain.rentcar::lang.car.seller_name'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: user
+    confirm:
+        label: 'digitalbrain.rentcar::lang.car.status'
+        type: partial
+        path: ~/plugins/digitalbrain/rentcar/models/car/_confirm_column.htm
+    is_rent:
+        label: 'digitalbrain.rentcar::lang.car.category'
+        type: partial
+        path: ~/plugins/digitalbrain/rentcar/models/car/_is_rent_column.htm
+    created_at:
+        label: 'digitalbrain.rentcar::lang.car.created_at'
+        type: text
+    is_hot:
+        label: 'digitalbrain.rentcar::lang.car.is_hot'
+        type: switch
+        searchable: true
+        sortable: true
+    seller_company:
+        label: 'digitalbrain.rentcar::lang.seller_company'
+        type: text
+        select: company
+        relation: user

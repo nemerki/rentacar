@@ -1,0 +1,11 @@
+columns:
+    name:
+        label: 'digitalbrain.rentcar::lang.model.name'
+        type: text
+        searchable: true
+        sortable: true
+    brand:
+        label: 'digitalbrain.rentcar::lang.model.brand'
+        type: text
+        select: name
+        relation: brand

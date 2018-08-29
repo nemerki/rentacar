@@ -1,0 +1,13 @@
+<div data-control="balloon-selector" class="control-balloon-selector">
+    <ul>
+        <?php foreach ($icons as $key => $icon) : ?>
+            <li 
+            data-value="<?= $icon['img']; ?>" 
+            <?php if($key == 0): ?> class="active" <?php endif; ?> >
+                <img src="<?= $icon['img']; ?>" alt="" />
+            </li>
+        <?php endforeach; ?>
+    </ul>
+
+    <input type="hidden" id="social-icon-image" name="balloonValue" value="<?= $icons[0]['img']; ?>" />
+</div>

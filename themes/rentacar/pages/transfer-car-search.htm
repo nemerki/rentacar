@@ -1,0 +1,1510 @@
+title = "Transfer Car Search"
+url = "/transfer/search/:page?"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[az] = "/transfer-car-search"
+
+[TransferCarSearch]
+detailsPage = "transfer-car-detail"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+recordsPerPage = 12
+pageNumber = "{{ :page }}"
+==
+<main class="search-results-wrapp bg-white">
+    <div class="container">
+        <div class="row">
+            <!-- content -->
+            <div class="col-md-9 col-lg-9" id="demoCars">
+                <!-- offers inline view  -->
+                <div class="row" id="offers-inline">
+                    <div class="col-lg-12 partialsDiv">
+                        <!-- inline offer with sale icon-->
+
+                        {% partial "transferCatalogMain" partialsRecords=records %}
+                        <!-- inline offer -->
+
+                    </div>
+                </div>
+                <!-- end offers inline view -->
+
+                <!-- pagination -->
+                <div class="row pa">
+                    {% partial "pagination" partialsRecords=records %}
+                </div>
+            </div>
+            <!-- /.content -->
+            <!-- search sidebar -->
+            <form
+                data-request-validate
+                data-request-flash
+            >
+                <aside class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="bg-white shadow rounded cd-search-sidebar">
+                        <!-- car namne -->
+                        <div class="aside-blk">
+
+                            <div class="new-vehicle">
+                                <div class="form-group">
+                                    <label for="cd-carmake">{{ 'Make'|_ }}</label>
+                                    <select class="cd-select js-example-basic-single brand__select sendForm"
+                                            id="cd-carmake"
+                                            name="brand_id" style="width: 100%">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for brand in brands %}
+                                            <option value="{{ brand.id }}">{{ brand.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Model'|_ }}</label>
+                                    <select class="cd-select js-example-basic-single models_select sendForm"
+                                            name="mdl_id"
+                                            id="cd-carmodel" style="width: 100%">
+                                        {% partial "select/models" %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- car first registration years range -->
+                        <div class="aside-blk">
+                            <div class="custom-range">
+                                <p class="years-range">
+                                    <label for="regYears3">{{ 'Years'|_ }}</label>
+                                    <input type="text" id="regYears" name="year_min" readonly
+                                           class="pull-left sendForm">
+                                    <input type="text" id="regYears2" name="year_max" readonly
+                                           class="pull-right sendForm">
+                                </p>
+                                <div id="regYearsRange"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <!-- car location -->
+                        <div class="aside-blk">
+
+                            <div class="form-group">
+                                <label for="userPhone">{{ 'City'|_ }}</label>
+                                <select name="city_id"
+                                        class="cd-select js-example-basic-single sendForm"
+                                        style="width: 100%">
+                                    <option value="" disabled selected>{{ 'Select make'|_ }}</option>
+                                    {% for city in cities %}
+                                        <option value="{{ city.id }}">{{ city.name }}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- car price range -->
+                        <div class="aside-blk">
+                            <div class="custom-range">
+                                <p>
+                                    <label for="carPrice">{{ 'Price range'|_ }} <span>{{ 'in thousands of'|_ }} {{ '&euro;'|_ }}</span></label>
+                                    <input type="text" id="carPrice" name="price_min" readonly
+                                           class="pull-left sendForm">
+                                    <input type="text" id="carPrice2" name="price_max" readonly
+                                           class="pull-right sendForm">
+                                </p>
+                                <div id="carPriceRange"></div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- car engine volume/power -->
+                        <div class="aside-blk">
+                            <div class="custom-range">
+                                <p>
+                                    <label for="engineVol">{{ 'Engine volume'|_ }} <span>{{ 'in cubic cm'|_ }}</span></label>
+                                    <input type="text" id="engineVol" name="engine_volume_min" readonly
+                                           class="pull-left sendForm">
+                                    <input type="text" id="engineVol2" name="engine_volume_max" readonly
+                                           class="pull-right sendForm">
+                                </p>
+                                <div id="engineVolRange"></div>
+                                <div class="clearfix"></div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <!-- car fuel -->
+
+                        <div class="aside-blk">
+
+                            <div class="new-vehicle">
+                                <div class="form-group">
+                                    <label for="cd-fuel">{{ 'Fuel type'|_ }}</label>
+                                    <select name="fuel_id" class="cd-select js-example-basic-single sendForm"
+                                            id="cd-fuel"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for fuel in fuels %}
+                                            <option value="{{ fuel.id }}">{{ fuel.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Ban'|_ }}</label>
+                                    <select name="ban_id" class="cd-select js-example-basic-single sendForm"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="">Any</option>
+                                        {% for ban in bans %}
+                                            <option value="{{ ban.id }}">{{ ban.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Color'|_ }}</label>
+                                    <select name="color_id" class="cd-select js-example-basic-single sendForm"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Select</option>
+                                        {% for color in colors %}
+                                            <option value="{{ color.id }}">{{ color.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Seat'|_ }}</label>
+                                    <select name="seat_id" class="cd-select js-example-basic-single sendForm"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Select</option>
+                                        {% for seat in seats %}
+                                            <option value="{{ seat.id }}">{{ seat.number }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Transmision'|_ }}</label>
+                                    <select name="transmision_id" class="cd-select js-example-basic-single sendForm"
+                                            id="cd-transmission-type"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for transmision in transmisions %}
+                                            <option value="{{ transmision.id }}">{{ transmision.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Wheel driver'|_ }}</label>
+                                    <select name="wheel_id" class="cd-select js-example-basic-single sendForm"
+                                            id="cd-drive-type"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for wheel in wheels %}
+                                            <option value="{{ wheel.id }}">{{ wheel.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <button style="width: 100%" type="button" id="filterBtn" class="btn btn-default icon ">
+                                    Get Filter
+                                    <i class="fa fa-angle-right"></i>
+                                </button>
+
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    </div>
+                </aside>
+            </form>
+            <!-- /.search sidebar -->
+        </div>
+    </div>
+    <!-- end container -->
+
+
+    <!-- search features -->
+    <section id="cd-search-features" class="bg-white listing-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-right">
+                    <button type="button" class="btn btn-link close"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <div class="row columns-content">
+                <div class="col-md-4">
+                    <!-- safety -->
+                    <div class="column-blk">
+                        <div class="title">
+                            <svg class="svg-icon grey" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewbox="0 0 12.8 14.9" style="enable-background:new 0 0 12.8 14.9;"
+                                 xml:space="preserve">
+                    <g>
+                        <path class="st0" d="M10.8,5.9h-1V3.5C9.8,1.6,8.3,0,6.4,0S2.9,1.6,2.9,3.5v2.4H2c-1.1,0-2,0.9-2,2v0.6c0,3.5,2.9,6.4,6.4,6.4
+                        s6.4-2.9,6.4-6.4V7.8C12.8,6.8,11.9,5.9,10.8,5.9z M3.4,3.5c0-1.6,1.3-3,3-3s3,1.3,3,3v2.4H8.4V3.4c0-1.1-0.9-2-2-2s-2,0.9-2,2v2.5
+                        H3.4V3.5z M4.8,3.4c0-0.9,0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5v2.5H4.8V3.4z M11.8,8.5c0,3-2.4,5.4-5.4,5.4S1,11.5,1,8.5V7.8
+                        c0-0.5,0.4-1,1-1h8.8c0.5,0,1,0.4,1,1V8.5z"/>
+                        <path class="st0" d="M8,8.9l-1.8,1.8l-1-1C5,9.6,4.9,9.6,4.8,9.7s-0.1,0.3,0,0.4L6,11.2c0,0,0.1,0.1,0.2,0.1s0.1,0,0.2-0.1l2-2
+                        c0.1-0.1,0.1-0.3,0-0.4S8.1,8.8,8,8.9z"/>
+                    </g>
+                    </svg>
+                            <h4 class="heading">Safety</h4>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    ABS
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    ESP
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Traction control
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Isofix (child seat anchor points)
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Lane asistant
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Blind spot monitor
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Driver airbag
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Knees airbags
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Passenger airbag
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Side airbags front
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Side airbags back
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Window curtain airbags
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Immobilizer
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Alarm / anti theft system
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Night vision system
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Down hill assist
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Up hill assist
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Precolission system
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Central locking
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- exterior -->
+                    <div class="column-blk">
+                        <div class="title">
+                            <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 14.4 6.9"
+                                 style="enable-background:new 0 0 14.4 6.9;" xml:space="preserve">
+                    <path class="st0" d="M12.9,2l-2-0.3c-0.1,0-0.2-0.1-0.3-0.1l-1-0.8C9,0.3,8.3,0,7.6,0H4.9C3.9,0,3,0.4,2.4,1.2L2.2,1.5
+                      C2.1,1.6,1.9,1.7,1.8,1.7L1.2,1.8C0.5,1.9,0,2.5,0,3.2v1.1C0,5,0.5,5.5,1.2,5.5h0.5c0.1,0.8,0.8,1.4,1.6,1.4c0.8,0,1.5-0.6,1.6-1.4
+                      h4.4c0.1,0.8,0.8,1.4,1.6,1.4c0.8,0,1.5-0.6,1.6-1.4h0.7c0.7,0,1.2-0.5,1.2-1.2V3.7C14.4,2.9,13.8,2.1,12.9,2z M3.3,5.9
+                      C3,5.9,2.7,5.6,2.7,5.2c0-0.4,0.3-0.6,0.6-0.6S4,4.9,4,5.2C4,5.6,3.7,5.9,3.3,5.9z M11,5.9c-0.4,0-0.6-0.3-0.6-0.6
+                      c0-0.4,0.3-0.6,0.6-0.6s0.6,0.3,0.6,0.6C11.6,5.6,11.3,5.9,11,5.9z M13.9,4.3c0,0.4-0.3,0.7-0.7,0.7h-0.7c-0.1-0.8-0.8-1.4-1.6-1.4
+                      c-0.8,0-1.5,0.6-1.6,1.4H4.9C4.8,4.2,4.1,3.6,3.3,3.6C2.5,3.6,1.8,4.2,1.7,5H1.2C0.8,5,0.5,4.7,0.5,4.3V3.2c0-0.5,0.3-0.8,0.8-0.9
+                      l0.6-0.1c0.3,0,0.5-0.2,0.7-0.4l0.2-0.3c0.5-0.6,1.3-1,2.1-1h2.6c0.6,0,1.3,0.2,1.7,0.6l1,0.8c0.2,0.1,0.4,0.2,0.6,0.3l2,0.3
+                      c0.6,0.1,1.1,0.6,1.1,1.3V4.3z"></path>
+                    </svg>
+                            <h4 class="heading">Exterior</h4>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="custom-select-list">
+                                <span>Rims size</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            12"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            13"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            14"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            15"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            16"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            17"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            17.5"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            18"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            19"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            19.5"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            20"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            21"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            22"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            22.5"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            23"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            24"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            25"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            26"
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox invisible">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            28"
+                                        </label>
+                                    </li>
+                                </ul>
+                                <button type="button" class="btn btn-link show-more-btn">
+                                    Show all sizes
+                                </button>
+                            </li>
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Rims material</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Alloy
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Steel
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Alluminium
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Plastic
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Stainles steel
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Metal
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            PVC
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Tyres type</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Winter tyres
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Summer tyres
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            All season tyres
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Aerography
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Decals / Vinyls
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Roof racks
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Trailer coupling
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Sport package
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- comfort -->
+                    <div class="column-blk">
+                        <div class="title">
+                            <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 17.6 14.9"
+                                 style="enable-background:new 0 0 17.6 14.9;" xml:space="preserve">
+                    <path class="st0" d="M16.3,6.3c-0.3-0.3-0.7-0.4-1-0.6l0.6-2.4c0.1-0.8-0.2-1.6-0.7-2.2c-0.5-0.6-1.3-0.9-2.1-0.9H4.7
+                      c-0.8,0-1.6,0.3-2.1,0.9C2.1,1.8,1.9,2.6,2,3.4l0.6,2.4c-0.4,0.1-0.7,0.3-1,0.6c-0.6,0.5-1,1.3-1,2.2c0,1.3,0.8,2.4,2,2.7
+                      c0.2,0.1,0.3,0.2,0.3,0.5l0.3,2.5c0,0.3,0.2,0.4,0.5,0.4h2.1c0.3,0,0.5-0.2,0.5-0.5v-1.5h5.4v1.5c0,0.3,0.2,0.5,0.5,0.5h2.1
+                      c0.3,0,0.5-0.2,0.5-0.4l0.3-2.5c0-0.2,0.1-0.4,0.3-0.4c1.2-0.4,2-1.5,2-2.7C17.3,7.7,17,6.9,16.3,6.3z M2.5,3.3C2.4,2.7,2.6,2,3,1.5
+                      s1.1-0.8,1.7-0.8h8.4c0.7,0,1.3,0.3,1.7,0.8s0.6,1.1,0.6,1.8l-0.6,2.4c-0.3,0-0.5,0-0.8,0c-1.1,0.2-2,1-2.3,2.1
+                      c-1-0.3-3.2-0.8-5.7,0c-0.3-1.1-1.2-2-2.3-2.2c-0.3,0-0.5,0-0.8,0L2.5,3.3z M2.8,10.3C2,10,1.5,9.3,1.5,8.5c0-0.5,0.2-1.1,0.7-1.4
+                      c0.4-0.4,1-0.5,1.5-0.4c0.9,0.1,1.5,1,1.5,2v3.5H3.9l0-0.5C3.8,11,3.4,10.5,2.8,10.3z M5.2,13.6H4l-0.1-1h1.3V13.6z M6.2,12.1V8.9
+                      c2.5-0.8,4.7-0.3,5.4,0v3.3H6.2z M12.6,13.6v-1h1.3l-0.1,1H12.6z M15,10.3c-0.6,0.2-1,0.7-1,1.3l-0.1,0.5h-1.3V8.6
+                      c0-1,0.7-1.8,1.5-2c0.6-0.1,1.1,0.1,1.5,0.4c0.4,0.4,0.7,0.9,0.7,1.4C16.3,9.3,15.8,10,15,10.3z"></path>
+                    </svg>
+                            <h4 class="heading">Comfort</h4>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Air conditioning</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            A/C (man)
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Automatic air conditioning
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            2 zone climate
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            3 zone climate
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            4 zone climate
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            N/A
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Cruise control</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Cruise control
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Adaptive cruise control
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            N/A
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Automatic parking
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Keyless entry
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Keyless engine start-stop
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Tire pressure monitoring system
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Remote engine start
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Front heated seats
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Back heated seats
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Front ventilated seats
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Back ventilated seats
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    On-board computer
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Automatic parking
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Privacy glass
+                                </label>
+                            </li>
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Power assisted steering</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Hydraulic power assisted steering
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Electric power assisted steering
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            N/A
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Seats positions memory
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Electric windows
+                                </label>
+                            </li>
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Suspension</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Standard suspension
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Sport suspension
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Air suspension
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Hydraulic suspension
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Not specified
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Head-up display
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- interior -->
+                    <div class="column-blk">
+                        <div class="title">
+                            <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 16.9 16.9"
+                                 style="enable-background:new 0 0 16.9 16.9;" xml:space="preserve">
+                    <g>
+                        <path class="st0" d="M8.4,0C3.8,0,0,3.8,0,8.4c0,4.7,3.8,8.5,8.4,8.5s8.5-3.8,8.5-8.5C16.9,3.8,13.1,0,8.4,0z M8.4,15.9
+                        C4.3,15.9,1,12.6,1,8.4S4.3,1,8.4,1c4.1,0,7.5,3.3,7.5,7.4S12.6,15.9,8.4,15.9z"></path>
+                        <path class="st0" d="M8.4,1.8c-3.3,0-6,2.4-6.5,5.6c0,0,0,0,0,0c0,0,0,0,0,0c-0.1,0.3-0.1,0.7-0.1,1c0,3.6,3,6.6,6.6,6.6
+                        c3.6,0,6.6-3,6.6-6.6S12.1,1.8,8.4,1.8z M12.2,7.7h2.3c0,0.3,0.1,0.5,0.1,0.8c0,0.1,0,0.2,0,0.3l-2.3,0.4c0-0.2,0.1-0.4,0.1-0.6
+                        C12.3,8.2,12.3,7.9,12.2,7.7z M8.4,2.3c2.9,0,5.4,2.1,6,4.8H12c-0.5-1.5-2-2.6-3.7-2.6S5.2,5.6,4.7,7.2H2.5
+                        C3.1,4.4,5.5,2.3,8.4,2.3z M8.4,11.4c-1.6,0-2.9-1.3-2.9-2.9c0-1.6,1.3-2.9,2.9-2.9s2.9,1.3,2.9,2.9C11.3,10.1,10,11.4,8.4,11.4z
+                         M2.3,8.4c0-0.3,0-0.5,0.1-0.8h2.1C4.5,7.9,4.4,8.2,4.4,8.4c0,0.2,0,0.4,0.1,0.6L2.4,8.7C2.3,8.6,2.3,8.5,2.3,8.4z M2.4,9.2
+                        l2.2,0.4C5,10.8,5.9,11.7,7,12.1l0.4,2.4C4.8,14,2.7,11.9,2.4,9.2z M7.9,14.5l-0.4-2.3c0.3,0.1,0.6,0.1,0.9,0.1
+                        c0.4,0,0.7-0.1,1.1-0.2L9,14.5c-0.2,0-0.4,0-0.6,0C8.3,14.6,8.1,14.6,7.9,14.5z M9.5,14.5L10,12c1-0.5,1.8-1.3,2.1-2.4l2.4-0.4
+                        C14.2,11.9,12.1,14,9.5,14.5z"></path>
+                        <path class="st0" d="M8.4,7C7.6,7,6.9,7.7,6.9,8.4s0.6,1.4,1.4,1.4s1.4-0.6,1.4-1.4S9.2,7,8.4,7z M8.4,9.4C7.9,9.4,7.4,9,7.4,8.4
+                        s0.4-0.9,0.9-0.9s0.9,0.4,0.9,0.9S8.9,9.4,8.4,9.4z"></path>
+                    </g>
+                    </svg>
+                            <h4 class="heading">Interior</h4>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Auxiliar heating
+                                </label>
+                            </li>
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Tilt/telescope steering adjustment</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Tilt
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Telescope
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Tilt/Telescope
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            N/A
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Electric seat adjustment
+                                </label>
+                            </li>
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Roof</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Sun roof
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Panoramic roof
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            N/A
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- multimedia -->
+                    <div class="column-blk">
+                        <div class="title">
+                            <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 17.4 13.8"
+                                 style="enable-background:new 0 0 17.4 13.8;" xml:space="preserve">
+                    <path class="st0" d="M17.4,2.7C17.4,2.7,17.4,2.7,17.4,2.7c0-0.1,0-0.2-0.1-0.2c0,0,0-0.1-0.1-0.1c0,0,0,0-0.1-0.1c0,0,0,0-0.1-0.1
+                      c0,0-0.1,0-0.1,0c0,0,0,0,0,0L6.2,0c0,0,0,0-0.1,0c0,0,0,0-0.1,0c0,0,0,0,0,0C6,0,6,0,6,0c0,0-0.1,0-0.1,0c0,0,0,0-0.1,0
+                      c0,0-0.1,0-0.1,0.1c0,0,0,0,0,0.1c0,0,0,0.1,0,0.1c0,0,0,0,0,0c0,0,0,0,0,0.1c0,0,0,0,0,0.1v7.6C5,7.6,4.2,7.2,3.3,7.2
+                      C1.5,7.2,0,8.7,0,10.5s1.5,3.3,3.3,3.3c0.5,0,1-0.1,1.4-0.3c1.1-0.5,1.9-1.7,1.9-3V4l9.8,2.1v2.8c-0.5-0.4-1.1-0.7-1.8-0.7
+                      c-1.5,0-2.8,1.2-2.8,2.8s1.2,2.8,2.8,2.8c1.5,0,2.8-1.2,2.8-2.8L17.4,2.7C17.4,2.8,17.4,2.7,17.4,2.7z M4.3,12.6
+                      C4.3,12.6,4.3,12.6,4.3,12.6c-0.3,0.1-0.6,0.2-1,0.2c-1.3,0-2.3-1-2.3-2.3s1-2.3,2.3-2.3s2.3,1,2.3,2.3C5.6,11.4,5.1,12.2,4.3,12.6z
+                       M6.6,3.5V1.1l9.8,2.1v2.4L6.6,3.5z M14.6,12.8c-1,0-1.8-0.8-1.8-1.8s0.8-1.8,1.8-1.8c1,0,1.8,0.8,1.8,1.8S15.6,12.8,14.6,12.8z"></path>
+                    </svg>
+                            <h4 class="heading">Multimedia</h4>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    AUX
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Bluetooth music streaming
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    USB
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    12V
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    TV tuner
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    CD changer
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    DVD changer
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Navigation
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Hand-free kit
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    MP3 support
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Multifunction steering wheel
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Wireless charging
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Apple car play
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Android auto
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- visibility -->
+                    <div class="column-blk">
+                        <div class="title">
+                            <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 14.5 13.3"
+                                 style="enable-background:new 0 0 14.5 13.3;" xml:space="preserve">
+                    <g>
+                        <path class="st0" d="M8,7C7.9,7.1,7.9,7.2,7.9,7.4c0,0.1,0.1,0.1,0.2,0.1c0,0,0.1,0,0.1,0l3.3-1.8c0.1-0.1,0.2-0.2,0.1-0.3
+                        c-0.1-0.1-0.2-0.2-0.3-0.1L8,7z"></path>
+                        <path class="st0" d="M14.4,6.7L14,5.8c0,0,0,0,0,0l-0.1-0.2c0,0,0.1-0.1,0.1-0.1c0.5-1.7-0.5-3.6-2.2-4.1c0,0-0.1,0-0.1,0l-0.1-0.2
+                        c0,0,0,0,0,0l-0.5-0.9c-0.1-0.2-0.4-0.3-0.7-0.2C10,0.2,9.9,0.5,10.1,0.7l0.2,0.4l-5.5,3C4.7,4.2,4.6,4.3,4.5,4.5
+                        c0,0.1,0,0.3,0,0.4l0.3,0.6L2.4,6.8C2.4,6.9,2.3,6.9,2.3,7c0,0.1,0,0.1,0,0.2l0.1,0.3L1.1,8.2L0.9,7.9C0.8,7.7,0.5,7.6,0.3,7.7
+                        C0,7.9-0.1,8.2,0.1,8.4c0,0,0,0,1.6,3c0.1,0.2,0.3,0.3,0.4,0.3c0.1,0,0.2,0,0.2-0.1c0.2-0.1,0.3-0.4,0.2-0.7l-0.1-0.3l1.4-0.8
+                        l0.1,0.3c0,0.1,0.1,0.1,0.2,0.1c0,0,0.1,0,0.1,0l2.5-1.4l0.3,0.6c0.1,0.1,0.2,0.2,0.3,0.2c0,0,0.1,0,0.1,0c0.1,0,0.2,0,0.2-0.1
+                        l5.5-3l0.2,0.4c0.1,0.2,0.3,0.3,0.4,0.3c0.1,0,0.2,0,0.2-0.1C14.5,7.2,14.6,6.9,14.4,6.7z M2.2,10.2L1.3,8.6l1.4-0.8l0.9,1.6
+                        L2.2,10.2z M13.5,5l-1.6-3C13,2.5,13.7,3.7,13.5,5z M4.3,9.7L3.1,7.6L3,7.4l0,0L2.9,7.2l2.3-1.2l1.4,2.5L4.3,9.7z M7.8,8.6L5.7,4.8
+                        l5.1-2.8l2.1,3.8L7.8,8.6z"></path>
+                        <path class="st0" d="M6.9,11.1V11c0-0.3-0.2-0.5-0.5-0.5S5.9,10.7,5.9,11v0.1l-1.5,1.5c-0.1,0.1-0.1,0.3,0,0.4c0,0,0.1,0.1,0.2,0.1
+                        s0.1,0,0.2-0.1l1.1-1.1v1c0,0.3,0.2,0.5,0.5,0.5s0.5-0.2,0.5-0.5v-1L8.1,13c0,0,0.1,0.1,0.2,0.1s0.1,0,0.2-0.1
+                        c0.1-0.1,0.1-0.3,0-0.4L6.9,11.1z"></path>
+                    </g>
+                    </svg>
+                            <h4 class="heading">Visibility</h4>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="custom-select-list skin-checkbox">
+                                <span>Lights</span>
+                                <ul class="list-unstyled">
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Halogen
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Halogen/Xenon
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Bi-Xenon
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Led/Xenon
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Led
+                                        </label>
+                                    </li>
+                                    <li class="custom-checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                            Laser
+                                        </label>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Fog lamps
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Light sensors
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Rain sensors
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Adaptive lightning
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Auto high beam
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Rear-view camera
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    360 degrees camera
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Electric mirrors
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Heated mirrors
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Heated windscreen
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Back parking sensors
+                                </label>
+                            </li>
+                            <li class="custom-checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                                    Front parking sensors
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.search features -->
+
+    <!-- map listings -->
+    <section id="cd-locations" class="full-map"></section>
+    <!-- /.map listings -->
+</main>
+
+{% put scripts %}
+    <script type="text/javascript">
+
+        $(function () {
+            // ajax ile elementi çekip yenilediğim için owlcarusel scripti calışmıyordu bu fonksiyonla scripti tekrar çağırıyor ajax complate olduğu zaman da çağırıyorum
+            function caruselUpdate() {
+                // carousel for offers
+                jQuery(".cd-offer-img").on("mouseup", function () {
+                    window.location = jQuery(this).find(".cd-offer-lnk").attr("href");
+                });
+                var owl = jQuery(".cd-hover-gal");
+                owl.owlCarousel({
+                    items: 1,
+                    margin: 0,
+                    animateOut: 'fadeOut',
+                    animateIn: 'fadeIn',
+                    smartSpeed: 450,
+                });
+                jQuery(".cd-hover-gal .owl-dot").hover(function () {
+                        jQuery(this).trigger("click");
+                    }, function () {
+                    }
+                );
+                resize_dots();
+                owl.on("mouseleave", function () {
+                    jQuery(this).find(".owl-dot").first().click();
+                });
+            }
+            window.onload = caruselUpdate();
+            $(document).on('click', '#filterBtn', function (e) {
+                $.oc.stripeLoadIndicator.show()
+                $('form').request('onSearch', {
+                    update: {'transferCatalogMain': '.partialsDiv', 'pagination': '.pa'},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+                });
+            });
+
+            $(document).on('click', '.ajaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+
+                $.oc.stripeLoadIndicator.show()
+
+                $.request('onPaginate', {
+
+
+                    update: {"transferCatalogMain": '.partialsDiv', pagination: '.pa'},
+                    data: {perPage: page},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+                });
+            });
+            $(document).on('click', '.filterAjaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+
+                $.oc.stripeLoadIndicator.show()
+
+                $('form').request('onFilterResultPagination', {
+
+                    update: {"transferCatalogMain": '.partialsDiv', pagination: '.pa'},
+                    data: {perPage: page},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+                });
+            });
+            $(document).on('click', '.searchAjaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+
+                $.oc.stripeLoadIndicator.show()
+
+                $('form').request('onSearchPaginate', {
+
+                    update: {"transferCatalogMain": '.partialsDiv', pagination: '.pa'},
+                    data: {perPage: page},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+                });
+            });
+
+            /*==============================================================================*/
+
+            $(document).on("change", ".brand__select", function (e) {
+
+                // console.log(e);
+                var brand_id = e.target.value;
+                // console.log(brand_id);
+
+                // $.oc.stripeLoadIndicator.show()
+
+                $.request('onModel', {
+
+                    update: {"select/models": '.models_select'},
+                    data: {brand_id: brand_id},
+                    complete: function () {
+                        // jQuery(".preloader").fadeOut();
+                    }
+
+
+                });
+            });
+
+
+        })
+
+        ///// cd-search-sidebar ranges /////
+        if (jQuery(".cd-search-sidebar, .elements").width() > 0) {
+            // 1st registration range
+            jQuery(function () {
+                jQuery("#regYearsRange").slider({
+                    range: true,
+                    min: {{ yearsMin }},
+                    max: {{ yearsMax }},
+                    values: [{{ yearsMin }}, {{ yearsMax }}],
+                    slide: function (event, ui) {
+                        jQuery("#regYears").val(ui.values[0]);
+                        jQuery("#regYears2").val(ui.values[1]);
+                    }
+                });
+                jQuery("#regYears").val(jQuery("#regYearsRange").slider("values", 0));
+                jQuery("#regYears2").val(jQuery("#regYearsRange").slider("values", 1));
+            });
+
+            // price range
+            $(function () {
+                $("#carPriceRange").slider({
+                    range: true,
+                    step: 10,
+                    min: {{ priceMin }},
+                    max: {{ priceMax }},
+                    values: [{{ priceMin }}, {{ priceMax }}],
+                    slide: function (event, ui) {
+                        $("#carPrice").val(ui.values[0]);
+                        $("#carPrice2").val(ui.values[1]);
+                    }
+                });
+                $("#carPrice").val($("#carPriceRange").slider("values", 0));
+                $("#carPrice2").val($("#carPriceRange").slider("values", 1));
+            });
+
+
+            // engine volume range
+            $(function () {
+                $("#engineVolRange").slider({
+                    range: true,
+                    min: {{ volumeMin }},
+                    max: {{ volumeMax }},
+                    values: [{{ volumeMin }}, {{ volumeMax }}],
+                    slide: function (event, ui) {
+                        $("#engineVol").val(ui.values[0]);
+                        $("#engineVol2").val(ui.values[1]);
+                    }
+                });
+                $("#engineVol").val($("#engineVolRange").slider("values", 0));
+                $("#engineVol2").val($("#engineVolRange").slider("values", 1));
+            });
+
+
+        }
+        ///// end .cd-search-sidebar ranges /////
+    </script>
+{% endput %}
+
+{% put styles %}
+    <style>
+        .select2-container--default .select2-selection--single .select2-selection__clear {
+            display: none !important;
+        }
+    </style>
+{% endput %}

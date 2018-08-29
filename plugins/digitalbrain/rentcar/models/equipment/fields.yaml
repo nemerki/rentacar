@@ -1,0 +1,19 @@
+fields:
+    equipment_category:
+        label: 'digitalbrain.rentcar::lang.equipment.category'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    name:
+        label: 'digitalbrain.rentcar::lang.equipment.name'
+        span: auto
+        type: text
+    is_active:
+        label: 'digitalbrain.rentcar::lang.active'
+        span: auto
+        options:
+            - Deactive
+            - Active
+        default: '1'
+        type: dropdown

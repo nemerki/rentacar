@@ -1,0 +1,5 @@
+<option value="" disabled selected>Select trim</option>
+{% for trim in trims %}
+    <option {% if trim.id ==car.trim.id %} selected  {% endif %} value="{{ trim.id }}">{{ trim.name }}</option>
+{% endfor %}
+

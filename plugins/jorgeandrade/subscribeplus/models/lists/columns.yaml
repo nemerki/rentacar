@@ -1,0 +1,28 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: ID
+        searchable: true
+    name:
+        label: Name
+        searchable: true
+    default_email:
+        label: Default 'from' email
+        searchable: true
+    default_name:
+        label: Default 'from' name
+        searchable: true
+    comments:
+        label: Remind people how they got on your list
+        searchable: true
+        invisible: true
+    contact_info:
+        label: Contact information for this list
+        searchable: true
+        invisible: true
+    subscriber_count:
+        label: Subscribers
+        default: 0

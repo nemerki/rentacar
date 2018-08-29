@@ -1,0 +1,6 @@
+columns:
+    question:
+        label: 'digitalbrain.rentcar::lang.faq.question'
+        type: text
+        searchable: true
+        sortable: true

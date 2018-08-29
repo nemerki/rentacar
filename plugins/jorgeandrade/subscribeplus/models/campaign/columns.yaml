@@ -1,0 +1,16 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    status:
+        label: Status
+        type: partial
+        path: ~/plugins/jorgeandrade/subscribeplus/models/campaign/_status.htm
+        searchable: true
+    name:
+        label: Name
+        searchable: true
+    is_launch:
+        label: Launch
+        type: switch

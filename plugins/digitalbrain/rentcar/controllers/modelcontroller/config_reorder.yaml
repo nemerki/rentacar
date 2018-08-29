@@ -1,0 +1,5 @@
+title: ModelController
+modelClass: DigitalBrain\RentCar\Models\Models
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

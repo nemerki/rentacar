@@ -1,0 +1,131 @@
+{% for record in partialsRecords %}
+    <div class="listing-item">
+        <div class="cd-offer-short pull-left sale-report-text">
+            <img src="{{ record.car.image.thumb(70,40) }}" alt="car-photos"
+                 class="img-rounded pull-left">
+            <h4 class="heading"><a
+                    href="{{ 'rent-car-detail'|page({ slug: record.car.slug }) }}">{{ record.car.brand.name }} {{ record.car.mdl.name }} {{ record.car.trim.name }}
+                    <span>{{ record.car.year.year }}</span></a></h4>
+            <span class="cd-car-spec">{{ record.rental_invoice.day }}
+                day / ${{ record.rental_invoice.total_amount_payable }}  </span>
+        </div>
+        <ul class="list-inline pull-right item-controls">
+            <li class="text-danger">
+                <a href="#" data-toggle="modal" data-target="#reservation-modal{{ loop.index }}">
+                    Reservation Detail <i class="fa fa-angle-right"></i></a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <hr class="separator">
+    </div>
+
+    <!-- Reservation car modal -->
+    <div class="modal fade" id="reservation-modal{{ loop.index }}" tabindex="-1" role="dialog"
+         aria-labelledby="reservationLabel">
+        <div class="modal-dialog reservation-form-wrapp" role="document" style="width: 95%; display: flex;align-items: center;justify-content: center;height: 100%;">
+            <div style="background: #ffffff; padding: 0 20px 20px; width: 95%;" class="modal-content">
+
+                <div class="modal-header blk-intro">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">Close</span></button>
+                    <h4 class="modal-title" id="reservationLabel">Rreservation detail <span style="font-size: 12px;color: #999;">No: {{ record.id }} </span></h4>
+
+                </div>
+                <div  class="modal-body">
+                    <!-- form -->
+                    <div  class="row">
+                        <div  class="col-sm-4 col-lg-4">
+                            <div class="car-preview">
+                                <h4 class="title modal__title">Car details</h4>
+                                <img src="{{ record.car.image.thumb(310,166) }}"
+                                     alt="car-preview-image" class="img-responsive">
+                                <h4>{{ record.car.brand.name }} {{ record.car.mdl.name }} {{ record.car.trim.name }}
+                                    <span>{{ record.car.year.year }}</span></h4>
+                            </div>
+
+                        </div>
+                        <div  class="col-sm-4 col-lg-4">
+                            <h4 class="title modal__title">Order details</h4>
+
+
+                            <ul class="list-unstyled result-dates">
+                                <li class="clearfix">
+                                    <span class="pull-left">Total Days:</span>
+                                    <span class="pull-right">
+                        <b id="startR">{{ record.rental_invoice.day }}</b>
+                      </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="pull-left">Pick-up :</span>
+                                    <span class="pull-right">
+                        <b id="pickT">{{ record.start_date|strftime('%d.%m.%Y %H:%M') }}</b>
+                      </span>
+                                </li>
+
+                                <li class="clearfix">
+                                    <span class="pull-left">Drop-off :</span>
+                                    <span class="pull-right">
+                        <b id="pickT">{{ record.end_date |strftime('%d.%m.%Y %H:%M')}}</b>
+                      </span>
+                                </li>
+
+
+                                <li class="clearfix">
+                                    <span class="pull-left">Car rent price :</span>
+                                    <span class="pull-right">
+                        <b id="dayP">&dollar;{{ record.rental_invoice.car_rent_price }}</b>
+                      </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="pull-left">EDV :</span>
+                                    <span class="pull-right">
+                        <b id="dayP">&dollar;{{ record.rental_invoice.edv }}</b>
+                      </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="pull-left">Total : </span>
+                                    <span class="pull-right">
+                        <b id="dayP">&dollar;{{ record.rental_invoice.total_amount_payable }}</b>
+                      </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div  class="col-sm-4 col-lg-4">
+                            <h4 class="title modal__title">Custemer information</h4>
+                            <ul class="list-unstyled result-dates">
+                                <li class="clearfix">
+                                    <span class="pull-left">Name</span>
+                                    <span class="pull-right">
+                        <b id="startR">{{ record.name }}</b>
+                      </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="pull-left">Phone :</span>
+                                    <span class="pull-right">
+                        <b id="pickT">{{ record.phone }}</b>
+                      </span>
+                                </li>
+
+                                <li class="clearfix">
+                                    <span class="pull-left">Address :</span>
+                                    <span class="pull-right">
+                        <b id="pickT">{{ record.address }}</b>
+                      </span>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.Reservation car modal -->
+    <!-- /.Reservation car modal -->
+{% else %}
+    <div class="listing-item">
+        <p> You have not rent sales</p>
+    </div>
+
+{% endfor %}

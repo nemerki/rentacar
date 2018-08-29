@@ -1,0 +1,5 @@
+title: EquipmentCategoryController
+modelClass: DigitalBrain\RentCar\Models\EquipmentCategory
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

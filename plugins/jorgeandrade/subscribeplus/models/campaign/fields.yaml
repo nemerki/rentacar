@@ -1,0 +1,27 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Campaign
+        type: partial
+        path: update_name
+        span: left
+    status:
+        label: Status
+        type: partial
+        path: update_status
+        span: right
+    subject:
+        label: Mail Subject
+        disabled: false
+        required: required
+tabs:
+    stretch: true
+    cssClass: content-tabs
+    fields:
+        html:
+            tab: Preview
+            type: partial
+            path: html_preview

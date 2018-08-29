@@ -1,0 +1,26 @@
+<div class="form-group">
+    <label for="add-module">Modules</label>
+    <select id="add-module" class="form-control">
+        <option value="x">Select module...</option>
+        <?php foreach ($modules as $key => $module): ?>
+            <option value="<?= $key; ?>"><?= $module['name']; ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
+<div class="form-group">
+    <button
+    data-request="onAddModule"
+    data-request-data="module: $('#add-module').val()"
+    data-request-success="$.andradeMail.addModule(data)"
+    data-request-loading="#adding-module"
+    class="btn btn-primary">
+        Add Module
+    </button>
+    <div class="loading-indicator-container" id="adding-module">
+        <div class="loading-indicator size-small">
+            <span></span>
+            <div>Adding module...</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+name: EnginePositionController
+form: $/digitalbrain/rentcar/models/engineposition/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\EnginePosition
+defaultRedirect: digitalbrain/rentcar/enginepositioncontroller
+create:
+    redirect: 'digitalbrain/rentcar/enginepositioncontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/enginepositioncontroller
+update:
+    redirect: digitalbrain/rentcar/enginepositioncontroller
+    redirectClose: digitalbrain/rentcar/enginepositioncontroller

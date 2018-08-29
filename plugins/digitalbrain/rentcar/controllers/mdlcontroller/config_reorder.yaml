@@ -1,0 +1,5 @@
+title: MdlController
+modelClass: DigitalBrain\RentCar\Models\Mdl
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

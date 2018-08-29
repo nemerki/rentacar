@@ -1,0 +1,48 @@
+<?php namespace DigitalBrain\RentCar\Models;
+
+use Model;
+
+/**
+ * Model
+ */
+class Brand extends Model
+{
+    use \October\Rain\Database\Traits\Validation;
+
+    use \October\Rain\Database\Traits\SoftDelete;
+    use \October\Rain\Database\Traits\Sortable;
+
+//    const SORT_ORDER = 'sort_order';
+    protected $dates = ['deleted_at'];
+
+    /**
+     * @var array Validation rules
+     */
+    public $rules = [
+    ];
+
+    /**
+     * @var string The database table used by the model.
+     */
+    public $table = 'digitalbrain_rentcar_brands';
+
+    /**
+     * Softly implement the TranslatableModel behavior.
+     */
+    public $implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+
+    /**
+     * @var array Attributes that support translation, if available.
+     */
+    public $translatable = ['name'];
+
+
+
+    public $hasMany = [
+        'mdls' => ['DigitalBrain\RentCar\Models\Mdl', 'softDelete' => true],
+        'trims' => ['DigitalBrain\RentCar\Models\Trim', 'softDelete' => true],
+        'cars' => ['DigitalBrain\RentCar\Models\Car', 'softDelete' => true],
+    ];
+
+}
+

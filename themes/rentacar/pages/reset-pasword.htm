@@ -1,0 +1,20 @@
+title = "Reset pasword"
+url = "/reset-pasword"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[resetPassword]
+paramCode = "code"
+
+[viewBag]
+localeUrl[az] = "/reset-pasword"
+==
+<div id="partialUserResetForm">
+    {% if resetPassword.code == null %}
+        {% partial resetPassword ~ '::restore' %}
+    {% else %}
+        {% partial resetPassword ~ '::reset' %}
+    {% endif %}
+</div>

@@ -1,0 +1,10 @@
+name: TransferController
+form: $/digitalbrain/rentcar/models/transfer/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Transfer
+defaultRedirect: digitalbrain/rentcar/transfercontroller
+create:
+    redirect: 'digitalbrain/rentcar/transfercontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/transfercontroller
+update:
+    redirect: digitalbrain/rentcar/transfercontroller
+    redirectClose: digitalbrain/rentcar/transfercontroller

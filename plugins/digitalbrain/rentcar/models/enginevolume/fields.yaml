@@ -1,0 +1,13 @@
+fields:
+    volume:
+        label: 'digitalbrain.rentcar::lang.engine_volume.volume'
+        span: auto
+        type: number
+    is_active:
+        label: 'digitalbrain.rentcar::lang.active'
+        span: auto
+        options:
+            - Deactive
+            - Active
+        default: '1'
+        type: dropdown

@@ -1,0 +1,20 @@
+fields:
+    confirm:
+        label: 'digitalbrain.rentcar::lang.car.confirm'
+        options:
+            - 'Waiting Confirmation'
+            - Confirmed
+            - Rejected
+        span: auto
+        type: dropdown
+    is_hot:
+        label: 'digitalbrain.rentcar::lang.car.is_hot'
+        span: auto
+        options:
+            - 'No'
+            - 'Yes'
+        default: '0'
+        type: dropdown
+    mycar:
+        span: full
+        type: mycar

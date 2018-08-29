@@ -1,0 +1,5 @@
+title: EnginePositionController
+modelClass: DigitalBrain\RentCar\Models\EnginePosition
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

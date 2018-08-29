@@ -1,0 +1,17 @@
+fields:
+    name:
+        label: 'digitalbrain.rentcar::lang.color.name'
+        span: auto
+        type: text
+    is_active:
+        label: 'digitalbrain.rentcar::lang.active'
+        span: auto
+        options:
+            - Deactive
+            - Active
+        default: '1'
+        type: dropdown
+    color_code:
+        label: 'digitalbrain.rentcar::lang.color.color_code'
+        span: auto
+        type: text

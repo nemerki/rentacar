@@ -1,0 +1,71 @@
+title = "Profile my car listing"
+url = "/profile/car-listing/:page?"
+layout = "userDefault"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[az] = "/profile-my-car-listing"
+
+[ProfileMyCarListing]
+==
+<main class="account-wrapp bg-grey pb30">
+    <div class="container">
+        <div class="row">
+            <!-- my items -->
+            <div class="col-sm-12 col-md-8 col-lg-9">
+                <div class="bg-white shadow rounded cd-my-list ">
+                    <div class="heading clearfix">
+                        <h4 class="pull-left">{{ 'My car listings'|_ }}</h4>
+
+                    </div>
+                    <div class="myCarListingDiv">
+                        {% partial "profile/myCarListing" partialsRecords = cars %}
+                    </div>
+                    <!-- pagination-control -->
+                    <div class="row pa">
+                        {% partial "pagination" partialsRecords = cars %}
+                    </div>
+                    <!-- /.pagination-control -->
+                </div>
+
+            </div>
+            <!-- /.my items -->
+
+            <!-- acount sidebar -->
+            {% partial 'profileSidebar' %}
+            <!-- /.acount sidebar -->
+        </div>
+    </div>
+    <!-- end container -->
+
+
+</main>
+
+{% put scripts %}
+
+    <script>
+        $(document).on('click', '.ajaxPagination', function (e) {
+            e.preventDefault();
+            var array = $(this).attr('href').split('/');
+            var page = array[array.length - 1];
+
+            $.oc.stripeLoadIndicator.show()
+
+            $.request('onPaginate', {
+
+
+                update: {"profile/myCarListing": '.myCarListingDiv', pagination: '.pa'},
+                data: {perPage: page},
+                complete: function () {
+                    $.oc.stripeLoadIndicator.hide()
+                }
+
+            });
+        });
+    </script>
+
+
+{% endput %}
+

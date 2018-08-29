@@ -1,0 +1,12 @@
+fields:
+    confirm:
+        label: 'digitalbrain.rentcar::lang.all.status'
+        span: auto
+        options:
+            - 'Wait Confirmation'
+            - Confirmed
+            - Rejected
+        type: dropdown
+    transfer:
+        span: full
+        type: transfer

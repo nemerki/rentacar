@@ -1,0 +1,9 @@
+columns:
+    sort_order:
+        label: 'digitalbrain.rentcar::lang.sort_order'
+        type: number
+    volume:
+        label: 'digitalbrain.rentcar::lang.engine_volume.volume'
+        type: number
+        searchable: true
+        sortable: true

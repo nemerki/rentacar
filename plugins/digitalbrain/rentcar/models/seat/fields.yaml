@@ -1,0 +1,13 @@
+fields:
+    number:
+        label: 'digitalbrain.rentcar::lang.seat.number'
+        span: auto
+        type: number
+    is_active:
+        label: 'digitalbrain.rentcar::lang.active'
+        options:
+            - Deactive
+            - Active
+        span: auto
+        default: '1'
+        type: dropdown

@@ -1,0 +1,11 @@
+name: BrandController
+modelClass: DigitalBrain\RentCar\Models\Brand
+form: $/digitalbrain/rentcar/models/brand/fields.yaml
+defaultRedirect: digitalbrain/rentcar/brandcontroller
+create:
+    redirect: 'digitalbrain/rentcar/brandcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/brandcontroller
+update:
+    redirect: digitalbrain/rentcar/brandcontroller
+    redirectClose: digitalbrain/rentcar/brandcontroller
+preview: {  }

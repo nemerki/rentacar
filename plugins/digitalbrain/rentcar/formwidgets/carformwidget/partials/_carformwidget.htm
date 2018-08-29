@@ -1,0 +1,248 @@
+<main class="bg-grey">
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-xs-12 col-md-4 col-lg-4">
+                <div class="cd-sidebar">
+                    <h2 class="product-year"><?= $model->year->year ?></h2>
+                    <h2 class="product-title"><?= $model->brand->name ." ". $model->mdl->name ." ". $model->trim->name
+                        ?></h2>
+                    <div class="text-uppercase sidebar-car-meta">
+                        <div class="car-color" style="background:<?= $model->color->color_code ?>; "></div>
+                        <p style="font-size: 14px"><?= $model->color->name ." COUPLE ". $model->seat->number ." SEATS ". $model->ban->name?></p>
+                    </div>
+                    <div class="cd-short-descripiton">
+                        <span style="font-size: 18px"><?= $model->engine_volume->volume/1000 ." L ".$model->fuel->name." ". $model->wheel->name ?></span>
+                    </div>
+                    <div class="cd-widget bg-white shadow rounded">
+                        <div class="cd-widget-title">
+                            <h4 class="heading"> <?php if($model->is_rent==1){ echo "Rent";}else{echo
+                                "Transfer";}?> Price</h4>
+                        </div>
+                        <div class="cd-widget-content">
+                            <?php if($model->is_rent==1){ ?>
+                            <ul class="list-unstyled phone-nrs">
+                                <li>
+                                    <p class="pull-left"><span>One Day</span></p>
+                                    <span class="pull-right"><?= $model->rental_value->one_day ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>One Day Driver</span></p>
+                                    <span class="pull-right"><?= $model->rental_value->one_day_driver ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Three Day</span></p>
+                                    <span class="pull-right"><?= $model->rental_value->three_day ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Three Day Driver</span></p>
+                                    <span class="pull-right"><?= $model->rental_value->three_day_driver ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Seven Day </span></p>
+                                    <span class="pull-right"><?= $model->rental_value->seven_day ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Seven Day Driver</span></p>
+                                    <span class="pull-right"><?= $model->rental_value->seven_day_driver ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Thirty Day </span></p>
+                                    <span class="pull-right"><?= $model->rental_value->thirty_day ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Thirty Day Driver</span></p>
+                                    <span class="pull-right"><?= $model->rental_value->thirty_day_driver ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Over Thirty Day </span></p>
+                                    <span class="pull-right"><?= $model->rental_value->over_thirty_day ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Over Thirty Day Driver</span></p>
+                                    <span class="pull-right"><?= $model->
+                                        rental_value->over_thirty_day_driver ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                            </ul>
+                            <?php } else { ?>
+                            <ul class="list-unstyled phone-nrs">
+                                <li>
+                                    <p class="pull-left"><span>City Center</span></p>
+                                    <span class="pull-right"><?= $model->transfer_value->city ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <p class="pull-left"><span>Airport to Hotel</span></p>
+                                    <span class="pull-right"><?= $model->transfer_value->airport ?> AZN</span>
+                                </li>
+                                <li class="clearfix"></li>
+                            </ul>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="col-md-8 col-lg-8 hidden-xs cd-content-description">
+                <div id="cd-item-slider" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner rounded" role="listbox">
+                        <img class="item overlayed1 active" src="<?= $model->image->path ?>" alt="">
+                    </div>
+                    <ol class="carousel-indicators">
+                        <?php if( $model->gallery1 ) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery1->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery2) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery2->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery3) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery3->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery4) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery4->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery5) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery5->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery6) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery6->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery7) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery7->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery8) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery8->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery9) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery9->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery10) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery10->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery11) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery11->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery12) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery12->path ?>" alt="">
+                        <?php } ?>
+
+                        <?php if( $model->gallery13) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery13->path ?>" alt="">
+                        <?php } ?>
+                        <?php if( $model->gallery14) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery14->path ?>" alt="">
+                        <?php } ?>
+                        <?php if( $model->gallery15) {?>
+                        <img class="thumbnail active" src="<?= $model->gallery15->path ?>" alt="">
+                        <?php } ?>
+
+                    </ol>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="cd-listing-description bg-white shadow">
+                <div class="listing-title">
+                    <h4 class="heading">Listing description</h4>
+                    <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewbox="0 0 16.8 13.9" style="enable-background:new 0 0 16.8 13.9;" xml:space="preserve">
+                  <g>
+                      <path class="st0"
+                            d="M11.2,3H5C4.9,3,4.7,3.2,4.7,3.3S4.9,3.5,5,3.5h6.2c0.1,0,0.2-0.1,0.2-0.2S11.3,3,11.2,3z"/>
+                      <path class="st0"
+                            d="M10.5,4.6H4.3c-0.1,0-0.2,0.1-0.2,0.2s0.1,0.2,0.2,0.2h6.2c0.1,0,0.2-0.1,0.2-0.2S10.7,4.6,10.5,4.6z"/>
+                      <path class="st0"
+                            d="M10.1,6.2H3.9c-0.1,0-0.2,0.1-0.2,0.2s0.1,0.2,0.2,0.2h6.2c0.1,0,0.2-0.1,0.2-0.2S10.2,6.2,10.1,6.2z"/>
+                      <path class="st0"
+                            d="M9.7,7.8H3.5C3.3,7.8,3.2,7.9,3.2,8s0.1,0.2,0.2,0.2h6.2c0.1,0,0.2-0.1,0.2-0.2S9.8,7.8,9.7,7.8z"/>
+                      <path class="st0"
+                            d="M5.9,9.3H3.1C3,9.3,2.9,9.4,2.9,9.6S3,9.8,3.1,9.8h2.8c0.1,0,0.2-0.1,0.2-0.2S6,9.3,5.9,9.3z"/>
+                      <path class="st0" d="M15.5,0.2C15.4,0.1,15.3,0,15.1,0h-11C4,0,3.9,0.1,3.8,0.2C0.6,4.4,0.2,13,0.2,13.4c0,0.1,0,0.3,0.1,0.4
+                      c0.1,0.1,0.2,0.2,0.4,0.2h10.5c0.3,0,0.5-0.2,0.5-0.4c0-0.1,0.6-5.7,2.4-9.9h2.5c0.1,0,0.2-0.1,0.2-0.2C16.8,1.5,15.9,0.5,15.5,0.2
+                      z M10.7,12.9H1.2C1.3,11,2,4.4,4.4,1h9.8C11.8,4.8,10.9,11.1,10.7,12.9z M15.5,0.9c0.3,0.4,0.7,1.1,0.8,2.2h-2
+                      C14.6,2.2,15,1.5,15.5,0.9z"/>
+                  </g>
+                  </svg>
+                </div>
+                <div class="listing-content"><?= $model->description ?></div>
+
+                <div class="listing-content">
+                    <h3 class="heading">Vehicles features and specification</h3>
+                    <div class="row columns-content">
+
+
+                        <?php
+
+                        $equipmentCategories=\DigitalBrain\RentCar\Models\EquipmentCategory::orderBy('sort_order', 'ASC')->
+                        get();
+                        foreach ($equipmentCategories as $equipmentCategorie) {?>
+                        <div class="col-sm-3 col-lg-3">
+                            <!-- consumption -->
+
+                            <div class=" column-blk">
+                                <div class="title">
+                                    <h4 class="heading"><?= $equipmentCategorie->name ?></h4>
+                                </div>
+                                <ol class="list-unstyled">
+                                    <?php foreach($model->equipments as $equipment) {
+                                    if($equipment->equipment_category->id == $equipmentCategorie->id){ ?>
+                                    <li>
+                                        <span class="pull-left"><?= $equipment->name  ?></span>
+                                    </li>
+                                    <li class="clearfix"></li>
+                                    <?php }}?>
+
+                                </ol>
+                            </div>
+                        </div>
+                        <?php }?>
+
+
+                        <div class="col-sm-3 col-lg-3">
+
+                            <div class=" column-blk">
+                                <div class="title">
+                                    <h4 class="heading">Other</h4>
+                                </div>
+                                <ol class="list-unstyled">
+                                    <?php foreach($model->other_equipment as $equipment) {?>
+                                    <li>
+                                        <span class="pull-left"><?= $equipment  ?></span>
+                                    </li>
+                                    <li class="clearfix"></li>
+
+
+                                    <?php }?>
+
+
+                                </ol>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

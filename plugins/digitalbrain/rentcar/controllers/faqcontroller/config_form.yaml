@@ -1,0 +1,10 @@
+name: FaqController
+form: $/digitalbrain/rentcar/models/faq/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Faq
+defaultRedirect: digitalbrain/rentcar/faqcontroller
+create:
+    redirect: 'digitalbrain/rentcar/faqcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/faqcontroller
+update:
+    redirect: digitalbrain/rentcar/faqcontroller
+    redirectClose: digitalbrain/rentcar/faqcontroller

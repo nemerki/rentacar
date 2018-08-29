@@ -1,0 +1,5 @@
+title: FaqController
+modelClass: DigitalBrain\RentCar\Models\Faq
+nameFrom: question
+toolbar:
+    buttons: reorder_toolbar

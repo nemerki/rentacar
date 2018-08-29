@@ -1,0 +1,107 @@
+[viewBag]
+==
+<header>
+    <!-- top contacts navbar -->
+    <nav class="navbar-inverse flexbox heading">
+        <div class="container">
+            <!-- top socials list -->
+            <ul class="list-inline pull-left cd-top-socials">
+                {% if this.theme.facebook %}
+                    <li>
+                        <a href="{{ this.theme.facebook }}" target="_blank">
+
+                            <i class="fa fa-facebook-f"></i>
+
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if this.theme.twitter %}
+                    <li>
+                        <a href="{{ this.theme.twitter }}" target="_blank">
+
+                            <i class="fa fa-twitter"></i>
+
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if this.theme.instagram %}
+                    <li>
+                        <a href="{{ this.theme.instagram }}" target="_blank">
+
+                            <i class="fa fa-instagram"></i>
+
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if this.theme.youtube %}
+                    <li>
+                        <a href="{{ this.theme.youtube }}" target="_blank">
+
+                            <i class="fa fa-youtube"></i>
+
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% if this.theme.googleplus %}
+                    <li>
+                        <a href="{{ this.theme.googleplus }}" target="_blank">
+
+                            <i class="fa fa-google-plus"></i>
+
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+
+            <!-- top phone nr -->
+            <ul class="list-inline pull-right cd-top-phone">
+                <li><a href="callto:{{ this.theme.telephone }}">{{ this.theme.telephone }}</a></li>
+
+                <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'en'">EN</a></li>
+                <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'ru'">RU</a></li>
+                <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'az'">AZ</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /.top contacts navbar -->
+    <!-- main navigation -->
+    <nav class="navbar navbar-default flexbox mt40 heading cd-main-navigation" data-spy="affix" data-offset-top="130">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#cd-main-menu"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/" data-bg="{{ 'assets/images/logo.png'|theme }}"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="cd-main-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if header.menuItems %}
+                        {% partial "layout/nav" items=header.menuItems %}
+                    {% endif %}
+                    <li><a href="{{ 'new'|page }}" class="btn btn-default">Add new car</a></li>
+                    {% if user %}
+                        <li><a href="{{ 'profile-my-car-listing'|page }}" class="btn btn-danger">Profile</a></li>
+                        <li><a  class="btn btn-danger" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a></li>
+
+                    {% else %}
+                        <li><a href="/login" class="btn btn-danger">Login</a></li>
+
+                    {% endif %}
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!-- /.main navigation -->
+
+</header>

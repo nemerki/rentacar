@@ -1,0 +1,9 @@
+columns:
+    sort_order:
+        label: 'digitalbrain.rentcar::lang.sort_order'
+        type: number
+        sortable: true
+    number:
+        label: 'digitalbrain.rentcar::lang.seat.number'
+        type: number
+        sortable: true

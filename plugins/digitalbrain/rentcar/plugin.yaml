@@ -1,0 +1,190 @@
+plugin:
+    name: 'digitalbrain.rentcar::lang.plugin.name'
+    description: 'digitalbrain.rentcar::lang.plugin.description'
+    author: 'DIGITAL BRAIN'
+    icon: oc-icon-car
+    homepage: ''
+permissions:
+    manage_brand:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_brands'
+    rentacar:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_rentacar'
+    manage_model:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_model'
+    manage_trim:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_trim'
+    manage_color:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_color'
+    manage_equipment_category:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_equipment_category'
+    manage_equipment:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_equipment'
+    manage_ban:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_ban'
+    manage_fuel:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_fuel'
+    manage_engine_position:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_engine_position'
+    manage_transmision:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_transmision'
+    manage_wheel:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_wheel'
+    manage_year:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_year'
+    manage_engine_volume:
+        tab: 'digitalbrain.rentcar::lang.permissions.label_rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_engine_volume'
+    manage_insurance:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_insurance'
+    manage_seat:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_seat'
+    manage_mdl:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_mdl'
+    manage_car:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_car'
+    manage_transfer:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_transfer'
+    manage_rental:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_rental'
+    manage_faq:
+        tab: 'digitalbrain.rentcar::lang.permissions.rentacar'
+        label: 'digitalbrain.rentcar::lang.permissions.label_faq'
+navigation:
+    main-menu-item:
+        label: 'digitalbrain.rentcar::lang.plugin.name'
+        url: digitalbrain/rentcar/brandcontroller
+        icon: icon-car
+        permissions:
+            - rentacar
+        sideMenu:
+            side-menu-item:
+                label: 'digitalbrain.rentcar::lang.menu.brands'
+                url: digitalbrain/rentcar/brandcontroller
+                icon: icon-umbrella
+                permissions:
+                    - manage_brand
+            side-menu-item16:
+                label: 'digitalbrain.rentcar::lang.menu.model'
+                url: digitalbrain/rentcar/mdlcontroller
+                icon: icon-delicious
+            side-menu-item3:
+                label: 'digitalbrain.rentcar::lang.menu.trim'
+                url: digitalbrain/rentcar/trimcontroller
+                icon: icon-sitemap
+                permissions:
+                    - manage_trim
+            side-menu-item4:
+                label: 'digitalbrain.rentcar::lang.menu.color'
+                url: digitalbrain/rentcar/colorcontroller
+                icon: icon-soundcloud
+                permissions:
+                    - manage_color
+            side-menu-item5:
+                label: 'digitalbrain.rentcar::lang.menu.equipment_category'
+                url: digitalbrain/rentcar/equipmentcategorycontroller
+                icon: icon-sitemap
+                permissions:
+                    - manage_equipment_category
+            side-menu-item6:
+                label: 'digitalbrain.rentcar::lang.menu.equipment'
+                url: digitalbrain/rentcar/equipmentcontroller
+                icon: icon-stethoscope
+                permissions:
+                    - manage_equipment
+            side-menu-item7:
+                label: 'digitalbrain.rentcar::lang.menu.ban'
+                url: digitalbrain/rentcar/bancontroller
+                icon: icon-slack
+                permissions:
+                    - manage_ban
+            side-menu-item8:
+                label: 'digitalbrain.rentcar::lang.menu.fuel'
+                url: digitalbrain/rentcar/fuelcontroller
+                icon: icon-flash
+                permissions:
+                    - manage_fuel
+            side-menu-item9:
+                label: 'digitalbrain.rentcar::lang.menu.engine_position'
+                url: digitalbrain/rentcar/enginepositioncontroller
+                icon: icon-train
+                permissions:
+                    - manage_engine_position
+            side-menu-item10:
+                label: 'digitalbrain.rentcar::lang.menu.transmision'
+                url: digitalbrain/rentcar/transmisioncontroller
+                icon: icon-cogs
+                permissions:
+                    - manage_transmision
+            side-menu-item11:
+                label: 'digitalbrain.rentcar::lang.menu.wheel'
+                url: digitalbrain/rentcar/wheelcontroller
+                icon: icon-rocket
+                permissions:
+                    - manage_wheel
+            side-menu-item12:
+                label: 'digitalbrain.rentcar::lang.menu.year'
+                url: digitalbrain/rentcar/yearcontroller
+                icon: icon-birthday-cake
+                permissions:
+                    - manage_year
+            side-menu-item13:
+                label: 'digitalbrain.rentcar::lang.menu.engine_volume'
+                url: digitalbrain/rentcar/enginevolumecontroller
+                icon: icon-signal
+                permissions:
+                    - manage_engine_volume
+            side-menu-item14:
+                label: 'digitalbrain.rentcar::lang.menu.insurance'
+                url: digitalbrain/rentcar/insurancecontroller
+                icon: icon-heartbeat
+                permissions:
+                    - manage_insurance
+            side-menu-item15:
+                label: 'digitalbrain.rentcar::lang.menu.seat'
+                url: digitalbrain/rentcar/seatcontroller
+                icon: icon-male
+                permissions:
+                    - manage_seat
+            side-menu-item2:
+                label: 'digitalbrain.rentcar::lang.menu.faq'
+                url: digitalbrain/rentcar/faqcontroller
+                icon: icon-question
+                permissions:
+                    - manage_faq
+    main-menu-item2:
+        label: 'digitalbrain.rentcar::lang.menu.add_car'
+        url: digitalbrain/rentcar/carcontroller
+        icon: icon-taxi
+        permissions:
+            - manage_car
+    main-menu-item3:
+        label: 'digitalbrain.rentcar::lang.menu.rental'
+        url: digitalbrain/rentcar/rentalcontroller
+        icon: icon-car
+        permissions:
+            - manage_rental
+    main-menu-item4:
+        label: 'digitalbrain.rentcar::lang.menu.transfer'
+        url: digitalbrain/rentcar/transfercontroller
+        icon: icon-bus
+        permissions:
+            - manage_transfer

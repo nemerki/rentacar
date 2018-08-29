@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-titlet">
+        <h2>Subscribe</h2>
+    </div>
+
+    <div class="card-content author">
+        <form name="form-subscribeplus" id="form-subscribeplus" data-request="{{ __SELF__ }}::onAddSubscriber" data-request-update="'{{__SELF__}}::alert': '#result'">
+            <input type="text" class="form-control" name="name" placeholder="* Name" required>
+            <input type="text" class="form-control" name="surname" placeholder="* Last name" required>
+            <input type="email" class="form-control" name="email" placeholder="* Email" required>
+            <input type="text" class="form-control" name="country" placeholder="Country">
+            
+            <label for="list_id">Lists</label>
+            {% for list in __SELF__.lists() %}
+            <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="list_id[]" value="{{ list.id }}" > {{ list.name }}
+                </label>
+              </div>
+            {% endfor %}
+            <input type="hidden" name="latitude" id="latitude">
+            <input type="hidden" name="longitude" id="longitude">
+        </form>
+    </div>
+
+    <div class="card-action">
+        <button class="btn btn-primary btn-block" form="form-subscribeplus">Subscribe</button>
+    </div>
+    
+    <div id="result"></div>
+</div>

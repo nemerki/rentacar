@@ -1,0 +1,15 @@
+/*
+ * This is a sample StyleSheet file used by {{ name }}
+ *
+ * You can delete this file if you want
+ */
+.rezervation {
+    background: lavender;
+    padding: 10px;
+
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+}

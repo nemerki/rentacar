@@ -1,0 +1,773 @@
+title = "Transfer car detail"
+url = "/transfer/detail/:slug"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[az] = "/transfer-car-detail"
+
+[builderDetails]
+modelClass = "DigitalBrain\RentCar\Models\Car"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "slug"
+notFoundMessage = "Record not found"
+
+[CarDetail]
+==
+<!-- main content -->
+<main class="bg-grey">
+    <div class="container">
+        <div class="row">
+            <!-- item content description -->
+            <div class="col-md-8 col-lg-8 cd-content-description">
+                <!-- rent car carousel -->
+                <div class="cd-rent-car-slide">
+                    <div class="rent-item-carousel rounded">
+
+                        <div class="slick-item">
+                            <img src="{{ record.image.path | resize(1200, 600,{ mode: 'crop'}) }}" alt="rent car image"
+                                 class="img-responsive">
+                        </div>
+
+                        {% if record.gallery1 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery1.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery2 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery2.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery3 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery3.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery4 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery4.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery5 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery5.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery6 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery6.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery7 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery7.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery8 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery8.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery9 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery9.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery10 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery10.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery11 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery11.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery12 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery12.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery13 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery13.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery14 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery14.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery15 %}
+                            <div class="slick-item">
+                                <img src="{{ record.gallery15.path | resize(1200, 600,{ mode: 'crop'}) }}"
+                                     alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+
+                    </div>
+
+                    <!-- carousel thumbnails -->
+                    <div class="rent-item-thumbs">
+
+
+                        <div class="slick-item thumbnail">
+                            <img src="{{ record.image.thumb(136,88) }}" alt="rent car image" class="img-responsive">
+                        </div>
+                        {% if record.gallery1 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery1.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery2 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery2.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery3 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery3.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery4 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery4.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery5 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery5.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery6 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery6.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery7 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery7.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery8 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery8.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery9 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery9.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery10 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery10.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery11 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery11.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery12 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery12.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery13 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery13.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery14 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery14.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                        {% if record.gallery15 %}
+                            <div class="slick-item thumbnail">
+                                <img src="{{ record.gallery15.thumb(136,88) }}" alt="rent car image"
+                                     class="img-responsive">
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    <!-- /.carousel thumbnails -->
+                </div>
+                <!-- /. rent car carousel -->
+
+
+                <!-- listing description -->
+                <div class="cd-listing-description bg-white shadow">
+                    <div class="listing-title">
+                        <h4 class="heading">{{ 'Vehicle description'|_ }}</h4>
+                        <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewbox="0 0 16.8 13.9" style="enable-background:new 0 0 16.8 13.9;" xml:space="preserve">
+                  <g>
+                      <path class="st0"
+                            d="M11.2,3H5C4.9,3,4.7,3.2,4.7,3.3S4.9,3.5,5,3.5h6.2c0.1,0,0.2-0.1,0.2-0.2S11.3,3,11.2,3z"/>
+                      <path class="st0"
+                            d="M10.5,4.6H4.3c-0.1,0-0.2,0.1-0.2,0.2s0.1,0.2,0.2,0.2h6.2c0.1,0,0.2-0.1,0.2-0.2S10.7,4.6,10.5,4.6z"/>
+                      <path class="st0"
+                            d="M10.1,6.2H3.9c-0.1,0-0.2,0.1-0.2,0.2s0.1,0.2,0.2,0.2h6.2c0.1,0,0.2-0.1,0.2-0.2S10.2,6.2,10.1,6.2z"/>
+                      <path class="st0"
+                            d="M9.7,7.8H3.5C3.3,7.8,3.2,7.9,3.2,8s0.1,0.2,0.2,0.2h6.2c0.1,0,0.2-0.1,0.2-0.2S9.8,7.8,9.7,7.8z"/>
+                      <path class="st0"
+                            d="M5.9,9.3H3.1C3,9.3,2.9,9.4,2.9,9.6S3,9.8,3.1,9.8h2.8c0.1,0,0.2-0.1,0.2-0.2S6,9.3,5.9,9.3z"/>
+                      <path class="st0" d="M15.5,0.2C15.4,0.1,15.3,0,15.1,0h-11C4,0,3.9,0.1,3.8,0.2C0.6,4.4,0.2,13,0.2,13.4c0,0.1,0,0.3,0.1,0.4
+                      c0.1,0.1,0.2,0.2,0.4,0.2h10.5c0.3,0,0.5-0.2,0.5-0.4c0-0.1,0.6-5.7,2.4-9.9h2.5c0.1,0,0.2-0.1,0.2-0.2C16.8,1.5,15.9,0.5,15.5,0.2
+                      z M10.7,12.9H1.2C1.3,11,2,4.4,4.4,1h9.8C11.8,4.8,10.9,11.1,10.7,12.9z M15.5,0.9c0.3,0.4,0.7,1.1,0.8,2.2h-2
+                      C14.6,2.2,15,1.5,15.5,0.9z"/>
+                  </g>
+                  </svg>
+                    </div>
+                    <div class="listing-content rent">
+                        {{ record.description }}
+                    </div>
+
+                    <div class="listing-content rent">
+                        <h3 class="heading">{{ 'Vehicles features and specification'|_ }}</h3>
+                        <div class="row columns-content">
+                            {% for equipmentCategorie in equipmentCategories %}
+                                <div class="col-sm-6 col-lg-6">
+                                    <!-- consumption -->
+
+                                    <div class=" column-blk">
+                                        <div class="title">
+                                            <h4 class="heading">{{ equipmentCategorie.name }}</h4>
+                                        </div>
+                                        <ol class="list-unstyled">
+                                            {% for equipment in record.equipments %}
+                                                {% if  equipment.equipment_category.id == equipmentCategorie.id %}
+                                                    <li>
+                                                        <span class="pull-left">{{ equipment.name }}</span>
+                                                    </li>
+                                                    <li class="clearfix"></li>
+                                                {% endif %}
+
+                                            {% endfor %}
+
+
+                                        </ol>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <div class="col-sm-6 col-lg-6">
+                                <!-- consumption -->
+
+                                <div class=" column-blk">
+                                    <div class="title">
+                                        <h4 class="heading">{{ 'Other'|_ }}</h4>
+                                    </div>
+                                    <ol class="list-unstyled">
+                                        {% for equipment in record.other_equipment %}
+
+                                            <li>
+                                                <span class="pull-left">{{ equipment }}</span>
+                                            </li>
+                                            <li class="clearfix"></li>
+
+
+                                        {% endfor %}
+
+
+                                    </ol>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.two columns content -->
+                    </div>
+                </div>
+                <!-- /.listing description -->
+            </div>
+            <!-- /.item content description -->
+
+            <!-- sidebar -->
+            <aside class="col-xs-12 col-md-4 col-lg-4">
+                <div class="cd-sidebar">
+                    <h2 class="product-title">{{ record.brand.name }} {{ record.mdl.name }} {{ record.trim.name }}</h2>
+                    <h2 class="product-year">{{ record.year.year }}</h2>
+                    <!-- meta -->
+                    <div class="text-uppercase sidebar-car-meta">
+                        <div class="car-color" style="background: {{ record.color.color_code }}"></div>
+                        <p>{{ record.color.name }} {{ 'COUPE'|_ }}, {{ record.seat.number }} {{ 'SEATS'|_ }}
+                            , {{ record.ban.name }} </p>
+
+                    </div>
+                    <!-- short description -->
+                    <div class="cd-short-descripiton">
+                        <span> {{ record.engine_volume.volume/1000 }}
+                            L {{ record.fuel.name }}  {{ record.transmision.name }} {{ record.wheel.name }}  </span>
+                    </div>
+                    <!-- price with discount -->
+                    <ul class="list-inline cd-price-list">
+                        <li>
+
+                            <h2 class="cd-price ">{{ '$'|_ }} <span class="myPrice">{{ record.transfer_value.city }}</span></h2>
+                            <input type="hidden" name="price" value="{{ record.transfer_value.city }}"
+                                   class="inputPrice">
+                            <input type="hidden" name="is_city" class="is_city" value="1">
+                        </li>
+                        <li class="pull-right">
+                            <span class="period priceText">{{ 'City Center'|_ }}</span>
+                        </li>
+                    </ul>
+                    <span class="text-uppercase  money-save city">{{ 'Local'|_ }}</span>
+                    <span class="text-uppercase money-discount money-save airport">{{ 'Airport to Hotel'|_ }}</span>
+                    <div class="clearfix"></div>
+
+                    <!-- rent widget -->
+                    <div class="rent-blk-rows bg-white shadow">
+                        <div class="blk-intro">
+                            <h4 class="pull-left">{{ 'Select the transfer date'|_ }}</h4>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="row blk-content">
+
+                            <div class="col-sm-12 col-lg-12 total clearfix ">
+
+                                <div class="  form-group input-append ">
+                                    <label>{{ 'Pick-up date and time'|_ }}</label>
+                                    <input style="max-width:100%;width: 100%;" placeholder="date" type="text"
+                                           id="startDate">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-lg-12">
+                                <a href="javascript:void(0);" class="btn btn-default" id="myBtn">{{ 'Continue to car
+                                    reservation '|_ }}<i
+                                            class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- widget support -->
+                    <div class="cd-widget bg-white shadow rounded">
+                        <div class="cd-widget-title">
+                            <h4 class="heading">{{ 'Have a question? Get in touch!'|_ }}</h4>
+                            <svg class="svg-icon svg-icon-sm grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                 viewbox="0 0 15.4 15.5" style="enable-background:new 0 0 15.4 15.5;"
+                                 xml:space="preserve">
+                    <g>
+                        <path class="st0" d="M11.4,9.9c-0.5-0.5-1.5-0.5-2,0l-0.7,0.7c-0.2-0.2-0.5-0.5-0.8-0.9C7.6,9.4,7.2,9,6.8,8.6
+                        C6.4,8.2,6,7.9,5.7,7.7C5.2,7.3,4.9,7.1,4.8,6.8l0.7-0.7c0.6-0.6,0.6-1.5,0-2L3.7,2.3c-0.5-0.5-1.5-0.5-2,0L0.8,3.2
+                        c-0.8,0.8-1,2-0.6,3c0.8,1.9,6,7.9,9.3,9.2c0.3,0.1,0.6,0.2,0.9,0.2c0.7,0,1.4-0.3,1.9-0.8l0.9-0.9c0.6-0.6,0.6-1.5,0-2L11.4,9.9z
+                         M12.5,13.1L11.6,14c-0.5,0.5-1.2,0.6-1.8,0.4c-3-1.2-8-6.8-8.7-8.6C0.9,5.1,1,4.4,1.5,3.9L2.4,3C2.6,2.8,2.9,2.8,3,3l1.8,1.8
+                        C5,5,5,5.2,4.9,5.4L3.9,6.3C3.8,6.4,3.8,6.6,3.8,6.7c0,0,0,0.1,0,0.1C3.9,7.6,4.4,8,5.1,8.5c0.3,0.2,0.7,0.5,1,0.8
+                        c0.4,0.4,0.7,0.8,1,1.1c0.5,0.6,1,1.2,1.5,1.3c0,0,0.1,0,0.1,0c0.1,0,0.2-0.1,0.3-0.2c0,0,0.1,0,0.1-0.1l0.9-0.9
+                        c0.2-0.2,0.4-0.2,0.6,0l1.8,1.8C12.7,12.7,12.7,12.9,12.5,13.1z"/>
+                        <path class="st0" d="M6.9,4.7C6.9,4.9,7,5,7.2,5c1.8,0,3.2,1.5,3.2,3.2c0,0.1,0.1,0.2,0.2,0.2s0.2-0.1,0.2-0.2
+                        c0-2.1-1.7-3.7-3.7-3.7C7,4.5,6.9,4.6,6.9,4.7z"/>
+                        <path class="st0" d="M12.7,8.3c0,0.1,0.1,0.2,0.2,0.2s0.2-0.1,0.2-0.2c0-3.4-2.7-6.1-6.1-6.1c-0.1,0-0.2,0.1-0.2,0.2
+                        s0.1,0.2,0.2,0.2C10.2,2.7,12.7,5.2,12.7,8.3z"/>
+                        <path class="st0" d="M7,0C6.8,0,6.7,0.1,6.7,0.2S6.8,0.5,7,0.5c4.4,0,7.9,3.5,7.9,7.9c0,0.1,0.1,0.2,0.2,0.2s0.2-0.1,0.2-0.2
+                        C15.4,3.8,11.6,0,7,0z"/>
+                    </g>
+                    </svg>
+                        </div>
+                        <div class="cd-widget-content">
+                            <ul class="list-unstyled phone-nrs">
+                                <li>
+                                    <a href="callto:+994{{ this.theme.telephone }}" class="pull-left">+994
+                                        <span>{{ this.theme.telephone }}</span></a>
+                                    <span class="pull-right">{{ 'mobile'|_ }}</span>
+                                </li>
+                                <li class="clearfix"></li>
+                                <li>
+                                    <a href="callto:+994{{ this.theme.office_number }}" class="pull-left">+994
+                                        <span>{{ this.theme.office_number }}</span></a>
+                                    <span class="pull-right">{{ 'office'|_ }}</span>
+                                </li>
+                                <li class="clearfix"></li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    {#
+                                        <!-- featured vehicles -->
+                                        <div class="cd-widget featured-off-widget">
+                                            <h3 class="heading">Featured discounted offers</h3>
+                                            <div class="cd-offer-blk thumbnail bg-white bordered rent rating sale-offer">
+                                                <div class="cd-offer-img">
+                                                    <div class="sale-type1">
+                                                        <span class="cd-sale-info">-20%</span>
+                                                    </div>
+                                                    <img src="http://via.placeholder.com/650x350" alt="car-photos" class="img-responsive">
+                                                    <a href="car-sale-item.html" class="cd-offer-lnk"></a>
+                                                </div>
+                                                <div class="cd-offer-meta">
+                                                    <h4 class="heading"><a href="car-sale-item.html">Porsche Cayman (718) S <span
+                                                                class="productYear">2016</span></a></h4>
+                                                    <div class="rating-stars">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-half-empty"></i>
+                                                        <i class="fa fa-star-empty"></i>
+                                                    </div>
+                                                    <span class="cd-car-spec">100 mi, 2.5 AT, 340 bhp, RWD</span>
+                                                    <hr class="separator">
+                                                    <h4 class="price pull-left">&dollar;120+ <s>&dollar;145</s></h4>
+                                                    <h4 class="rent-time pull-right">per day</h4>
+                                                    <div class="clearfix"></div>
+                                                    <a href="car-sale-item.html" class="btn btn-default pull-left">View details <i
+                                                            class="fa fa-angle-right"></i></a>
+                                                    <button type="button" class="btn btn-danger pull-right" data-toggle="tooltip"
+                                                            data-placement="top" title="Add to favorites">
+                                                        <i class="fa fa-heart-o"></i>
+                                                        <i class="fa fa-heart"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="cd-offer-blk thumbnail bg-white bordered rent rating sale-offer">
+                                                <div class="cd-offer-img">
+                                                    <div class="sale-type1">
+                                                        <span class="cd-sale-info">-20%</span>
+                                                    </div>
+                                                    <img src="http://via.placeholder.com/650x350" alt="car-photos" class="img-responsive">
+                                                    <a href="car-sale-item.html" class="cd-offer-lnk"></a>
+                                                </div>
+                                                <div class="cd-offer-meta">
+                                                    <h4 class="heading"><a href="car-sale-item.html">Cadillac Escalade <span
+                                                                class="productYear">2016</span></a></h4>
+                                                    <div class="rating-stars">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star-empty"></i>
+                                                        <i class="fa fa-star-empty"></i>
+                                                    </div>
+                                                    <span class="cd-car-spec">10 mi, 6.2 AT, 409 bhp, AWD</span>
+                                                    <hr class="separator">
+                                                    <h4 class="price pull-left">&dollar;135+</h4>
+                                                    <h4 class="rent-time pull-right">per day</h4>
+                                                    <div class="clearfix"></div>
+                                                    <a href="car-sale-item.html" class="btn btn-default">View details <i
+                                                            class="fa fa-angle-right"></i></a>
+                                                    <button type="button" class="btn btn-danger pull-right favorited" data-toggle="tooltip"
+                                                            data-placement="top" title="Remove from favorites">
+                                                        <i class="fa fa-heart-o"></i>
+                                                        <i class="fa fa-heart"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- related offers widget -->
+                                        <div class="cd-widget offers-widget hidden-sm">
+                                            <h3 class="heading">Related offers by same</h3>
+                                            <div class="related-tabs">
+                                                <!-- Nav tabs -->
+                                                <ul class="nav nav-tabs" role="tablist">
+                                                    <li role="presentation" class="active"><a href="#byPrice" aria-controls="byPrice"
+                                                                                              role="tab" data-toggle="tab">Price</a></li>
+                                                    <li role="presentation"><a href="#byType" aria-controls="byType" role="tab"
+                                                                               data-toggle="tab">Vehicle type</a></li>
+                                                </ul>
+                                                <!-- Tab panes -->
+                                                <div class="tab-content bg-white">
+                                                    <div role="tabpanel" class="tab-pane active" id="byPrice">
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">CLS 2011</h4>
+                                                            <span class="pull-right rent-price">&dollar;100</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">Touareg 2016</h4>
+                                                            <span class="pull-right rent-price">&dollar;80</span>
+                                                            <span class="cd-car-spec">2.5 AT, 183bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">Land Cruiser 2008</h4>
+                                                            <span class="pull-right rent-price">&dollar;95</span>
+                                                            <span class="cd-car-spec">5.6 AT, 360bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">CLS 2011</h4>
+                                                            <span class="pull-right rent-price"><s>&dollar;100</s> &dollar;30</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">S-klasse 204</h4>
+                                                            <span class="pull-right rent-price"><s>&dollar;100</s> &dollar;90</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                    </div>
+                                                    <div role="tabpanel" class="tab-pane" id="byType">
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">Land Cruiser 2008</h4>
+                                                            <span class="pull-right rent-price">&dollar;100</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">CLS 2011</h4>
+                                                            <span class="pull-right rent-price"><s>&dollar;100</s> &dollar;75</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">Touareg 2016</h4>
+                                                            <span class="pull-right rent-price">&dollar;35</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">Land Cruiser 2008</h4>
+                                                            <span class="pull-right rent-price">&dollar;49</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                        <div class="cd-offer-short rent">
+                                                            <a href="#" class="cd-offer-lnk"></a>
+                                                            <img src="http://via.placeholder.com/350x150" alt="car-photos"
+                                                                 class="img-rounded pull-left">
+                                                            <h4 class="heading">Land Cruiser 2008</h4>
+                                                            <span class="pull-right rent-price">&dollar;85</span>
+                                                            <span class="cd-car-spec">3.0 AT, 265bhp</span>
+                                                            <hr class="separator">
+                                                            <a href="#" class="btn btn-link">View details</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>#}
+
+                </div>
+                <!-- /.cd-sidebar -->
+            </aside>
+            <!-- /.sidebar -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+
+</main>
+<!-- /.main content -->
+
+
+{% put styles %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+{% endput %}
+
+
+
+
+{% put scripts %}
+    <script src="{{ 'assets/js/loan-calculator.js'|theme }}" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" charset="utf-8"></script>
+
+    <script>
+        var startDate, is_city = $('.is_city').val(), price = $('.inputPrice').val();
+        ;
+
+        function load() {
+            jQuery.datetimepicker.setLocale('az');
+            var $startDate = $("#startDate");
+
+            var disabledDates = [
+                {% for disableDay in disableTransferDays %}
+                '{{ disableDay }}',
+                {% endfor %}
+            ];
+
+
+            $startDate.datetimepicker({
+                disabledDates: disabledDates,
+                // format: 'Y-m-d h:m:s',
+                formatDate: 'd.m.Y',
+                defaultDate: new Date(),
+                minDate: "1",
+
+            });
+
+
+            jQuery('#startDate').change(function () {
+
+                startDate = jQuery('#startDate').val();
+
+                console.log(startDate);
+
+
+            })
+        }
+
+        window.onload = load();
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+            $(document).on('click', '.airport', function () {
+                $(this).removeClass('money-discount');
+                $('.city').addClass('money-discount');
+                $('.myPrice').html('{{ record.transfer_value.airport }}');
+                $('.priceText').html('Airport to Hotel');
+                $('.inputPrice').val('{{ record.transfer_value.airport }}');
+                $('.is_city').val('0');
+                is_city = $('.is_city').val();
+                price = $('.inputPrice').val();
+
+            })
+
+            $(document).on('click', '.city', function () {
+                $(this).removeClass('money-discount');
+                $('.airport').addClass('money-discount');
+                $('.myPrice').html('{{ record.transfer_value.city }}');
+                $('.priceText').html('City Center');
+                $('.inputPrice').val('{{ record.transfer_value.city }}');
+                $('.is_city').val('1');
+                is_city = $('.is_city').val();
+                price = $('.inputPrice').val();
+            })
+
+
+        });
+
+
+    </script>
+
+    <script>
+        $(document).on('click', '#myBtn', function () {
+            console.log(is_city);
+            console.log(startDate);
+            $.oc.stripeLoadIndicator.show()
+            $.request('onSessionTransfer', {
+                data: {car_id: {{ record.id }}, price: price, startDate: startDate, is_city: is_city},
+                complete: function () {
+                    window.location.href = "{{ 'transfer-reservation'|page }}";
+                }
+
+
+            });
+        })
+
+    </script>
+
+
+{% endput %}

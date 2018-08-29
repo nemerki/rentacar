@@ -1,0 +1,23 @@
+columns:
+    name:
+        label: 'digitalbrain.rentcar::lang.rental.custemer_name'
+        type: text
+        searchable: false
+        sortable: true
+    title:
+        label: 'digitalbrain.rentcar::lang.rental.car'
+        type: text
+        searchable: false
+        sortable: false
+    price:
+        label: 'digitalbrain.rentcar::lang.rental.price'
+        type: partial
+        searchable: false
+        sortable: false
+        path: ~/plugins/digitalbrain/rentcar/models/rental/_price_column.htm
+    confirm:
+        label: 'digitalbrain.rentcar::lang.rental.status'
+        type: partial
+        searchable: false
+        sortable: true
+        path: ~/plugins/digitalbrain/rentcar/models/rental/_confirm_column.htm

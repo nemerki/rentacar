@@ -1,0 +1,20 @@
+<div data-control="toolbar">
+    <div class="form-elements" role="form">
+        <div class="form-group span-left">
+            <label>Campaign</label>
+            <div class="scoreboard">
+                <div data-control="toolbar" data-disposable="">
+                    <div class="scoreboard-item title-value">
+                        <p><?= $campaign->name; ?></p>
+                        <p class="description">Template: <?= $campaign->template->name; ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group span-right">
+            <label>Status</label>
+            <?= $this->makePartial('update_status', ['value' => $campaign->status]); ?>
+        </div>
+    </div>
+</div>

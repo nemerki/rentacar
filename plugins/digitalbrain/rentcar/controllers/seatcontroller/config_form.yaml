@@ -1,0 +1,10 @@
+name: SeatController
+form: $/digitalbrain/rentcar/models/seat/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Seat
+defaultRedirect: digitalbrain/rentcar/seatcontroller
+create:
+    redirect: 'digitalbrain/rentcar/seatcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/seatcontroller
+update:
+    redirect: digitalbrain/rentcar/seatcontroller
+    redirectClose: digitalbrain/rentcar/seatcontroller

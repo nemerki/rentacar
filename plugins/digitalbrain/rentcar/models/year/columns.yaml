@@ -1,0 +1,10 @@
+columns:
+    sort_order:
+        label: 'digitalbrain.rentcar::lang.sort_order'
+        type: number
+        sortable: true
+    year:
+        label: 'digitalbrain.rentcar::lang.year.year'
+        type: number
+        searchable: true
+        sortable: true

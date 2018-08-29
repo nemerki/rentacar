@@ -1,0 +1,10 @@
+name: TransmisionController
+form: $/digitalbrain/rentcar/models/transmision/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Transmision
+defaultRedirect: digitalbrain/rentcar/transmisioncontroller
+create:
+    redirect: 'digitalbrain/rentcar/transmisioncontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/transmisioncontroller
+update:
+    redirect: digitalbrain/rentcar/transmisioncontroller
+    redirectClose: digitalbrain/rentcar/transmisioncontroller

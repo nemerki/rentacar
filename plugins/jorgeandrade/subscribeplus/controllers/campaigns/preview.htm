@@ -1,0 +1,28 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('jorgeandrade/subscribeplus/campaigns') ?>">Campaigns</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="layout-row">
+        <div class="padded-container layout">
+            <div class="form-widget form-elements layout">
+                <?= $this->makePartial('preview_toolbar'); ?>
+                <?= $this->makePartial('preview_toolbar_buttons'); ?>
+            </div>
+
+            <div class="layout" style="margin-top:20px;">
+                <?= $this->makePartial('preview_tabs'); ?>
+            </div>
+        </div>
+    </div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url('jorgeandrade/subscribeplus/campaigns') ?>" class="btn btn-default">Return to campaigns list</a></p>
+
+<?php endif ?>

@@ -1,0 +1,19 @@
+fields:
+    question:
+        label: 'digitalbrain.rentcar::lang.faq.question'
+        size: ''
+        span: full
+        type: textarea
+    answer:
+        label: 'digitalbrain.rentcar::lang.faq.answer'
+        size: ''
+        span: full
+        type: textarea
+    is_active:
+        label: 'digitalbrain.rentcar::lang.all.status'
+        span: full
+        options:
+            - Deactive
+            - Active
+        default: '1'
+        type: dropdown

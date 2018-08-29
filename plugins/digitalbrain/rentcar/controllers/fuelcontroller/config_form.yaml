@@ -1,0 +1,10 @@
+name: FuelController
+form: $/digitalbrain/rentcar/models/fuel/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Fuel
+defaultRedirect: digitalbrain/rentcar/fuelcontroller
+create:
+    redirect: 'digitalbrain/rentcar/fuelcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/fuelcontroller
+update:
+    redirect: digitalbrain/rentcar/fuelcontroller
+    redirectClose: digitalbrain/rentcar/fuelcontroller

@@ -1,0 +1,96 @@
+{% for car in partialsRecords %}
+    <div class="listing-item">
+        <div class="cd-offer-short pull-left">
+            <img src="{{ car.image.path }}" alt="car-photos" class="img-rounded pull-left">
+            <h4 class="heading"><a
+                    href="{% if car.is_transfer==1 %} {{ 'transfer-car-detail'|page({ slug: car.slug }) }} {% else %}  {{ 'rent-car-detail'|page({ slug: car.slug }) }}
+
+                {% endif %}">{{ car.brand.name }} {{ car.mdl.name }} {{ car.trim.name }}
+                    <span>{{ car.year.year }}</span></a></h4>
+            <span class="cd-car-spec">{% if car.is_transfer==1 %} Transfer {% else %} Rent
+
+                {% endif %}  </span>
+        </div>
+        <ul class="list-inline pull-right item-controls">
+            {% if car.confirm==0 %}
+                <li>Waiting for approval </li>
+            {% elseif car.confirm==1  and car.is_published == 1 %}
+
+                <li><a data-id="{{ car.id }}" id="unpublishCar" href="javascript:void(0);">Unpublish</a></li>
+            {% elseif car.confirm==1 and  car.is_published == 0 %}
+                <li><a data-id="{{ car.id }}" id="publishCar" href="javascript:void(0);">Publish </a></li>
+            {% elseif car.confirm==2  %}
+                <li>Rejected</li>
+            {% endif %}
+
+            <li><a href="{{ 'car-edit'|page({ slug: car.slug }) }}">Edit</a></li>
+            <li><a data-id="{{ car.id }}" id="deleteCar" href="javascript:void(0);">Delete</a></li>
+
+
+        </ul>
+        <div class="clearfix"></div>
+        <hr class="separator">
+    </div>
+{% endfor %}
+
+{% put scripts %}
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '#deleteCar', function (e) {
+                e.preventDefault();
+                var button = $(this);
+
+                $.oc.stripeLoadIndicator.show()
+
+                $.request('onDelete', {
+
+                    update: {"profile/myCarListing": '.myCarListingDiv', pagination: '.pa'},
+                    data: {id: button.data("id")},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+
+                    }
+
+                });
+            });
+
+            $(document).on('click', '#unpublishCar', function (e) {
+                e.preventDefault();
+                var button = $(this);
+
+                $.oc.stripeLoadIndicator.show()
+
+                $.request('onUnpublishCar', {
+
+                    update: {"profile/myCarListing": '.myCarListingDiv', pagination: '.pa'},
+                    data: {id: button.data("id")},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+
+                    }
+
+                });
+            });
+            $(document).on('click', '#publishCar', function (e) {
+                e.preventDefault();
+                var button = $(this);
+
+                $.oc.stripeLoadIndicator.show()
+
+                $.request('onPublishCar', {
+
+                    update: {"profile/myCarListing": '.myCarListingDiv', pagination: '.pa'},
+                    data: {id: button.data("id")},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+
+                    }
+
+                });
+            });
+
+        });
+
+
+    </script>
+{% endput %}

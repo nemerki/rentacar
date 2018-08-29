@@ -1,0 +1,14 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+subscribers:
+    label: Subscriber
+    view:
+        list: $/jorgeandrade/subscribe/models/subscriber/columns.yaml
+        toolbarButtons: create|add|remove
+    manage:
+        showSearch: true
+        recordsPerPage: 10
+        list: $/jorgeandrade/subscribe/models/subscriber/columns.yaml
+        form: $/jorgeandrade/subscribe/models/subscriber/fields.yaml

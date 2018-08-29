@@ -1,0 +1,6 @@
+columns:
+    name:
+        label: 'digitalbrain.rentcar::lang.brand.name'
+        type: text
+        searchable: true
+        sortable: true

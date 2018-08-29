@@ -1,0 +1,13 @@
+fields:
+    name:
+        label: 'digitalbrain.rentcar::lang.brand.name'
+        span: auto
+        type: text
+    is_active:
+        label: 'digitalbrain.rentcar::lang.brand.is_active'
+        options:
+            - Deactive
+            - Active
+        span: auto
+        default: '1'
+        type: dropdown

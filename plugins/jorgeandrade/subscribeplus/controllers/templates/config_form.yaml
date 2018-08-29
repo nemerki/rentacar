@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Template
+
+# Model Form Field configuration
+form: $/jorgeandrade/subscribeplus/models/template/fields.yaml
+
+# Model Class name
+modelClass: JorgeAndrade\SubscribePlus\Models\Template
+
+# Default redirect location
+defaultRedirect: jorgeandrade/subscribeplus/templates
+
+# Create page
+create:
+    title: Create Template
+    redirect: jorgeandrade/subscribeplus/templates/update/:id
+    redirectClose: jorgeandrade/subscribeplus/templates
+
+# Update page
+update:
+    title: Edit Template
+    redirect: jorgeandrade/subscribeplus/templates
+    redirectClose: jorgeandrade/subscribeplus/templates
+
+# Preview page
+preview:
+    title: Preview Template

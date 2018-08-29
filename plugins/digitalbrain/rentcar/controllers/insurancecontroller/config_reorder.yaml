@@ -1,0 +1,5 @@
+title: InsuranceController
+modelClass: DigitalBrain\RentCar\Models\Insurance
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

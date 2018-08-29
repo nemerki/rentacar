@@ -1,0 +1,49 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+        disabled: false
+        required: required
+        span: left
+
+tabs:
+    stretch: true
+    fields:
+        default_email:
+            label: Default 'from' email
+            disabled: false
+            size: small
+            required: required
+            span: left
+            tab: Manage
+        default_name:
+            label: Default 'from' name
+            disabled: false
+            size: small
+            required: required
+            span: left
+            tab: Manage
+        comments:
+            label: Remind people how they got on your list
+            disabled: false
+            size: small
+            required: required
+            span: left
+            type: textarea
+            tab: Manage
+        contact_info:
+            label: Contact information for this list
+            disabled: false
+            size: small
+            required: required
+            span: left
+            type: textarea
+            tab: Manage
+        categories:
+            tab: Subscribers
+            type: partial
+            path: field_subscribers
+

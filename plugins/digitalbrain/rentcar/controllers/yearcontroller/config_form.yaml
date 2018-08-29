@@ -1,0 +1,10 @@
+name: YearController
+form: $/digitalbrain/rentcar/models/year/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Year
+defaultRedirect: digitalbrain/rentcar/yearcontroller
+create:
+    redirect: 'digitalbrain/rentcar/yearcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/yearcontroller
+update:
+    redirect: digitalbrain/rentcar/yearcontroller
+    redirectClose: digitalbrain/rentcar/yearcontroller

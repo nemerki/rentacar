@@ -1,0 +1,120 @@
+title = "Profile setting"
+url = "/profile/setting"
+layout = "userDefault"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[az] = "/profile-setting"
+
+[Setting]
+==
+<main class="account-wrapp bg-grey pb30">
+    <div class="container">
+        <div class="row mb30">
+            <!-- my settings -->
+            <div class="col-sm-12 col-md-9 col-lg-9">
+                <div class="bg-white shadow rounded cd-my-list">
+                    <div class="heading clearfix">
+                        <h4 class="pull-left">{{ 'My account settings'|_ }}</h4>
+
+                    </div>
+                    <form class="account-form row">
+                        <input type="hidden" name="user_id" value="{{ user.id }}">
+                        <div class="form-content col-lg-8">
+                            <div class="row">
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>{{ 'Name'|_ }}</label>
+                                    <input name="name" type="text" class="form-control text-capitalize"
+                                           value="{{ user.name }}">
+                                </div>
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>{{ 'Surname'|_ }}</label>
+                                    <input name="surname" type="text" class="form-control text-capitalize"
+                                           value="{{ user.surname }}">
+                                </div>
+
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>{{ 'E-mail address'|_ }}</label>
+                                    <input name="email" type="email" class="form-control" value="{{ user.email }}">
+                                </div>
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>{{ 'Mobile phone number'|_ }}</label>
+                                    <input name="mobile" type="text" class="form-control" value="{{ user.mobile }}">
+                                </div>
+
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>{{ 'New password'|_ }}</label>
+                                    <input name="password" type="password" class="form-control">
+                                </div>
+                                <div class="form-group col-sm-12 col-lg-6">
+                                    <label>{{ 'Repeat new password'|_ }}</label>
+                                    <input name="password_confirmation" type="password" class="form-control">
+                                </div>
+                                <div class="form-group col-sm-12 col-lg-12">
+                                    <label>{{ 'Address'|_ }}</label>
+
+                                    <textarea name="street_addr" class="form-control aero" placeholder="Write here your address."
+                                              style="height: 150px;"
+                                    >{{ user.street_addr }}</textarea>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-content col-lg-4">
+
+                            <div class="form-group ">
+                                <label>{{ 'Company name'|_ }}</label>
+                                <input name="company" type="text" class="form-control text-capitalize"
+                                       value="{{ user.company }}">
+                            </div>
+                            <div class="form-group ">
+                                <label>{{ 'Office phone number'|_ }}</label>
+                                <input name="phone" type="text" class="form-control text-capitalize"
+                                       value="{{ user.phone }}">
+                            </div>
+
+
+                        </div>
+                        <div class="form-content col-lg-12">
+                            <hr class="separator">
+                        </div>
+                        <div class="form-content col-lg-4">
+                            <button type="button" class="btn btn-default saveSetting">{{ 'Save my account settings'|_ }} <i
+                                    class="fa fa-check"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /.my settings -->
+
+            <!-- acount sidebar -->
+            {% partial 'profileSidebar' %}
+            <!-- /.acount sidebar -->
+        </div>
+    </div>
+    <!-- end container -->
+
+
+</main>
+
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.saveSetting', function () {
+                $.oc.stripeLoadIndicator.show()
+                $('form').request('onSave', {
+
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+                });
+            })
+        });
+
+
+    </script>
+{% endput %}

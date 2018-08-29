@@ -1,0 +1,191 @@
+{% for record in partialsRecords %}
+
+    <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="cd-offer-blk thumbnail bg-white sale-offer" data-lat="45.405728"
+             data-long="-75.686444" data-thumb="http://via.placeholder.com/650x350"
+             data-pin="assets/images/map-icon.png" data-type="for rent"
+             data-link="car-sale-item.html" data-title=" ">
+            <div class="cd-offer-img overlayed1">
+                {% if record.is_vip == '1' %}
+                    <div class="sale-type1">
+                        <div class="sale-type1">
+                            <span class="cd-sale-info">{{ 'VİP'|_ }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+
+                <img src="{{ record.image.path }}" alt="car-photos" class="img-responsive">
+
+                <!-- hover images gallery -->
+                <div class="cd-hover-gal owl-carousel">
+
+                    {% if  record.gallery1.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery1.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery2.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery2.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+                    {% if  record.gallery3.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery3.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+                    {% if  record.gallery3.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery3.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+                    {% if  record.gallery4.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery4.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery5.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery5.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery6.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery6.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery7.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery7.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery8.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery8.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery9.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery9.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery10.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery10.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery11.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery11.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery12.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery12.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery13.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery13.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery14.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery14.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+                    {% if  record.gallery15.path %}
+                        <div class="overlayed1">
+                            <img src="{{ record.gallery15.path|resize(650, 350) }}" alt="car-image"
+                                 class="img-responsive">
+                        </div>
+                    {% endif %}
+
+
+
+
+
+                </div>
+                {% spaceless %}
+                    {% if detailsPage %}
+                        <a href="{{ detailsPage|page({ (detailsUrlParameter): record.slug }) }}" class="cd-offer-lnk">
+                    {% endif %}
+                    {% if detailsPage %}
+                        </a>
+                    {% endif %}
+                {% endspaceless %}
+            </div>
+            <div class="cd-offer-meta">
+                <h4 class="heading">{{ record.brand.name }} {{ record.mdl.name }} {{ record.trim.name }}
+                    <span class="productYear">{{ record.year.year }}</span></h4>
+                <span class="cd-car-spec">{{ record.engine_volume.volume/1000 }}
+                    L {{ record.fuel.name }}  {{ record.transmision.name }}</span>
+                <hr class="separator">
+                <h4 class="cd-price price pull-left">&dollar;{{ record.rental_value.one_day }}</h4>
+                <div class="clearfix"></div>
+                {% spaceless %}
+                    {% if detailsPage %}
+                        <a class="btn btn-default w-100" href="{{ detailsPage|page({ (detailsUrlParameter): record.slug }) }}">
+                    {% endif %}
+                    View details <i class="fa fa-angle-right"></i>
+                    {% if detailsPage %}
+                        </a>
+                    {% endif %}
+                {% endspaceless %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% put scripts %}
+    <script>
+        // carousel for offers
+        jQuery(".cd-offer-img").on("mouseup", function () {
+            window.location = jQuery(this).find(".cd-offer-lnk").attr("href");
+        });
+        var owl = jQuery(".cd-hover-gal");
+        owl.owlCarousel({
+            items: 1,
+            margin: 0,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            smartSpeed: 450,
+        });
+        jQuery(".cd-hover-gal .owl-dot").hover(function () {
+                jQuery(this).trigger("click");
+            }, function () {
+            }
+        );
+        resize_dots();
+        owl.on("mouseleave", function () {
+            jQuery(this).find(".owl-dot").first().click();
+        });
+    </script>
+{% endput %}

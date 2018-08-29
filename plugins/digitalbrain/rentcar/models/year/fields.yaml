@@ -1,0 +1,13 @@
+fields:
+    year:
+        label: 'digitalbrain.rentcar::lang.year.year'
+        span: auto
+        type: number
+    is_active:
+        label: 'digitalbrain.rentcar::lang.active'
+        span: auto
+        options:
+            - Deactive
+            - Active
+        default: '1'
+        type: dropdown

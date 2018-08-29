@@ -1,0 +1,25 @@
+columns:
+    sort_order:
+        label: 'digitalbrain.rentcar::lang.sort_order'
+        type: text
+        searchable: true
+        sortable: true
+    brand:
+        label: 'digitalbrain.rentcar::lang.trim.brand'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: brand
+    mdl:
+        label: 'digitalbrain.rentcar::lang.trim.model'
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: mdl
+    name:
+        label: 'digitalbrain.rentcar::lang.trim.name'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,414 @@
+title = "Rent Car Search"
+url = "/rent/search/:page?"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[az] = "/rent-car-search"
+
+[RentCarSearch]
+detailsPage = "rent-car-detail"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+recordsPerPage = 12
+pageNumber = "{{ :page }}"
+==
+<main class="search-results-wrapp" style="background: #fff">
+    <div class="container">
+        <div class="row">
+            <!-- search sidebar -->
+            <form
+                data-request-validate
+                data-request-flash
+            >
+                <aside class="col-sm-6 col-md-3 col-lg-3">
+                    <div class="bg-white shadow rounded cd-search-sidebar">
+                        <!-- car namne -->
+                        <div class="aside-blk">
+
+                            <div class="new-vehicle">
+                                <div class="form-group">
+                                    <label for="cd-carmake">{{ 'Make'|_ }}</label>
+                                    <select class="cd-select js-example-basic-single brand__select sendForm"
+                                            id="cd-carmake"
+                                            name="brand_id" style="width: 100%">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for brand in brands %}
+                                            <option value="{{ brand.id }}">{{ brand.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Model'|_ }}</label>
+                                    <select class="cd-select js-example-basic-single models_select sendForm"
+                                            name="mdl_id"
+                                            id="cd-carmodel" style="width: 100%">
+                                        {% partial "select/models" %}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- car first registration years range -->
+                        <div class="aside-blk">
+                            <div class="custom-range">
+                                <p class="years-range">
+                                    <label for="regYears3">{{ 'Years'|_ }}</label>
+                                    <input type="text" id="regYears" name="year_min" readonly
+                                           class="pull-left sendForm">
+                                    <input type="text" id="regYears2" name="year_max" readonly
+                                           class="pull-right sendForm">
+                                </p>
+                                <div id="regYearsRange"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <!-- car location -->
+                        <div class="aside-blk">
+
+                            <div class="form-group">
+                                <label for="userPhone">{{ 'City'|_ }}</label>
+                                <select name="city_id"
+                                        class="cd-select js-example-basic-single sendForm"
+                                        style="width: 100%">
+                                    <option value="" disabled selected>{{ 'Select make'|_ }}</option>
+                                    {% for city in cities %}
+                                        <option value="{{ city.id }}">{{ city.name }}</option>
+                                    {% endfor %}
+
+                                </select>
+                            </div>
+                        </div>
+                        <!-- car price range -->
+                        <div class="aside-blk">
+                            <div class="custom-range">
+                                <p>
+                                    <label for="carPrice">{{ 'Price range'|_ }} <span>{{ 'in thousands of'|_ }} {{ '&euro;'|_ }}</span></label>
+                                    <input type="text" id="carPrice" name="price_min" readonly
+                                           class="pull-left sendForm">
+                                    <input type="text" id="carPrice2" name="price_max" readonly
+                                           class="pull-right sendForm">
+                                </p>
+                                <div id="carPriceRange"></div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                        </div>
+
+                        <!-- car engine volume/power -->
+                        <div class="aside-blk">
+                            <div class="custom-range">
+                                <p>
+                                    <label for="engineVol">{{ 'Engine volume'|_ }} <span>{{ 'in cubic cm'|_ }}</span></label>
+                                    <input type="text" id="engineVol" name="engine_volume_min" readonly
+                                           class="pull-left sendForm">
+                                    <input type="text" id="engineVol2" name="engine_volume_max" readonly
+                                           class="pull-right sendForm">
+                                </p>
+                                <div id="engineVolRange"></div>
+                                <div class="clearfix"></div>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <!-- car fuel -->
+
+                        <div class="aside-blk">
+
+                            <div class="new-vehicle">
+                                <div class="form-group">
+                                    <label for="cd-fuel">{{ 'Fuel type'|_ }}</label>
+                                    <select name="fuel_id" class="cd-select js-example-basic-single sendForm"
+                                            id="cd-fuel"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for fuel in fuels %}
+                                            <option value="{{ fuel.id }}">{{ fuel.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Ban'|_ }}</label>
+                                    <select name="ban_id" class="cd-select js-example-basic-single sendForm"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="">Any</option>
+                                        {% for ban in bans %}
+                                            <option value="{{ ban.id }}">{{ ban.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Color'|_ }}</label>
+                                    <select name="color_id" class="cd-select js-example-basic-single sendForm"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Select</option>
+                                        {% for color in colors %}
+                                            <option value="{{ color.id }}">{{ color.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Seat'|_ }}</label>
+                                    <select name="seat_id" class="cd-select js-example-basic-single sendForm"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Select</option>
+                                        {% for seat in seats %}
+                                            <option value="{{ seat.id }}">{{ seat.number }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Transmision'|_ }}</label>
+                                    <select name="transmision_id" class="cd-select js-example-basic-single sendForm"
+                                            id="cd-transmission-type"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for transmision in transmisions %}
+                                            <option value="{{ transmision.id }}">{{ transmision.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cd-carmodel">{{ 'Wheel driver'|_ }}</label>
+                                    <select name="wheel_id" class="cd-select js-example-basic-single sendForm"
+                                            id="cd-drive-type"
+                                            style="width: 100%;">
+                                        <option value="" disabled selected>Any</option>
+                                        {% for wheel in wheels %}
+                                            <option value="{{ wheel.id }}">{{ wheel.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <button style="width: 100%" type="button" id="filterBtn" class="btn btn-default icon ">
+                                    Get Filter
+                                    <i class="fa fa-angle-right"></i>
+                                </button>
+
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    </div>
+                </aside>
+            </form>
+            <!-- /.search sidebar -->
+            <!-- content -->
+            <div class="col-md-9 col-lg-9" id="demoCars">
+
+                <!-- offers block view -->
+                <div class="row partialsDiv" id="block-offers">
+
+                    {% partial "rentCatalog/main" partialsRecords=records %}
+
+                </div>
+                <!-- /.offer block view -->
+                <!-- pagination -->
+                <div class="row pa">
+                    {% partial "pagination" partialsRecords=records %}
+                </div>
+            </div>
+            <!-- /.content -->
+        </div>
+    </div>
+    <!-- end container -->
+
+
+</main>
+
+{% put scripts %}
+    <script type="text/javascript">
+
+        $(function () {
+            // ajax ile elementi çekip yenilediğim için owlcarusel scripti calışmıyordu bu fonksiyonla scripti tekrar çağırıyor ajax complate olduğu zaman da çağırıyorum
+            function caruselUpdate() {
+                // carousel for offers
+                jQuery(".cd-offer-img").on("mouseup", function () {
+                    window.location = jQuery(this).find(".cd-offer-lnk").attr("href");
+                });
+                var owl = jQuery(".cd-hover-gal");
+                owl.owlCarousel({
+                    items: 1,
+                    margin: 0,
+                    animateOut: 'fadeOut',
+                    animateIn: 'fadeIn',
+                    smartSpeed: 450,
+                });
+                jQuery(".cd-hover-gal .owl-dot").hover(function () {
+                        jQuery(this).trigger("click");
+                    }, function () {
+                    }
+                );
+                resize_dots();
+                owl.on("mouseleave", function () {
+                    jQuery(this).find(".owl-dot").first().click();
+                });
+            }
+
+            $(document).on('click', '#filterBtn', function (e) {
+                $.oc.stripeLoadIndicator.show()
+                $('form').request('onSearch', {
+                    update: {'rentCatalog/main': '.partialsDiv','pagination':'.pa'},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+                });
+            });
+
+            $(document).on('click', '.ajaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+
+                $.oc.stripeLoadIndicator.show()
+
+                $.request('onPaginate', {
+
+
+                    update: {"rentCatalog/main": '.partialsDiv', pagination: '.pa'},
+                    data: {perPage: page},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+
+                });
+            });
+            $(document).on('click', '.filterAjaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+
+                $.oc.stripeLoadIndicator.show()
+
+                $('form').request('onFilterResultPagination', {
+
+                    update: {"rentCatalog/main": '.partialsDiv', pagination: '.pa'},
+                    data: {perPage: page},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+
+                });
+            });
+
+            $(document).on('click', '.searchAjaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+
+                $.oc.stripeLoadIndicator.show()
+
+                $('form').request('onSearchPaginate', {
+
+                    update: {"transferCatalogMain": '.partialsDiv', pagination: '.pa'},
+                    data: {perPage: page},
+                    complete: function () {
+                        caruselUpdate();
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+                });
+            });
+
+            /*==============================================================================*/
+
+            $(document).on("change", ".brand__select", function (e) {
+
+                // console.log(e);
+                var brand_id = e.target.value;
+                // console.log(brand_id);
+
+                // $.oc.stripeLoadIndicator.show()
+
+                $.request('onModel', {
+
+                    update: {"select/models": '.models_select'},
+                    data: {brand_id: brand_id},
+                    complete: function () {
+                        // jQuery(".preloader").fadeOut();
+                    }
+
+
+                });
+            });
+
+
+        })
+
+        ///// cd-search-sidebar ranges /////
+        if (jQuery(".cd-search-sidebar, .elements").width() > 0) {
+            // 1st registration range
+            jQuery(function () {
+                jQuery("#regYearsRange").slider({
+                    range: true,
+                    min: {{ yearsMin }},
+                    max: {{ yearsMax }},
+                    values: [{{ yearsMin }}, {{ yearsMax }}],
+                    slide: function (event, ui) {
+                        jQuery("#regYears").val(ui.values[0]);
+                        jQuery("#regYears2").val(ui.values[1]);
+                    }
+                });
+                jQuery("#regYears").val(jQuery("#regYearsRange").slider("values", 0));
+                jQuery("#regYears2").val(jQuery("#regYearsRange").slider("values", 1));
+            });
+
+            // price range
+            $(function () {
+                $("#carPriceRange").slider({
+                    range: true,
+                    step: 10,
+                    min: {{ priceMin }},
+                    max: {{ priceMax }},
+                    values: [{{ priceMin }}, {{ priceMax }}],
+                    slide: function (event, ui) {
+                        $("#carPrice").val(ui.values[0]);
+                        $("#carPrice2").val(ui.values[1]);
+                    }
+                });
+                $("#carPrice").val($("#carPriceRange").slider("values", 0));
+                $("#carPrice2").val($("#carPriceRange").slider("values", 1));
+            });
+
+
+            // engine volume range
+            $(function () {
+                $("#engineVolRange").slider({
+                    range: true,
+                    min: {{ volumeMin }},
+                    max: {{ volumeMax }},
+                    values: [{{ volumeMin }}, {{ volumeMax }}],
+                    slide: function (event, ui) {
+                        $("#engineVol").val(ui.values[0]);
+                        $("#engineVol2").val(ui.values[1]);
+                    }
+                });
+                $("#engineVol").val($("#engineVolRange").slider("values", 0));
+                $("#engineVol2").val($("#engineVolRange").slider("values", 1));
+            });
+
+
+        }
+        ///// end .cd-search-sidebar ranges /////
+    </script>
+{% endput %}
+
+{% put styles %}
+    <style>
+        .select2-container--default .select2-selection--single .select2-selection__clear {
+            display: none !important;
+        }
+    </style>
+{% endput %}

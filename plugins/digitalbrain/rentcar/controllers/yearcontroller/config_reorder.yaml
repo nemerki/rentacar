@@ -1,0 +1,5 @@
+title: YearController
+modelClass: DigitalBrain\RentCar\Models\Year
+nameFrom: year
+toolbar:
+    buttons: reorder_toolbar

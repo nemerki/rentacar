@@ -1,0 +1,9 @@
+<?php if($record->user_id) {
+if($record->user->company){
+echo $record->user->company;
+}else{
+echo $record->user->full_name;
+}
+}
+?>
+

@@ -1,0 +1,10 @@
+name: BanController
+form: $/digitalbrain/rentcar/models/ban/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Ban
+defaultRedirect: digitalbrain/rentcar/bancontroller
+create:
+    redirect: 'digitalbrain/rentcar/bancontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/bancontroller
+update:
+    redirect: digitalbrain/rentcar/bancontroller
+    redirectClose: digitalbrain/rentcar/bancontroller

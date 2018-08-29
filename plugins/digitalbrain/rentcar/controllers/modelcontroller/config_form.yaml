@@ -1,0 +1,10 @@
+name: ModelController
+modelClass: DigitalBrain\RentCar\Models\Models
+form: $/digitalbrain/rentcar/models/models/fields.yaml
+defaultRedirect: digitalbrain/rentcar/modelcontroller
+create:
+    redirect: 'digitalbrain/rentcar/modelcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/modelcontroller
+update:
+    redirect: digitalbrain/rentcar/modelcontroller
+    redirectClose: digitalbrain/rentcar/modelcontroller

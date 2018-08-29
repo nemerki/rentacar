@@ -1,0 +1,111 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+    fields:
+
+        site_name:
+            label: Site name
+            comment: The website name as it should appear on the front-end
+            tab: General informations
+            default: Rant a Car
+            readOnly: true
+            span: auto
+
+        site_title:
+            label: Site title
+            comment: The website title as it should appear on browser tab
+            required: true
+            tab: General informations
+            default: Rent a car
+            span: auto
+
+        copyright_text:
+            label: Copyright
+            comment: The copyright text as it should appear on the footer bottom side
+            tab: General informations
+            default: Rent a car
+            span: auto
+
+        site_logo:
+            label: Site logo
+            required: true
+            tab: General informations
+            type: fileupload
+            mode: image
+            span: auto
+            filetypes: svg
+
+        address:
+            label: Address
+            type: textarea
+            tab: Contact informations
+            span: full
+
+        map_lat:
+            label: Google Maps Latitude
+            comment: Example 40.419494
+            tab: Contact informations
+            span: auto
+
+        map_lan:
+            label: Google Maps Longitude
+            comment: Example 49.870311
+            tab: Contact informations
+            span: auto
+
+        telephone:
+            label: Telephone number
+            tab: Contact informations
+            span: auto
+
+        office_number:
+            label: Office number
+            tab: Contact informations
+            span: auto
+
+        hotline:
+            label: Hotline number
+            tab: Contact informations
+            span: auto
+
+        email:
+            label: E-mail
+            tab: Contact informations
+            span: auto
+
+        facebook:
+            label: Facebook
+            tab: Contact informations
+            span: auto
+
+        youtube:
+            label: Youtube
+            tab: Contact informations
+            span: auto
+
+        twitter:
+            label: Twitter
+            tab: Contact informations
+            span: auto
+
+        instagram:
+            label: Instagram
+            tab: Contact informations
+            span: auto
+
+        googleplus:
+            label: Google Plus
+            tab: Contact informations
+            span: auto
+
+        default_alternate_text:
+            label: Default alternate text
+            comment: Default alternate text for common use
+            tab: Others
+            default: Rent a car
+            span: auto
+
+
+

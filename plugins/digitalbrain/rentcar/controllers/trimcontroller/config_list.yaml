@@ -1,0 +1,12 @@
+list: $/digitalbrain/rentcar/models/trim/columns.yaml
+modelClass: DigitalBrain\RentCar\Models\Trim
+title: TrimController
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'digitalbrain/rentcar/trimcontroller/update/:id'

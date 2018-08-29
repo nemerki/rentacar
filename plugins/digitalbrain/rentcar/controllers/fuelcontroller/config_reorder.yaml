@@ -1,0 +1,5 @@
+title: FuelController
+modelClass: DigitalBrain\RentCar\Models\Fuel
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

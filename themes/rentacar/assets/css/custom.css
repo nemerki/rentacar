@@ -1,0 +1,75 @@
+.width49 {
+    width: 49%;
+}
+
+.width52 {
+    width: 52%;
+}
+
+.myMap {
+    width: 100% !important;
+    height: 180px !important;
+    margin-bottom: 28px !important;
+}
+
+.search-results-wrapp {
+    padding-bottom: 40px !important;
+}
+
+.no-link {
+    cursor: default !important;
+}
+
+.money-save {
+    cursor: pointer !important;
+}
+
+.activeIcon {
+    color: green;
+}
+
+.homeSlide {
+    background-position: center center;
+}
+
+.modal__title {
+    padding: 10px 0;
+}
+
+.sale-report-text {
+    width: 50%;
+}
+
+.register__form-group {
+    height: 80px;
+}
+
+.pt50 {
+    padding-top: 50px;
+}
+
+.pb50 {
+    padding-bottom: 50px;
+}
+
+.error-p {
+    color: red;
+    margin: 0 !important;
+}
+
+.contact_info h5 {
+    margin-top: 20px;
+}
+
+.contact_info .fa {
+    margin-right: 30px;
+
+}
+
+.mt40 {
+    margin-top: 40px;
+}
+
+main {
+    margin-top: 40px;
+}

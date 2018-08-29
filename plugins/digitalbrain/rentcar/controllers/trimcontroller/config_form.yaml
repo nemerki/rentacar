@@ -1,0 +1,10 @@
+name: TrimController
+form: $/digitalbrain/rentcar/models/trim/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\Trim
+defaultRedirect: digitalbrain/rentcar/trimcontroller
+create:
+    redirect: 'digitalbrain/rentcar/trimcontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/trimcontroller
+update:
+    redirect: digitalbrain/rentcar/trimcontroller
+    redirectClose: digitalbrain/rentcar/trimcontroller

@@ -1,0 +1,5 @@
+title: TrimController
+modelClass: DigitalBrain\RentCar\Models\Trim
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,5 @@
+title: TransmisionController
+modelClass: DigitalBrain\RentCar\Models\Transmision
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

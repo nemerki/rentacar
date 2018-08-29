@@ -1,0 +1,32 @@
+.width49 {
+    width: 49%;
+}
+
+.width52 {
+    width: 52%;
+}
+
+.myMap {
+    width: 100% !important;
+    height: 180px !important;
+    margin-bottom: 28px !important;
+}
+
+.search-results-wrapp {
+    padding-bottom: 40px !important;
+}
+
+.no-link {
+    cursor: default !important;
+}
+
+.money-save {
+    cursor: pointer !important;
+}
+
+.activeIcon{
+    color: green;
+}
+.homeSlide{
+    background-position: center center;
+}

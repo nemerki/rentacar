@@ -1,0 +1,10 @@
+name: CityController
+form: $/digitalbrain/rentcar/models/city/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\City
+defaultRedirect: digitalbrain/rentcar/citycontroller
+create:
+    redirect: 'digitalbrain/rentcar/citycontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/citycontroller
+update:
+    redirect: digitalbrain/rentcar/citycontroller
+    redirectClose: digitalbrain/rentcar/citycontroller

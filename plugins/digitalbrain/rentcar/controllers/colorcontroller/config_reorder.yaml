@@ -1,0 +1,5 @@
+title: ColorController
+modelClass: DigitalBrain\RentCar\Models\Color
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

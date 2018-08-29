@@ -1,0 +1,50 @@
+<div data-control="toolbar">
+    <?php if($campaign->status == 1) : ?>
+        <a
+            href="<?= Backend::url("jorgeandrade/subscribeplus/campaigns/launch/{$campaign->id}"); ?>"
+            class="btn btn-success oc-icon-paper-plane">
+            Launch Campaign
+        </a>
+        <a
+            href="<?= Backend::url("jorgeandrade/subscribeplus/campaigns/update/{$campaign->id}"); ?>"
+            class="btn btn-primary oc-icon-pencil">
+            Edit campaign
+        </a>
+        <button
+            type="button"
+            data-request="onSendTestMessage"
+            data-request-confirm="Test message will be sent to <?= $this->user->email; ?> ok?"
+            data-request-loading="#test-message"
+            class="btn btn-default oc-icon-paper-plane-o">
+            Send Test Message
+        </button>
+        <div class="loading-indicator-container" id="test-message">
+            <div class="loading-indicator size-small">
+                <span></span>
+                <div>Sending test message...</div>
+            </div>
+        </div>
+    <?php elseif (!in_array($campaign->status, [5, 6])): ?>
+        <button
+            type="button"
+            data-request="onDeleteCampaign"
+            data-request-confirm="The campaign was eliminated, do you agree?"
+            data-request-loading="#test-message"
+            class="btn btn-danger oc-icon-close">
+            Delete Campaign
+        </button>
+        <div class="loading-indicator-container" id="test-message">
+            <div class="loading-indicator size-small">
+                <span></span>
+                <div>Deleting campagin...</div>
+            </div>
+        </div>
+    <?php else: ?>
+        
+    <?php endif; ?>
+</div>
+<script>
+    (function ($) {
+        $('#test-message').hide();
+    })(jQuery);
+</script>

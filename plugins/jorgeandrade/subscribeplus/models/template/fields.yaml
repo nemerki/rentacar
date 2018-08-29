@@ -1,0 +1,31 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Name
+        span: left
+        placeholder: New template name
+        required: true
+
+    code:
+        label: Code
+        span: right
+        required: true
+        preset:
+            field: name
+            type: slug
+
+tabs:
+    stretch: true
+    fields:
+        html:
+            tab: Editor
+            type: codeeditor
+            size: huge
+            language: html
+        html_preview:
+            tab: Preview
+            type: partial
+            path: preview_template

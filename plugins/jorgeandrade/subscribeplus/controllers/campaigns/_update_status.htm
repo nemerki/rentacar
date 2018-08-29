@@ -1,0 +1,32 @@
+<div class="scoreboard">
+    <div data-control="toolbar">
+        <div class="scoreboard-item title-value">
+            <?php switch($value): 
+                case 1: ?>
+                    <p>Draft</p>
+                    <p class="description">Still changes.</p>
+                <?php break ?>
+                <?php case 2: ?>
+                    <p>Pending</p>
+                    <p class="description">Waiting for date to send.</p>
+                <?php break ?>
+                <?php case 3: ?>
+                    <p>Active</p>
+                    <p class="description"></p>
+                <?php break ?>
+                <?php case 4: ?>
+                    <p>Sent</p>
+                    <p class="description">Campaign Sent Successfully</p>
+                <?php break ?>
+                <?php case 5: ?>
+                    <p>Deleted</p>
+                    <p class="description">Campaign delete</p>
+                <?php break ?>
+                <?php case 6: ?>
+                    <p>Archived</p>
+                    <p class="description"></p>
+                <?php break ?>
+            <?php endswitch; ?>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,5 @@
+title: EngineVolumeController
+modelClass: DigitalBrain\RentCar\Models\EngineVolume
+nameFrom: volume
+toolbar:
+    buttons: reorder_toolbar

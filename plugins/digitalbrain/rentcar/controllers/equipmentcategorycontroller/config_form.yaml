@@ -1,0 +1,10 @@
+name: EquipmentCategoryController
+form: $/digitalbrain/rentcar/models/equipmentcategory/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\EquipmentCategory
+defaultRedirect: digitalbrain/rentcar/equipmentcategorycontroller
+create:
+    redirect: 'digitalbrain/rentcar/equipmentcategorycontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/equipmentcategorycontroller
+update:
+    redirect: digitalbrain/rentcar/equipmentcategorycontroller
+    redirectClose: digitalbrain/rentcar/equipmentcategorycontroller

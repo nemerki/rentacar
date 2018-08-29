@@ -1,0 +1,66 @@
+[session]
+security = "user"
+redirect = "login"
+
+[staticMenu header]
+code = "header"
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% partial "head" %}
+</head>
+<body>
+<!-- preloader -->
+<div class="preloader">
+    <!-- loader -->
+    <div class="loader">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="loader-circle-1">
+            <div class="loader-circle-2"></div>
+        </div>
+        <div class="needle"></div>
+    </div>
+</div>
+
+<!-- start page -->
+<div id="cd-page-content">
+    <!-- header -->
+
+    {% partial "header" %}
+    <!-- /.header -->
+
+    <!-- main content -->
+
+    {% page %}
+    <!-- /.main content -->
+
+    <!-- footer -->
+
+    {% partial 'footer' %}
+    <!-- /.footer -->
+</div>
+<!-- end page -->
+<!-- plugins -->
+<script src="{{ 'assets/js/plugins.js'|theme }}"></script>
+
+<!-- Google maps script -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5dq13sVzXntxd4OwL6PVHgK5ra-PRMNY&callback=initMap"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.10/sweetalert2.all.min.js"></script>
+<script src="{{ 'assets/js/jquery.datetimepicker.full.min.js'|theme }}"></script>
+<!-- main functions -->
+<script src="{{ 'assets/js/main.js'|theme }}"></script>
+{% framework extras %}
+{% scripts %}
+</body>
+</html>

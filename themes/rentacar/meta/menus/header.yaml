@@ -1,0 +1,50 @@
+name: Header
+items:
+    -
+        title: Homepage
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: homepage
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Rent
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: rent-catalog
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Transfer
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: ''
+        reference: transfer-catalog
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Contact
+        type: cms-page
+        code: ''
+        reference: contact
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

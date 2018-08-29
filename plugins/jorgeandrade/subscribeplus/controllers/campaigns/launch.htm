@@ -1,0 +1,158 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('jorgeandrade/subscribeplus/campaigns') ?>">Campaigns</a></li>
+        <li>Launch Campaign</li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="layout-row">
+        <div class="padded-container layout">
+            <form class="form-elements" role="form">
+                <div class="scoreboard">
+                    <div data-control="toolbar" data-disposable="">
+                        <div class="scoreboard-item title-value">
+                            <p>List</p>
+                            <p class="description">Select who receive the campaign message</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group radio-field is-required">
+                    <?php foreach($lists as $list): ?>
+                        <?php if($campaign->list):?>
+                            <div class="radio custom-radio">
+                                <input <?php if($campaign->list->id == $list->id):?> checked="checked" <?php endif; ?> id="<?= $list->id; ?>" name="list_id" value="<?= $list->id; ?>" type="radio">
+                                <label class="choice" for="<?= $list->id; ?>"> <?= $list->name; ?></label>
+                            </div>
+                        <?php else: ?>
+                            <div class="radio custom-radio">
+                                <input id="<?= $list->id; ?>" name="list_id" value="<?= $list->id; ?>" type="radio">
+                                <label class="choice" for="<?= $list->id; ?>"> <?= $list->name; ?></label>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="scoreboard">
+                    <div data-control="toolbar" data-disposable="">
+                        <div class="scoreboard-item title-value">
+                            <p>Options</p>
+                            <p class="description">Launch options</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-field span-left is-required">
+                    <div class="checkbox custom-checkbox">
+                        <input id="is_delay" name="is_delay" value="1" <?php if($campaign->is_delay):?> checked="checked" <?php endif; ?> type="checkbox">
+                        <label class="choice" for="is_delay"> Delay</label>
+                    </div>
+                </div>
+                
+                <div class="clearfix"></div>
+                <div class="row"
+                    data-trigger-action="show"
+                    data-trigger="#is_delay"
+                    data-trigger-condition="checked">
+                    <div class="col-md-6">
+                        <div
+                            id="delayed_at[date]"
+                            class="field-datepicker"
+                            data-control="datepicker">
+                            <div class="input-with-icon right-align">
+                                <i class="icon icon-calendar-o"></i>
+                                <input
+                                    type="text"
+                                    id="delayed_at[date]"
+                                    name="delayed_at[date]"
+                                    class="form-control align-right"
+                                    autocomplete="off"
+                                    <?php if($campaign->delayed_at):?>
+                                    value="<?= $campaign->delayed_at->format('Y-m-d'); ?>"
+                                    <?php endif;?>
+                                    />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Time -->
+                        <div
+                            id="delayed_at[time]"
+                            data-control="timepicker"
+                            class="field-timepicker clockpicker">
+                            <div class="input-with-icon right-align">
+                                <i class="icon icon-clock-o"></i>
+                                <input
+                                    type="text"
+                                    id="delayed_at[time]"
+                                    name="delayed_at[time]"
+                                    class="form-control align-right"
+                                    autocomplete="off"
+                                    data-autoclose="true"
+                                    data-placement="bottom"
+                                    data-align="right"
+                                    <?php if($campaign->delayed_at):?>
+                                    value="<?= $campaign->delayed_at->format('H:i'); ?>"
+                                    <?php endif;?>
+                                    />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-field span-left is-required">
+                    <div class="checkbox custom-checkbox">
+                        <input id="is_schelud" name="is_schelud" value="1" <?php if($campaign->is_schelud):?> checked="checked" <?php endif; ?> type="checkbox">
+                        <label class="choice" for="is_schelud"> Repeating campaign</label>
+                    </div>
+                </div>
+
+                <div 
+                    data-trigger-action="show"
+                    data-trigger="#is_schelud"
+                    data-trigger-condition="checked"
+                    class="form-group dropdown-field span-left">
+                    <label for="scheluded_every">Frequency</label>
+                    <select class="form-control custom-select" name="scheluded_every" id="scheluded_every">
+                        <option <?php if($campaign->scheluded_every == 'daily'):?> selected="selected" <?php endif; ?> value="daily">Daily</option>
+                        <option <?php if($campaign->scheluded_every == 'weekly'):?> selected="selected" <?php endif; ?> value="weekly">Weekly</option>
+                        <option <?php if($campaign->scheluded_every == 'monthly'):?> selected="selected" <?php endif; ?> value="monthly">Monthly</option>
+                    </select>
+                </div>
+                
+                <div class="clearfix"></div>
+
+                <div class="loading-indicator-container">
+                    <button
+                        type="submit"
+                        data-request="onLaunch"
+                        data-hotkey="ctrl+s, cmd+s"
+                        data-load-indicator="Launching Campaign..."
+                        class="btn btn-success">
+                        <u>L</u>aunch
+                    </button>
+
+                    <button
+                        type="submit"
+                        data-request="onUpdateLaunch"
+                        data-hotkey="ctrl+s, cmd+s"
+                        data-load-indicator="Saving Campaign..."
+                        class="btn btn-primary">
+                        <u>S</u>ave and close
+                    </button>
+                    <span class="btn-text">
+                        or <a href="<?= Backend::url("jorgeandrade/subscribeplus/campaigns/preview/{$campaign->id}") ?>">Cancel</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p><a href="<?= Backend::url("jorgeandrade/subscribeplus/campaigns/{$campaign->id}") ?>" class="btn btn-default">Return to campaign detail</a></p>
+
+<?php endif ?>

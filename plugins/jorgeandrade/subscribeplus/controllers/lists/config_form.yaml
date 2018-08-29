@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Lists 
+
+# Model Form Field configuration
+form: $/jorgeandrade/subscribeplus/models/lists/fields.yaml
+
+# Model Class name
+modelClass: JorgeAndrade\SubscribePlus\Models\Lists
+
+# Default redirect location
+defaultRedirect: jorgeandrade/subscribeplus/lists
+
+# Create page
+create:
+    title: Create Lists 
+    redirect: jorgeandrade/subscribeplus/lists/update/:id
+    redirectClose: jorgeandrade/subscribeplus/lists
+
+# Update page
+update:
+    title: Edit Lists 
+    redirect: jorgeandrade/subscribeplus/lists
+    redirectClose: jorgeandrade/subscribeplus/lists
+
+# Preview page
+preview:
+    title: Preview Lists 

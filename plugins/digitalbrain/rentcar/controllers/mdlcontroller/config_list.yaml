@@ -1,0 +1,15 @@
+title: MdlController
+modelClass: DigitalBrain\RentCar\Models\Mdl
+list: $/digitalbrain/rentcar/models/mdl/columns.yaml
+recordUrl: 'digitalbrain/rentcar/mdlcontroller/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: sort_order
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

@@ -1,0 +1,15 @@
+1.0.1:
+    - First version of SubscribePlus
+    - create_lists_table.php
+    - create_subscribe_list_table.php
+    - create_templates_table.php
+    - seed_templates_table.php
+    - create_campaigns_table.php
+    - create_messages_table.php
+    - create_message_opens_table.php
+1.0.2: Update console command
+1.0.3: Update default template
+1.0.4: Update default template
+1.0.5: Fast emails send
+1.0.6: Fixed bugs
+1.0.7: Fixed bug in link to assets

@@ -1,0 +1,230 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table digitalbrain_rentcar_brand'
+    - builder_table_create_digitalbrain_rentcar_brand.php
+1.0.3:
+    - 'Updated table digitalbrain_rentcar_brand'
+    - builder_table_update_digitalbrain_rentcar_brands.php
+1.0.4:
+    - 'Created table digitalbrain_rentcar_models'
+    - builder_table_create_digitalbrain_rentcar_models.php
+1.0.5:
+    - 'Created table digitalbrain_rentcar_trim'
+    - builder_table_create_digitalbrain_rentcar_trim.php
+1.0.6:
+    - 'Updated table digitalbrain_rentcar_trim'
+    - builder_table_update_digitalbrain_rentcar_trims.php
+1.0.7:
+    - 'Updated table digitalbrain_rentcar_trims'
+    - builder_table_update_digitalbrain_rentcar_trims_2.php
+1.0.8:
+    - 'Created table digitalbrain_rentcar_colors'
+    - builder_table_create_digitalbrain_rentcar_colors.php
+1.0.9:
+    - 'Updated table digitalbrain_rentcar_trims'
+    - builder_table_update_digitalbrain_rentcar_trims_3.php
+1.0.10:
+    - 'Created table digitalbrain_rentcar_equipment_categories'
+    - builder_table_create_digitalbrain_rentcar_equipment_categories.php
+1.0.11:
+    - 'Created table digitalbrain_rentcar_equipments'
+    - builder_table_create_digitalbrain_rentcar_equipments.php
+1.0.12:
+    - 'Created table digitalbrain_rentcar_bans'
+    - builder_table_create_digitalbrain_rentcar_bans.php
+1.0.13:
+    - 'Created table digitalbrain_rentcar_fuels'
+    - builder_table_create_digitalbrain_rentcar_fuels.php
+1.0.14:
+    - 'Created table digitalbrain_rentcar_engine_positions'
+    - builder_table_create_digitalbrain_rentcar_engine_positions.php
+1.0.15:
+    - 'Created table digitalbrain_rentcar_transmisions'
+    - builder_table_create_digitalbrain_rentcar_transmisions.php
+1.0.16:
+    - 'Created table digitalbrain_rentcar_wheels'
+    - builder_table_create_digitalbrain_rentcar_wheels.php
+1.0.17:
+    - 'Created table digitalbrain_rentcar_years'
+    - builder_table_create_digitalbrain_rentcar_years.php
+1.0.18:
+    - 'Created table digitalbrain_rentcar_engine_volumes'
+    - builder_table_create_digitalbrain_rentcar_engine_volumes.php
+1.0.19:
+    - 'Created table digitalbrain_rentcar_insurances'
+    - builder_table_create_digitalbrain_rentcar_insurances.php
+1.0.20:
+    - 'Created table digitalbrain_rentcar_car_equipments'
+    - builder_table_create_digitalbrain_rentcar_car_equipments.php
+1.0.21:
+    - 'Created table digitalbrain_rentcar_seats'
+    - builder_table_create_digitalbrain_rentcar_seats.php
+1.0.22:
+    - 'Created table digitalbrain_rentcar_rental_values'
+    - builder_table_create_digitalbrain_rentcar_rental_values.php
+1.0.23:
+    - 'Updated table digitalbrain_rentcar_rental_values'
+    - builder_table_update_digitalbrain_rentcar_rental_values.php
+1.0.24:
+    - 'Created table digitalbrain_rentcar_transfer_values'
+    - builder_table_create_digitalbrain_rentcar_transfer_values.php
+1.0.25:
+    - 'Created table digitalbrain_rentcar_locations'
+    - builder_table_create_digitalbrain_rentcar_locations.php
+1.0.26:
+    - 'Created table digitalbrain_rentcar_cars'
+    - builder_table_create_digitalbrain_rentcar_cars.php
+1.0.27:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars.php
+1.0.28:
+    - 'Created table digitalbrain_rentcar_rentals'
+    - builder_table_create_digitalbrain_rentcar_rentals.php
+1.0.29:
+    - 'Created table digitalbrain_rentcar_transfers'
+    - builder_table_create_digitalbrain_rentcar_transfers.php
+1.0.30:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals.php
+1.0.31:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers.php
+1.0.32:
+    - 'Created table digitalbrain_rentcar_rental_invoice'
+    - builder_table_create_digitalbrain_rentcar_rental_invoice.php
+1.0.33:
+    - 'Updated table digitalbrain_rentcar_rental_invoice'
+    - builder_table_update_digitalbrain_rentcar_rental_invoices.php
+1.0.34:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_2.php
+1.0.35:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_3.php
+1.0.36:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_4.php
+1.0.37:
+    - 'Updated table digitalbrain_rentcar_car_equipments'
+    - builder_table_update_digitalbrain_rentcar_equipment_car.php
+1.0.38:
+    - 'Updated table digitalbrain_rentcar_equipment_car'
+    - builder_table_update_digitalbrain_rentcar_car_equipments.php
+1.0.39:
+    - 'Updated table digitalbrain_rentcar_car_equipments'
+    - builder_table_update_digitalbrain_rentcar_equipment_car_2.php
+1.0.40:
+    - 'Updated table digitalbrain_rentcar_locations'
+    - builder_table_update_digitalbrain_rentcar_locations_2.php
+1.0.41:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_5.php
+1.0.42:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_6.php
+1.0.43:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_7.php
+1.0.44:
+    - 'Created table digitalbrain_rentcar_mdls'
+    - builder_table_create_digitalbrain_rentcar_mdls.php
+1.0.45:
+    - 'Updated table digitalbrain_rentcar_trims'
+    - builder_table_update_digitalbrain_rentcar_trims_4.php
+1.0.46:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_8.php
+1.0.47:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_9.php
+1.0.48:
+    - 'Updated table digitalbrain_rentcar_colors'
+    - builder_table_update_digitalbrain_rentcar_colors.php
+1.0.49:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals_2.php
+1.0.50:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals_3.php
+1.0.51:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_2.php
+1.0.52:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_3.php
+1.0.53:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_4.php
+1.0.54:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_5.php
+1.0.55:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_6.php
+1.0.56:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_10.php
+1.0.57:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_11.php
+1.0.58:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_12.php
+1.0.59:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_13.php
+1.0.60:
+    - 'Updated table digitalbrain_rentcar_rental_invoices'
+    - builder_table_update_digitalbrain_rentcar_rental_invoices_2.php
+1.0.61:
+    - 'Updated table digitalbrain_rentcar_rental_invoices'
+    - builder_table_update_digitalbrain_rentcar_rental_invoices_3.php
+1.0.62:
+    - 'Updated table digitalbrain_rentcar_rental_invoices'
+    - builder_table_update_digitalbrain_rentcar_rental_invoices_4.php
+1.0.63:
+    - 'Updated table digitalbrain_rentcar_rental_invoices'
+    - builder_table_update_digitalbrain_rentcar_rental_invoices_5.php
+1.0.64:
+    - 'Created table digitalbrain_rentcar_transfer_invoices'
+    - builder_table_create_digitalbrain_rentcar_transfer_invoices.php
+1.0.65:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_7.php
+1.0.66:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_8.php
+1.0.67:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals_5.php
+1.0.68:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals_6.php
+1.0.69:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_9.php
+1.0.70:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_14.php
+1.0.71:
+    - 'Created table digitalbrain_rentcar_faq'
+    - builder_table_create_digitalbrain_rentcar_faq.php
+1.0.72:
+    - 'Updated table digitalbrain_rentcar_faq'
+    - builder_table_update_digitalbrain_rentcar_faqs.php
+1.0.73:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals_7.php
+1.0.74:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_10.php
+1.0.75:
+    - 'Created table digitalbrain_rentcar_deneme'
+    - builder_table_create_digitalbrain_rentcar_deneme.php
+1.0.76:
+    - 'Updated table digitalbrain_rentcar_deneme'
+    - builder_table_update_digitalbrain_rentcar_aadeneme.php
+1.0.77:
+    - 'Drop table digitalbrain_rentcar_aadeneme'
+    - builder_table_delete_digitalbrain_rentcar_aadeneme.php

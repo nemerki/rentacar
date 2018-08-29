@@ -1,0 +1,90 @@
+[staticPage]
+useContent = 1
+default = 0
+
+
+[staticMenu header]
+code = "header"
+
+[formSubscribe]
+urlToUnsubscribe = "unsubscribe"
+urlToProfile = "subscriber-profile"
+geo = "enabled"
+thanksMessage = "Thanks for subscribe!"
+errorMessage = "Email already exists!"
+
+[localePicker]
+forceUrl = 0
+==
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% partial "head" %}
+</head>
+<body>
+<!-- preloader -->
+<div class="preloader">
+    <!-- loader -->
+    <div class="loader">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="subline"></div>
+        <div class="loader-circle-1">
+            <div class="loader-circle-2"></div>
+        </div>
+        <div class="needle"></div>
+    </div>
+</div>
+
+<!-- start page -->
+<div id="cd-page-content">
+    <!-- header -->
+
+    {% partial "header" %}
+    <!-- /.header -->
+
+    <!-- main content -->
+    <main class="bg-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="cd-listing-description bg-white ">
+
+                        {% page %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- /.main content -->
+
+    <!-- footer -->
+
+    {% partial 'footer' %}
+    <!-- /.footer -->
+</div>
+<!-- end page -->
+
+<!-- Google maps script -->
+<!-- <script src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false"></script> -->
+
+<!-- plugins -->
+<script src="{{ 'assets/js/plugins.js'|theme }}"></script>
+<script src="{{ 'assets/js/jquery.datetimepicker.full.min.js'|theme }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.26.10/sweetalert2.all.min.js"></script>
+<!-- main functions -->
+<script src="{{ 'assets/js/main.js'|theme }}"></script>
+{% framework extras %}
+{% scripts %}
+</body>
+</html>

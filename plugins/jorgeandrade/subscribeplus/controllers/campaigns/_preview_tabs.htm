@@ -1,0 +1,167 @@
+<div class="control-tabs layout content-tabs has-tabs" data-control="tab">
+    <?php if($campaign->status == 1) : ?>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#contentTabOne">Preview</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <?= $campaign->html; ?>
+            </div>
+        </div>
+    <?php else: ?>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#contentTabOne">Details</a></li>
+            <li><a href="#contentTabTwo">Subscribers</a></li>
+            <li><a href="#contentTabThree">Preview</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <div class="layout-row">
+                    <div class="padded-container layout">
+                        <div class="form-elements" role="form">
+                            <div class="scoreboard">
+                                <div data-control="toolbar" data-disposable="">
+                                    <div class="scoreboard-item title-value">
+                                        <p>List</p>
+                                        <p class="description">Who receive the campaign message</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group radio-field is-required">
+                                    <div class="radio custom-radio">
+                                        <input checked="checked" id="<?= $campaign->list->id; ?>" name="list_id" value="<?= $campaign->list->id; ?>" type="radio" disabled>
+                                        <label class="choice" for="<?= $campaign->list->id; ?>"> <?= $campaign->list->name; ?></label>
+                                    </div>
+                            </div>
+
+                            <div class="scoreboard">
+                                <div data-control="toolbar" data-disposable="">
+                                    <div class="scoreboard-item title-value">
+                                        <p>Options</p>
+                                        <p class="description">Launch options</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group checkbox-field span-left is-required">
+                                <div class="checkbox custom-checkbox">
+                                    <input id="is_delay" name="is_delay" value="1" <?php if($campaign->is_delay):?> checked="checked" <?php endif; ?> type="checkbox" disabled>
+                                    <label class="choice" for="is_delay"> Delay</label>
+                                </div>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                            <div class="row"
+                                data-trigger-action="show"
+                                data-trigger="#is_delay"
+                                data-trigger-condition="checked">
+                                <div class="col-md-6">
+                                    <div
+                                        id="delayed_at[date]"
+                                        class="field-datepicker"
+                                        data-control="datepicker">
+                                        <div class="input-with-icon right-align">
+                                            <i class="icon icon-calendar-o"></i>
+                                            <input
+                                                type="text"
+                                                disabled
+                                                id="delayed_at[date]"
+                                                name="delayed_at[date]"
+                                                class="form-control align-right"
+                                                autocomplete="off"
+                                                <?php if($campaign->delayed_at):?>
+                                                value="<?= $campaign->delayed_at->format('Y-m-d'); ?>"
+                                                <?php endif;?>
+                                                />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- Time -->
+                                    <div
+                                        id="delayed_at[time]"
+                                        data-control="timepicker"
+                                        class="field-timepicker clockpicker">
+                                        <div class="input-with-icon right-align">
+                                            <i class="icon icon-clock-o"></i>
+                                            <input
+                                                type="text"
+                                                id="delayed_at[time]"
+                                                name="delayed_at[time]"
+                                                class="form-control align-right"
+                                                autocomplete="off"
+                                                data-autoclose="true"
+                                                data-placement="bottom"
+                                                data-align="right"
+                                                disabled
+                                                <?php if($campaign->delayed_at):?>
+                                                value="<?= $campaign->delayed_at->format('H:i'); ?>"
+                                                <?php endif;?>
+                                                />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group checkbox-field span-left is-required">
+                                <div class="checkbox custom-checkbox">
+                                    <input id="is_schelud" name="is_schelud" value="1" <?php if($campaign->is_schelud):?> checked="checked" <?php endif; ?> type="checkbox" disabled>
+                                    <label class="choice" for="is_schelud"> Repeating campaign</label>
+                                </div>
+                            </div>
+
+                            <div 
+                                data-trigger-action="show"
+                                data-trigger="#is_schelud"
+                                data-trigger-condition="checked"
+                                class="form-group dropdown-field span-left">
+                                <label for="scheluded_every">Frequency</label>
+                                <select class="form-control custom-select" name="scheluded_every" id="scheluded_every" disabled>
+                                    <option <?php if($campaign->scheluded_every == 'daily'):?> selected="selected" <?php endif; ?> value="daily">Daily</option>
+                                    <option <?php if($campaign->scheluded_every == 'weekly'):?> selected="selected" <?php endif; ?> value="weekly">Weekly</option>
+                                    <option <?php if($campaign->scheluded_every == 'monthly'):?> selected="selected" <?php endif; ?> value="monthly">Monthly</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <div class="layout-row">
+                    <div class="padded-container layout">
+                        <div class="control-list list-unresponsive">
+                            <table class="table data">
+                                <thead>
+                                    <tr>
+                                        <th ><span>Id</span></th>
+                                        <th ><span>Name</span></th>
+                                        <th ><span>Surname</span></th>
+                                        <th><span>Email</span></th>
+                                        <th><span>Opens</span></th>
+                                        <!-- <th><span>View</span></th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($campaign->messages()->groupBy('subscriber_id')->get() as $message): ?>
+                                        <tr>
+                                            <td><a href="#"><?= $message->subscriber->id; ?></a></td>
+                                            <td><a href="#"><?= $message->subscriber->name; ?></a></td>
+                                            <td><a href="#"><?= $message->subscriber->surname; ?></a></td>
+                                            <td><a href="#"><?= $message->subscriber->email; ?></a></td>
+                                            <td><a href="#"><?= $message->opens->count(); ?></a></td>
+                                            <!-- <td><a href="#" class="btn btn-xs btn-default"><i class="oc-icon-eye"></i></a></td> -->
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane">
+                <?= $campaign->html; ?>
+            </div>
+        </div>
+    <?php endif; ?>
+</div>

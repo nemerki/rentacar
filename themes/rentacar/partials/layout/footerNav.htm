@@ -1,0 +1,5 @@
+{% for item in items if not item.viewBag.isHidden %}
+    <li>
+        <a href="{{ item.url }}">  {{ item.title }}</a>
+    </li>
+{% endfor %}

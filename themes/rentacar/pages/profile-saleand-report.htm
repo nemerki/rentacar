@@ -1,0 +1,160 @@
+title = "Profile saleand report"
+url = "/profile/sales-report"
+layout = "userDefault"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[az] = "/profile-saleand-report"
+
+[SaleAndReport]
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+==
+<!-- main content -->
+<main class="account-wrapp bg-grey pb30">
+    <div class="container">
+        <div class="row">
+            <!-- my reports -->
+            <div class="col-sm-12 col-md-8 col-lg-9">
+                <div class="bg-white shadow rounded cd-my-list">
+                    <div class="heading clearfix">
+                        <h4 class="pull-left">{{ 'Sales &amp; reports'|_ }}</h4>
+                        <h4 class="pull-right">{{ 'Regular account'|_ }}</h4>
+                    </div>
+                    <div class="reports-content">
+                        <ul class="list-inline row reports-numbers">
+                            <li class="col-lg-4">
+                                <div class="bg-grey rounded info">
+                                    <span>{{ 'Total cars sold'|_ }}</span>
+                                    <h1>{{ cars|length }}</h1>
+
+                                    <span class="icon icon-key"></span>
+                                </div>
+                            </li>
+                            <li class="col-lg-4">
+                                <div class="bg-grey rounded info">
+                                    <span>{{ 'Total sales amount'|_ }}</span>
+                                    <h1>{{ '&dollar;'|_ }}{{ totla_sale_amount }}</h1>
+
+                                    <span class="icon icon-wallet"></span>
+                                </div>
+                            </li>
+                            <li class="col-lg-4">
+                                <div class="bg-grey rounded info">
+                                    <span>{{ 'Total sales'|_ }}</span>
+                                    <h1>{{ totalSales }}</h1>
+
+                                    <span class="icon icon-profile-male"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                <div class="bg-white shadow rounded cd-my-list rentalDiv">
+                    <div class="heading clearfix">
+                        <h4 class="pull-left">{{ 'Rental Sales '|_ }}</h4>
+                        <h4 class="pull-right">{{ 'Total'|_ }} <span> {{ totalRentalSales }}</span></h4>
+                    </div>
+
+                    <div class="rentalMain">
+                        {% partial "profile/saleAndReportRentalSales"  partialsRecords = rentals %}
+                    </div>
+                    <!-- pagination-control -->
+                    <div class="row rentalPagination">
+                        {% partial "pagination" partialsRecords = rentals %}
+                    </div>
+                    <!-- /.pagination-control -->
+                </div>
+
+                <div class="bg-white shadow rounded cd-my-list transferDiv">
+                    <div class="heading clearfix">
+                        <h4 class="pull-left">{{ 'Transfer Sales '|_ }}</h4>
+                        <h4 class="pull-right">{{ 'Total'|_ }} <span> {{ totalTransfersSales }}</span></h4>
+                    </div>
+                    <div class="transferMain">
+                        {% partial "profile/saleAndReportTransferSales"  partialsRecords = transfers %}
+
+                    </div>
+                    <!-- pagination-control -->
+                    <div class="row transferPagination">
+                        {% partial "pagination" partialsRecords = transfers %}
+                    </div>
+                    <!-- /.pagination-control -->
+                </div>
+            </div>
+            <!-- /.my reports -->
+
+            <!-- acount sidebar -->
+            {% partial 'profileSidebar' %}
+            <!-- /.acount sidebar -->
+        </div>
+    </div>
+
+
+</main>
+<!-- /.main content -->
+
+{% put styles %}
+
+    <style>
+        .modal-backdrop.fade.in {
+            display: none !important;
+        }
+
+        .modal.fade.in {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+
+{% endput %}
+
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '.transferDiv .ajaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+                $.oc.stripeLoadIndicator.show()
+                $.request('onTransferPaginate', {
+
+
+                    update: {"profile/saleAndReportTransferSales": '.transferMain', pagination: '.transferPagination'},
+                    data: {perPage: page},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+
+                });
+            });
+
+
+            $(document).on('click', '.rentalDiv .ajaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('/');
+                var page = array[array.length - 1];
+                $.oc.stripeLoadIndicator.show()
+                $.request('onRentalPaginate', {
+
+
+                    update: {"profile/saleAndReportRentalSales": '.rentalMain', pagination: '.rentalPagination'},
+                    data: {perPage: page},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+
+                });
+            });
+        });
+
+    </script>
+
+{% endput %}

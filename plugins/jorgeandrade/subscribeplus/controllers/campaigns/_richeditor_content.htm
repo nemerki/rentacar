@@ -1,0 +1,60 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="popup">&times;</button>
+    <h4 class="modal-title">Edit content</h4>
+</div>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="modal-body">
+        <div
+            id="richeditor-edit-<?= $id; ?>"
+            class="field-richeditor size-large "
+            data-control="richeditor">
+            <textarea id="richeditor-textarea"></textarea>
+        </div>
+
+        <?= $this->makeHintPartial(null, 'hint_vars', ['title' => 'Available vars', 'icon' => 'icon-flag-o']) ?>
+    </div>
+    <div class="modal-footer">
+        <div class="loading-indicator-container">
+            <button
+                type="button"
+                onclick="$.andradeMail.richEditorEdit('<?= $id; ?>')"
+                class="btn btn-primary"
+                data-dismiss="popup">
+                Save
+            </button>
+            <button
+                type="button"
+                class="btn btn-default"
+                data-dismiss="popup">
+                Close
+            </button>
+        </div>
+    </div>
+
+<?php else: ?>
+
+    <div class="modal-body">
+        <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    </div>
+    <div class="modal-footer">
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            Close
+        </button>
+    </div>
+
+<?php endif ?>
+
+<script>
+    (function ($) {
+        $('#<?= $id; ?>').find($('.content-edit')).remove();
+        var $html = $('#<?= $id; ?>').html();
+        setTimeout(function () {
+            $('.redactor-editor').html($html);
+        }, 310);
+    })(jQuery)
+</script>

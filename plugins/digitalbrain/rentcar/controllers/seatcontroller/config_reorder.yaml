@@ -1,0 +1,5 @@
+title: SeatController
+modelClass: DigitalBrain\RentCar\Models\Seat
+nameFrom: number
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,10 @@
+columns:
+    sort_order:
+        label: 'digitalbrain.rentcar::lang.sort_order'
+        type: number
+        sortable: true
+    name:
+        label: 'digitalbrain.rentcar::lang.engine_position.name'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,6 @@
+name: 'Rent a Car'
+description: ' Web site for '
+author: 'DIGITAL BRAIN'
+homepage: 'http://digitalbrain.az/'
+form: theme_fields.yaml
+code: digitalbrain-rentacar

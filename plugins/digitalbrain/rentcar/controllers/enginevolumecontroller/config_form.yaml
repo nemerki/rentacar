@@ -1,0 +1,10 @@
+name: EngineVolumeController
+form: $/digitalbrain/rentcar/models/enginevolume/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\EngineVolume
+defaultRedirect: digitalbrain/rentcar/enginevolumecontroller
+create:
+    redirect: 'digitalbrain/rentcar/enginevolumecontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/enginevolumecontroller
+update:
+    redirect: digitalbrain/rentcar/enginevolumecontroller
+    redirectClose: digitalbrain/rentcar/enginevolumecontroller

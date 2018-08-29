@@ -1,0 +1,58 @@
+title = "unsubscribe"
+url = "/unsubscribe/:code"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[formUnsubscribe]
+thanksMessage = "Thanks for be part of us!"
+errorMessage = "You are already unsubscribe!"
+
+[viewBag]
+localeUrl[en] = "/unsubscribe"
+localeUrl[ru] = "/unsubscribe"
+==
+
+
+<main class="bg-white" style="margin-bottom: 548px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 section-intro demo text-center">
+                <h1>Unsubcribe form</h1>
+            </div>
+        </div>
+        <div class="row pb30">
+            <div class="col-sm-6 col-sm-offset-3 col-lg-offset-4 col-lg-4">
+
+                <div class="elements">
+                    <div class="form-group">
+                        <label for="userName">Your Mail</label>
+                        <form name="form-unsubscribe-andradedev" id="form-unsubscribe-andradedev"
+                              data-request="{{ formUnsubscribe }}::onRemoveSubscriber"
+                              data-request-update="'{{ formUnsubscribe }}::alert': '#result'">
+
+
+                            <input type="email" class="form-control" name="email" value="{{ email }}" required>
+                            <input type="hidden" name="code" id="code" value="{{ code }}">
+
+
+                        </form>
+                    </div>
+
+
+                    <div class="btn-group">
+
+                        <button form="form-unsubscribe-andradedev"   class="btn btn-primary">
+                            Unsubscribe
+                        </button>
+
+                        <div id="result"></div>
+                    </div>
+                </div><!-- /.classic style -->
+            </div><!-- /.row -->
+
+
+        </div>
+    </div>
+</main>

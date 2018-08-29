@@ -1,0 +1,50 @@
+<div class="col-sm-6 col-md-3 col-lg-3">
+    <div class="bg-white shadow rounded account-control">
+        <h4 class="heading">My account</h4>
+        <ul class="list-unstyled">
+
+            <li class="{{ this.page.id== 'profile-my-car-listing'? 'active' : '' }} " >
+                <a href="{{ 'profile-my-car-listing'|page }}" class="btn btn-link">
+                    <i class="fa fa-car"></i>My car listings
+
+                </a>
+            </li>
+            <li class="{{ this.page.id== 'profile-my-order'? 'active' : '' }} ">
+                <a href="{{ 'profile-my-order'|page }}" class="btn btn-link">
+                    <i class="fa fa-car"></i>My Orders
+
+                </a>
+            </li>
+            <li class="{{ this.page.id== 'profile-saleand-report'? 'active' : '' }} ">
+                <a href="{{ 'profile-saleand-report'|page }}" class="btn btn-link">
+                    <i class="fa fa-bar-chart"></i>Sales &amp; reports
+                </a>
+            </li>
+            {# <li>
+                 <a href="favorites.html" class="btn btn-link">
+                     <i class="fa fa-heart"></i>My favorites
+
+                 </a>
+             </li>
+             <li>
+                 <a href="notifications.html" class="btn btn-link">
+                     <i class="fa fa-bell"></i>Notifications
+
+                 </a>
+             </li>#}
+            <li class="{{ this.page.id== 'profile-setting' ? 'active' : '' }} ">
+                <a href="{{ 'profile-setting'|page }}" class="btn btn-link">
+                    <i class="fa fa-cog"></i>My account settings
+                </a>
+            </li>
+
+            <li>
+                <a class="btn btn-link" data-request="onLogout" data-request-data="redirect: '/'">
+                    <i class="fa fa-sign-out"></i>Sign out
+                </a>
+            </li>
+
+
+        </ul>
+    </div>
+</div>
