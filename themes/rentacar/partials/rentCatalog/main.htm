@@ -148,7 +148,7 @@
                 <span class="cd-car-spec">{{ record.engine_volume.volume/1000 }}
                     L {{ record.fuel.name }}  {{ record.transmision.name }}</span>
                 <hr class="separator">
-                <h4 class="cd-price price pull-left">&dollar;{{ record.rental_value.one_day }}</h4>
+                <h4 class="cd-price price pull-left">{{ (((record.rental_value.one_day+ (record.rental_value.one_day*this.theme.service_tax)/100 ))/usd)|round}} &dollar; / {{ (record.rental_value.one_day+ (record.rental_value.one_day*this.theme.service_tax)/100 )|round}} &#8380;</h4>
                 <div class="clearfix"></div>
                 {% spaceless %}
                     {% if detailsPage %}

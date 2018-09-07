@@ -1,9 +1,9 @@
-
+/*
 $(document).ready(function(){
 	// loading default values of calculator
 	if ($("#paymentCalc").width() > 0)
-		cd_loanCalculator();
-});
+		// cd_loanCalculator();
+});*/
 
 // loan calculator in car-sale-item.html
 function cd_loanCalculator(){

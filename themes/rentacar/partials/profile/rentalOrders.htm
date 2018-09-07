@@ -72,20 +72,26 @@
                                 </li>
 
 
-                                <li class="clearfix">
-                                    <span class="pull-left">Car rent price :</span>
-                                    <span class="pull-right">
-                        <b id="dayP">&dollar;{{ record.rental_invoice.car_rent_price }}</b>
+                   <li class="clearfix">
+                       <span class="pull-left">{{ 'Rent Method'|_ }} :</span>
+                       <span class="pull-right">
+                        <b id="pickT">
+                            {% if record.rent_method=="1" %}
+                                {{ '   Rent City'|_ }}
+                            {% elseif record.rent_method=="2" %}
+                                {{ ' Rent City Driver'|_ }}
+                            {% elseif record.rent_method=="3" %}
+                                {{ '   Rent Region'|_ }}
+                            {% elseif record.rent_method=="4" %}
+                                {{ '  Rent Region Driver'|_ }}
+                            {% endif %}
+                        </b>
                       </span>
-                                </li>
+
+                   </li>
+
                                 <li class="clearfix">
-                                    <span class="pull-left">EDV :</span>
-                                    <span class="pull-right">
-                        <b id="dayP">&dollar;{{ record.rental_invoice.edv }}</b>
-                      </span>
-                                </li>
-                                <li class="clearfix">
-                                    <span class="pull-left">Total : </span>
+                                    <span class="pull-left">{{ 'Total Amount'|_ }} : </span>
                                     <span class="pull-right">
                         <b id="dayP">&dollar;{{ record.rental_invoice.total_amount_payable }}</b>
                       </span>

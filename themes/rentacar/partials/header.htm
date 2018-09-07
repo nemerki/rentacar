@@ -6,25 +6,28 @@
         <div class="container">
             <!-- top socials list -->
             <ul class="list-inline pull-left cd-top-socials">
+
+                {% if this.theme.youtube %}
+                    <li>
+                        <a href="{{ this.theme.youtube }}" target="_blank">
+
+                            <i class="fa fa-youtube-play"></i>
+
+                        </a>
+                    </li>
+                {% endif %}
+
                 {% if this.theme.facebook %}
                     <li>
                         <a href="{{ this.theme.facebook }}" target="_blank">
 
-                            <i class="fa fa-facebook-f"></i>
+                            <i  class="fa fa-facebook-f"></i>
 
                         </a>
                     </li>
                 {% endif %}
 
-                {% if this.theme.twitter %}
-                    <li>
-                        <a href="{{ this.theme.twitter }}" target="_blank">
 
-                            <i class="fa fa-twitter"></i>
-
-                        </a>
-                    </li>
-                {% endif %}
 
                 {% if this.theme.instagram %}
                     <li>
@@ -35,16 +38,16 @@
                         </a>
                     </li>
                 {% endif %}
-
-                {% if this.theme.youtube %}
+                {% if this.theme.twitter %}
                     <li>
-                        <a href="{{ this.theme.youtube }}" target="_blank">
+                        <a href="{{ this.theme.twitter }}" target="_blank">
 
-                            <i class="fa fa-youtube"></i>
+                            <i class="fa fa-twitter"></i>
 
                         </a>
                     </li>
                 {% endif %}
+
 
                 {% if this.theme.googleplus %}
                     <li>
@@ -60,10 +63,10 @@
             <!-- top phone nr -->
             <ul class="list-inline pull-right cd-top-phone">
                 <li><a href="callto:{{ this.theme.telephone }}">{{ this.theme.telephone }}</a></li>
-
+                <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'az'">AZ</a></li>
                 <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'en'">EN</a></li>
                 <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'ru'">RU</a></li>
-                <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'az'">AZ</a></li>
+                <li> <a href="#" data-request="onSwitchLocale" data-request-data="locale: 'ar'">AR</a></li>
             </ul>
         </div>
     </nav>

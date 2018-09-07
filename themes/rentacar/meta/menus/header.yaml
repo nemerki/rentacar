@@ -41,10 +41,42 @@ items:
             isExternal: '0'
     -
         title: Contact
+        nesting: ''
         type: cms-page
+        url: ''
         code: ''
         reference: contact
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
+    -
+        title: Youtube
+        type: url
+        url: /
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Youtub 1'
+                type: url
+                url: 'https://www.youtube.com/watch?v=N73sDPuxKQI&list=RDN73sDPuxKQI&start_radio=1'
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '1'
+            -
+                title: 'Youtube 2'
+                type: url
+                url: 'https://www.youtube.com/watch?v=wDjeBNv6ip0&index=9&list=PLiIZDdzHd92PXo1NnPD39iAgncCVBJ7Lb&t=0s'
+                code: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '1'

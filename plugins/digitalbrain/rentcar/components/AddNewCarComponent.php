@@ -190,11 +190,11 @@ class AddNewCarComponent extends ComponentBase
 
             $transfer_value = Input::only('city', 'airport');
 
-            $rental_value = Input::only('one_day', 'one_day_driver', 'three_day', 'three_day_driver', 'seven_day', 'seven_day_driver', 'thirty_day', 'thirty_day_driver', 'over_thirty_day', 'over_thirty_day_driver');
+            $rental_value = Input::only('one_day', 'one_day_driver','one_day_region','one_day_region_driver', 'three_day', 'three_day_driver','three_day_region','three_day_region_driver', 'seven_day', 'seven_day_driver', 'seven_day_region','seven_day_region_driver',  'thirty_day', 'thirty_day_driver','thirty_day_region', 'thirty_day_region_driver','over_thirty_day', 'over_thirty_day_driver','over_thirty_day_region','over_thirty_day_region_driver');
             $location = Input::only('lat', 'lan', 'street_address', 'city_id');
             $equipment_id = post('equipment_id');
 
-            $data = Input::except('kasko', 'term', 'equipment_id', 'lat', 'lan', 'street_address', 'city_id', 'city', 'airport', 'one_day', 'one_day_driver', 'three_day', 'three_day_driver', 'seven_day', 'seven_day_driver', 'thirty_day', 'thirty_day_driver', 'over_thirty_day', 'over_thirty_day_driver');
+            $data = Input::except('kasko', 'term', 'equipment_id', 'lat', 'lan', 'street_address', 'city_id', 'city', 'airport', 'one_day', 'one_day_driver','one_day_region','one_day_region_driver', 'three_day', 'three_day_driver','three_day_region','three_day_region_driver', 'seven_day', 'seven_day_driver', 'seven_day_region','seven_day_region_driver',  'thirty_day', 'thirty_day_driver','thirty_day_region', 'thirty_day_region_driver','over_thirty_day', 'over_thirty_day_driver','over_thirty_day_region','over_thirty_day_region_driver');
             $car = Car::create($data);
             $car->location()->create($location);
 

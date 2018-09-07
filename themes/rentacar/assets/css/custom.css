@@ -73,3 +73,23 @@
 main {
     margin-top: 40px;
 }
+
+.fa-facebook-f {
+    color: #3b5998 !important;
+}
+
+.fa-twitter {
+    color: #00aced !important;
+}
+
+.fa-instagram {
+    color: #fb3958 !important;
+}
+
+.fa-youtube-play {
+    color: #bb0000 !important;
+}
+
+.fa-google-plus {
+    color: #dd4b39 !important;
+}

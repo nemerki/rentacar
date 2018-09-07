@@ -120,11 +120,13 @@ class CarDetailComponent extends ComponentBase
         $days = post('days');
         $endDate = post('endDate');
         $startDate = post('startDate');
+        $rent_method = post('rent_method');
         Session::put('car_id', $car_id);
         Session::put('price', $price);
         Session::put('days', $days);
         Session::put('endDate', $endDate);
         Session::put('startDate', $startDate);
+        Session::put('rent_method', $rent_method);
 
     }
 

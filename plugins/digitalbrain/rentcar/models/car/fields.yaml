@@ -15,6 +15,18 @@ fields:
             - 'Yes'
         default: '0'
         type: dropdown
+    rejected_comment:
+        label: 'digitalbrain.rentcar::lang.car.rejected_comment'
+        size: small
+        span: full
+        disabled: 0
+        hidden: 0
+        trigger:
+            action: show
+            field: confirm
+            condition: 'value[2]'
+        cssClass: hide
+        type: textarea
     mycar:
         span: full
         type: mycar

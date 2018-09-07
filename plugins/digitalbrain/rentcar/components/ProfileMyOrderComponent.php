@@ -32,8 +32,8 @@ class ProfileMyOrderComponent extends ComponentBase
         //giriş yapan kullanıcıyı bulduk
         $user = Auth::getUser();
 
-        $rentalModel = Rental::with(['rental_invoice', 'car.brand', 'car.mdl', 'car.trim', 'car.year', 'user'])->where('user_id', $user->id);
-        $transferModel = Transfer::with(['transfer_invoice', 'car.brand', 'car.mdl', 'car.trim', 'car.year', 'user'])->where('user_id', $user->id);
+        $rentalModel = Rental::with(['rental_invoice', 'car.brand', 'car.mdl', 'car.trim', 'car.year', 'user'])->where('user_id', $user->id)->orderBy("created_at","DESC");
+        $transferModel = Transfer::with(['transfer_invoice', 'car.brand', 'car.mdl', 'car.trim', 'car.year', 'user'])->where('user_id', $user->id)->orderBy("created_at","DESC");
 
         $rentals = $rentalModel->get();
         $transfers = $transferModel->get();

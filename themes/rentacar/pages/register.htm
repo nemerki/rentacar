@@ -9,7 +9,7 @@ robot_follow = "follow"
 localeUrl[az] = "/register"
 
 [account]
-redirect = "login"
+redirect = "profile-setting"
 paramCode = "code"
 forceSecure = 0
 
@@ -31,31 +31,22 @@ includeAssets = 1
                             <h4 class="pull-right">{{ 'New account'|_ }}</h4>
                         </div>
                         <div class="content">
-                            <form class="login-form row" data-request="onRegister" data-request-validate>
+                            <form class="login-form row" id="registerForm" data-request-validate>
                                 <div class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <label>{{ 'Name'|_ }}</label>
+                                    <label>{{ 'Full Name'|_ }}</label>
                                     <input name="name" type="text" class="form-control text-capitalize"
-                                           placeholder="Name">
+                                           placeholder="{{ 'Full Name'|_ }}">
                                     <p class="error-p visible" data-validate-for="name"></p>
                                 </div>
 
-                                <div class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <label>{{ 'Surname'|_ }}</label>
-                                    <input name="surname" type="text" class="form-control text-capitalize"
-                                           placeholder="Surname">
-                                    <p class="error-p visible" data-validate-for="name"></p>
-                                </div>
-                                <div class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <label>{{ 'E-mail address'|_ }}</label>
-                                    <input name="email" type="email" class="form-control"
-                                           placeholder="email@address.com">
-                                    <p class="error-p visible" data-validate-for="email"></p>
-                                </div>
+
                                 <div class="form-group register__form-group col-sm-12 col-lg-6">
                                     <label>{{ 'Mobile Phone'|_ }}</label>
-                                    <input name="mobile" type="text" class="form-control text-capitalize"
+                                    <input id="username" name="username" type="text"
+                                           class="form-control text-capitalize"
                                            placeholder="Mobile">
                                     <p class="error-p visible" data-validate-for="mobile"></p>
+                                    <input type="hidden" name="mobile" id="mobile">
                                 </div>
                                 <div class="form-group register__form-group col-sm-12 col-lg-6">
                                     <label>{{ 'Password'|_ }}</label>
@@ -69,14 +60,17 @@ includeAssets = 1
                                 </div>
 
                                 <a href="{{ 'login'|page }}">
-                                    <div style="margin-top: 20px" class="form-group register__form-group col-sm-12  col-lg-6">
+                                    <div style="margin-top: 20px"
+                                         class="form-group register__form-group col-sm-12  col-lg-6">
                                         <button type="button" class="btn btn-default">{{ 'Login here '|_ }}<i
                                                     class="fa fa-angle-right"></i></button>
                                     </div>
                                 </a>
 
-                                <div style="margin-top: 20px" class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <button type="submit" class="btn btn-danger">{{ 'Register'|_ }} <i
+                                <div style="margin-top: 20px"
+                                     class="form-group register__form-group col-sm-12 col-lg-6">
+                                    <button type="button" id="sendRegisterForm"
+                                            class="btn btn-danger">{{ 'Register'|_ }} <i
                                                 class="fa fa-angle-right"></i></button>
                                 </div>
 
@@ -89,3 +83,26 @@ includeAssets = 1
         </div>
     </section>
 </main>
+
+{% put scripts %}
+    <script>
+        $(document).ready(function () {
+            $(document).on('click', '#sendRegisterForm', function (e) {
+                var mobile = $('#username').val();
+
+                     $.oc.stripeLoadIndicator.show()
+                     $('#registerForm').request('onRegister', {
+                         data: {mobile: mobile},
+
+                         complete: function () {
+                             $.oc.stripeLoadIndicator.hide()
+                         }
+
+
+                     });
+            });
+        });
+
+    </script>
+
+{% endput %}

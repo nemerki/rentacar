@@ -21,7 +21,7 @@ class User extends UserBase
      * Validation rules
      */
     public $rules = [
-        'email'    => 'required|between:6,255|email|unique:users',
+        'email'    => 'between:6,255|email|',
         'avatar'   => 'nullable|image|max:4000',
         'username' => 'required|between:2,255|unique:users',
         'password' => 'required:create|between:4,255|confirmed',
@@ -51,6 +51,18 @@ class User extends UserBase
         'password',
         'password_confirmation'
     ];
+
+    public function getFullNameAttribute()
+    {
+        $name = $this->name;
+        if ($this->surname) {
+            $surname = $this->surname;
+        } else {
+            $surname = "";
+        }
+
+        return "{$name} {$surname}";
+    }
 
     /**
      * Purge attributes from data set.
@@ -420,4 +432,8 @@ class User extends UserBase
     {
         $this->password = $this->password_confirmation = Str::random(6);
     }
+
+    public $hasMany = [
+        'cars' => ['DigitalBrain\RentCar\Models\Car', 'softDelete' => true],
+    ];
 }

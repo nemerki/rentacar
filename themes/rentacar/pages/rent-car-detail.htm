@@ -472,56 +472,112 @@ notFoundMessage = "Record not found"
                         <span> {{ record.engine_volume.volume/1000 }}
                             L {{ record.fuel.name }}  {{ record.transmision.name }} {{ record.wheel.name }}  </span>
                     </div>
-                   {# <!-- price with discount -->
-                    <ul class="list-inline cd-price-list">
-                        <li>
-                            <h2 class="cd-price">&dollar;{{ record.rental_value.one_day }}</h2>
-                        </li>
-                        <li class="pull-right">
-                            <small class="text-uppercase">/Per Day</small>
-                        </li>
-                    </ul>
-                    <!-- money saver -->
-                    <span style="width: 100%; cursor: default;" class="text-uppercase money-save">Price</span>#}
+                    {# <!-- price with discount -->
+                     <ul class="list-inline cd-price-list">
+                         <li>
+                             <h2 class="cd-price">&dollar;{{ record.rental_value.one_day }}</h2>
+                         </li>
+                         <li class="pull-right">
+                             <small class="text-uppercase">/Per Day</small>
+                         </li>
+                     </ul>
+                     <!-- money saver -->
+                     <span style="width: 100%; cursor: default;" class="text-uppercase money-save">Price</span>#}
 
                     <div class="clearfix"></div>
 
 
+                    {% if record.confirm == 1 and record.is_published == 1 %}
 
 
-                    <!-- rent widget -->
-                    <div class="rent-blk-rows bg-white shadow"  >
-                        <div class="blk-intro">
-                            <h4 class="pull-left">{{ 'Rent this car'|_ }}</h4>
-                            <span class="pull-right rent-price">
-                        {{ '&dollar;'|_ }}{{ record.rental_value.one_day }}
-                                <small>/{{ 'day'|_ }}</small>
+
+                        <!-- rent widget -->
+                        <div class="rent-blk-rows bg-white shadow">
+                            <div class="blk-intro">
+                                <h4 class="pull-left">{{ 'Rent this car'|_ }}</h4>
+                                <span class="pull-right rent-price">
+                        &dollar; {{ (record.rental_value.one_day+ ((record.rental_value.one_day*this.theme.service_tax)/100 ))|round }}
+                                    <small>/{{ 'day'|_ }}</small>
                     </span>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="row blk-content">
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="row blk-content">
+                                <div class="col-sm-12">
+                                    <p>Select the rental method</p>
+                                </div>
+                                <div class="col-sm-6 form-group ">
 
-                            <div class="col-sm-6 col-md-12 col-lg-6 form-group input-append ">
-                                <label>{{ 'Pick-up date and time'|_ }}</label>
-                                <input placeholder="start" type="text" id="startDate">
-                            </div>
-                            <div class="col-sm-6 col-md-12 col-lg-6 form-group input-append ">
-                                <label>{{ 'Drop-off date and time'|_ }}</label>
-                                <input placeholder="end" type="text" id="endDate">
-                            </div>
+                                    <div class="custom-checkbox radio">
+                                        <label style="padding-left: 0; margin-bottom: 0;">
+                                            <input type="radio" value="1" name="rent_method" id="cityRent"
+                                                   checked="checked">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            City
+                                        </label>
 
-                            <div class="col-sm-12 col-lg-12 total clearfix ">
-                                <span class="pull-left ">{{ 'Total for '|_ }}<span class="totalDay"></span> {{ 'days'|_ }}</span>
-                                <h4 class="pull-right ">{{ '&dollar;'|_ }}<span class="totalPrice"></span></h4>
-                            </div>
-                            <div class="col-sm-12 col-lg-12">
-                                <a href="javascript:void(0);" class="btn btn-default" id="myBtn">{{ 'Continue to car
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group ">
+                                    <div class="custom-checkbox radio">
+                                        <label style="padding-left: 0; margin-bottom: 0;">
+                                            <input id="cityRentDriver" type="radio" value="2"
+                                                   name="rent_method">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            City Driver
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group ">
+                                    <div class="custom-checkbox radio">
+                                        <label style="padding-left: 0; margin-bottom: 0;">
+                                            <input id="regionRent" type="radio" value="3" name="rent_method">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            Region
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 form-group ">
+                                    <div class="custom-checkbox radio">
+                                        <label style="padding-left: 0; margin-bottom: 0;">
+                                            <input id="regionRentDriver" type="radio" value="4"
+                                                   name="rent_method">
+                                            <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                            Region Driver
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-12 col-lg-6 form-group input-append ">
+                                    <label>{{ 'Pick-up date and time'|_ }}</label>
+                                    <input placeholder="start" type="text" id="startDate">
+                                </div>
+                                <div class="col-sm-6 col-md-12 col-lg-6 form-group input-append ">
+                                    <label>{{ 'Drop-off date and time'|_ }}</label>
+                                    <input placeholder="end" type="text" id="endDate">
+                                </div>
+
+                                <div class="col-sm-12 col-lg-12 total clearfix ">
+                                    <span class="pull-left ">{{ 'Total for '|_ }}<span
+                                                class="totalDay"></span> {{ 'days'|_ }}</span>
+                                    <h4 class="pull-right ">&dollar;<span class="totalPrice"></span></h4>
+                                </div>
+                                <div class="col-sm-12 col-lg-12">
+                                    <a href="javascript:void(0);" class="btn btn-default" id="myBtn">{{ 'Continue to car
                                     reservation'|_ }} <i
-                                        class="fa fa-angle-right"></i></a>
+                                                class="fa fa-angle-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
+                    {% else %}
+                        <!-- rent widget -->
+                        <div class="rent-blk-rows bg-white shadow">
+                            <div style="padding: 20px 30px 40px !important;" class="blk-intro">
+                                <h4 class="pull-left">{{ 'Not listing now'|_ }}</h4>
+                            </div>
+                        </div>
+                    {% endif %}
                     <!-- widget support -->
                     <div class="cd-widget bg-white shadow rounded">
                         <div class="cd-widget-title">
@@ -733,36 +789,37 @@ notFoundMessage = "Record not found"
 
                         {% for record in sameMdls %}
 
-                                <div class="cd-offer-blk card thumbnail overlayed">
-                                    <div class="cd-offer-img overlayed1">
-                                        <img src="{{ record.image.path }}" alt="car-photos" class="img-responsive">
-                                        <!-- hover images gallery -->
-                                        <div class="cd-hover-gal owl-carousel" style="z-index: 2 !important;">
-                                            <div class="overlayed1">
-                                                <img src="http://via.placeholder.com/650x350" alt="car-image"
-                                                     class="img-responsive">
-                                            </div>
-                                            <div class="overlayed1">
-                                                <img src="http://via.placeholder.com/650x350" alt="car-image"
-                                                     class="img-responsive">
-                                            </div>
-                                            <div class="overlayed1">
-                                                <img src="http://via.placeholder.com/650x350" alt="car-image"
-                                                     class="img-responsive">
-                                                <a href="{{ 'rent-car-detail'|page({ slug: record.slug }) }}"
-                                                   class="view-more-span"></a>
-                                            </div>
+                            <div class="cd-offer-blk card thumbnail overlayed">
+                                <div class="cd-offer-img overlayed1">
+                                    <img src="{{ record.image.path }}" alt="car-photos" class="img-responsive">
+                                    <!-- hover images gallery -->
+                                    <div class="cd-hover-gal owl-carousel" style="z-index: 2 !important;">
+                                        <div class="overlayed1">
+                                            <img src="http://via.placeholder.com/650x350" alt="car-image"
+                                                 class="img-responsive">
                                         </div>
-                                        <a style="z-index: 5;" href="{{ 'rent-car-detail'|page({ slug: record.slug }) }}"
-                                           class="cd-offer-lnk"></a>
+                                        <div class="overlayed1">
+                                            <img src="http://via.placeholder.com/650x350" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                        <div class="overlayed1">
+                                            <img src="http://via.placeholder.com/650x350" alt="car-image"
+                                                 class="img-responsive">
+                                            <a href="{{ 'rent-car-detail'|page({ slug: record.slug }) }}"
+                                               class="view-more-span"></a>
+                                        </div>
                                     </div>
-                                    <div class="cd-offer-meta">
-                                        <h4 class="heading">{{ record.brand.name }} {{ record.mdl.name }} {{ record.trim.name }} </h4>
-                                        <h4 class="cd-price price">&dollar;{{ record.rental_value.one_day }}</h4>
-                                        <span class="cd-car-spec">{{ record.engine_volume.volume/1000 }}
-                                            L {{ record.fuel.name }}  {{ record.transmision.name }} {{ record.wheel.name }}  </span>
-                                    </div>
+                                    <a style="z-index: 5;" href="{{ 'rent-car-detail'|page({ slug: record.slug }) }}"
+                                       class="cd-offer-lnk"></a>
                                 </div>
+                                <div class="cd-offer-meta">
+                                    <h4 class="heading">{{ record.brand.name }} {{ record.mdl.name }} {{ record.trim.name }} </h4>
+                                    <h4 class="cd-price price">
+                                        &dollar;{{ (record.rental_value.one_day+ ((record.rental_value.one_day*this.theme.service_tax)/100 ))|round }}</h4>
+                                    <span class="cd-car-spec">{{ record.engine_volume.volume/1000 }}
+                                        L {{ record.fuel.name }}  {{ record.transmision.name }} {{ record.wheel.name }}  </span>
+                                </div>
+                            </div>
 
                         {% endfor %}
 
@@ -784,63 +841,78 @@ notFoundMessage = "Record not found"
 
 
                         {% if record.gallery1 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery1.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery1.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery2 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery2.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery2.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery3 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery3.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery3.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery4 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery4.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery4.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery5 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery5.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery5.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery6 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery6.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery6.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery7 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery7.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery7.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery8 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery8.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery8.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery9 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery9.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery9.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery10 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery10.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery10.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery11 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery11.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery11.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery12 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery12.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery12.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery13 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery12.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery12.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery14 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery14.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery14.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                         {% if record.gallery15 %}
-                       <div class="item overlayed1   " data-bg="{{ record.gallery15.path|resize(1200, 600) }}"></div>
+                            <div class="item overlayed1   "
+                                 data-bg="{{ record.gallery15.path|resize(1200, 600) }}"></div>
                         {% endif %}
 
                     </div>
@@ -852,77 +924,77 @@ notFoundMessage = "Record not found"
 
 
                         {% if record.gallery1 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="1"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="1"
                                 data-bg="{{ record.gallery1.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery2 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="2"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="2"
                                 data-bg="{{ record.gallery2.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery3 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="3"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="3"
                                 data-bg="{{ record.gallery3.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery4 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="4"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="4"
                                 data-bg="{{ record.gallery4.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery5 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="5"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="5"
                                 data-bg="{{ record.gallery5.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery6 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="6"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="6"
                                 data-bg="{{ record.gallery6.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery7 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="7"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="7"
                                 data-bg="{{ record.gallery7.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery8 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="8"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="8"
                                 data-bg="{{ record.gallery8.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery9 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="9"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="9"
                                 data-bg="{{ record.gallery9.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery10 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="10"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="10"
                                 data-bg="{{ record.gallery10.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery11 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="11"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="11"
                                 data-bg="{{ record.gallery11.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery12 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="12"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="12"
                                 data-bg="{{ record.gallery12.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery13 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="13"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="13"
                                 data-bg="{{ record.gallery13.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery14 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="14"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="14"
                                 data-bg="{{ record.gallery14.path|resize(600, 300) }}"></li>
                         {% endif %}
 
                         {% if record.gallery15 %}
-                         <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="15"
+                            <li class="thumbnail" data-target="#cd-item-slider" data-slide-to="15"
                                 data-bg="{{ record.gallery15.path|resize(600, 300) }}"></li>
                         {% endif %}
 
@@ -1051,12 +1123,12 @@ notFoundMessage = "Record not found"
                 disabledDates: disabledDates,
                 // format: 'Y-m-d h:m:s',
                 // formatDate: 'd.m.Y',
-                format:'Y/m/d',
+                format: 'Y/m/d H:m',
                 defaultDate: new Date(),
                 minDate: "1",
-                onShow:function( ct ){
+                onShow: function (ct) {
                     this.setOptions({
-                        maxDate:jQuery('#endDate').val()?jQuery('#endDate').val():false
+                        maxDate: jQuery('#endDate').val() ? jQuery('#endDate').val() : false
                     })
                 },
             });
@@ -1064,10 +1136,10 @@ notFoundMessage = "Record not found"
             $endDate.datetimepicker({
                 disabledDates: disabledDates,
                 // formatDate: 'd.m.Y',
-                format:'Y/m/d',
-                onShow:function( ct ){
+                format: 'Y/m/d H:m',
+                onShow: function (ct) {
                     this.setOptions({
-                        minDate:jQuery('#startDate').val()?jQuery('#startDate').val():"1"
+                        minDate: jQuery('#startDate').val() ? jQuery('#startDate').val() : "1"
                     })
                 },
                 // format: 'Y-m-d h:m:s'
@@ -1084,49 +1156,141 @@ notFoundMessage = "Record not found"
                     end = new Date(endDate),
                     diff = new Date(end - start);
                 days = diff / 1000 / 60 / 60 / 24;
+                console.log(days);
+                days = Math.ceil(days);
+                console.log(days);
 
-                days = Math.round(days);
                 if (days == 0) {
                     days = 1;
                 }
+                if ($("#cityRent").is(':checked')) {
+                    if (days <= 1) {
+                        price = {{ (record.rental_value.one_day+ ((record.rental_value.one_day*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 1 && days <= 3) {
+                        price =  {{ (record.rental_value.three_day+ ((record.rental_value.three_day*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 3 && days <= 7) {
+                        price =  {{ (record.rental_value.seven_day+ ((record.rental_value.seven_day*this.theme.service_tax)/100 ))|round }};
 
-                if (days <= 1) {
-                    price = {{ record.rental_value.one_day }};
-                } else if (days > 1 && days <= 3) {
-                    price = {{ record.rental_value.three_day }};
-                } else if (days > 3 && days <= 7) {
-                    price = {{ record.rental_value.seven_day }};
-                } else if (days > 7 && days <= 30) {
-                    price = {{ record.rental_value.thirty_day }};
-                } else if (days > 30) {
-                    price = days * {{ record.rental_value.over_thirty_day }};
+                    } else if (days > 7 && days <= 30) {
+                        price =  {{ (record.rental_value.thirty_day+ ((record.rental_value.thirty_day*this.theme.service_tax)/100 ))|round }};
+
+                    } else if (days > 30) {
+                        var ttot = days * {{ record.rental_value.over_thirty_day }},
+
+                            ttax = (ttot * {{ this.theme.service_tax }}) / 100;
+
+                        price = Math.round(ttot + ttax);
+
+                    }
                 }
+
+                else if ($("#cityRentDriver").is(':checked')) {
+                    if (days <= 1) {
+                        price = {{ (record.rental_value.one_day_driver+ ((record.rental_value.one_day_driver*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 1 && days <= 3) {
+                        price =  {{ (record.rental_value.three_day_driver+ ((record.rental_value.three_day_driver*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 3 && days <= 7) {
+                        price =  {{ (record.rental_value.seven_day_driver+ ((record.rental_value.seven_day_driver*this.theme.service_tax)/100 ))|round }};
+
+                    } else if (days > 7 && days <= 30) {
+                        price =  {{ (record.rental_value.thirty_day_driver+ ((record.rental_value.thirty_day_driver*this.theme.service_tax)/100 ))|round }};
+
+                    } else if (days > 30) {
+                        var ttot = days * {{ record.rental_value.over_thirty_day_driver }},
+
+                            ttax = (ttot * {{ this.theme.service_tax }}) / 100;
+
+                        price = Math.round(ttot + ttax);
+
+                    }
+                }
+
+                else if ($("#regionRent").is(':checked')) {
+                    if (days <= 1) {
+                        price = {{ (record.rental_value.one_day_region+ ((record.rental_value.one_day_region*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 1 && days <= 3) {
+                        price =  {{ (record.rental_value.three_day_region+ ((record.rental_value.three_day_region*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 3 && days <= 7) {
+                        price =  {{ (record.rental_value.seven_day_region+ ((record.rental_value.seven_day_region*this.theme.service_tax)/100 ))|round }};
+
+                    } else if (days > 7 && days <= 30) {
+                        price =  {{ (record.rental_value.thirty_day_region+ ((record.rental_value.thirty_day_region*this.theme.service_tax)/100 ))|round }};
+
+                    } else if (days > 30) {
+                        var ttot = days * {{ record.rental_value.over_thirty_day_region }},
+
+                            ttax = (ttot * {{ this.theme.service_tax }}) / 100;
+
+                        price = Math.round(ttot + ttax);
+
+                    }
+                }
+
+                else if ($("#regionRentDriver").is(':checked')) {
+                    if (days <= 1) {
+                        price = {{ (record.rental_value.one_day_region_driver+ ((record.rental_value.one_day_region_driver*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 1 && days <= 3) {
+                        price =  {{ (record.rental_value.three_day_region_driver+ ((record.rental_value.three_day_region_driver*this.theme.service_tax)/100 ))|round }};
+                    } else if (days > 3 && days <= 7) {
+                        price =  {{ (record.rental_value.seven_day_region_driver+ ((record.rental_value.seven_day_region_driver*this.theme.service_tax)/100 ))|round }};
+
+                    } else if (days > 7 && days <= 30) {
+                        price =  {{ (record.rental_value.thirty_day_region_driver+ ((record.rental_value.thirty_day_region_driver*this.theme.service_tax)/100 ))|round }};
+
+                    } else if (days > 30) {
+                        var ttot = days * {{ record.rental_value.over_thirty_day_region_driver }},
+
+                            ttax = (ttot * {{ this.theme.service_tax }}) / 100;
+
+                        price = Math.round(ttot + ttax);
+
+                    }
+                }
+
+
                 $('.totalDay').html(days);
                 $('.totalPrice').html(price);
 
 
             })
+
+            $(document).on('click', '#myBtn', function () {
+                console.log(price);
+                $.oc.stripeLoadIndicator.show()
+                $.request('onSession', {
+                    data: {
+                        car_id: {{ record.id }},
+                        price: price,
+                        days: days,
+                        endDate: endDate,
+                        startDate: startDate,
+                        rent_method: $('input[name=rent_method]:checked').val(),
+                    },
+                    complete: function () {
+                        window.location.href = "{{ 'rent-reservation'|page }}";
+                    }
+
+
+                });
+            });
+
+            //rent metod seçilirken fiyat ve tarihi sıfırlamak için
+            $(document).ready(function () {
+                $('input[type=radio][name=rent_method]').change(function () {
+                    $('.totalPrice').html("");
+                    $('#startDate').val("");
+                    $('#endDate').val("");
+                });
+
+
+            });
         }
 
         window.onload = load();
 
     </script>
 
-    <script>
-        $(document).on('click', '#myBtn', function () {
 
-            $.oc.stripeLoadIndicator.show()
-            $.request('onSession', {
-                data: {car_id: {{ record.id }}, price: price, days: days, endDate: endDate, startDate: startDate},
-                complete: function () {
-                    window.location.href = "{{ 'rent-reservation'|page }}";
-                }
-
-
-            });
-        })
-
-    </script>
 
 
 {% endput %}

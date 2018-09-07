@@ -1,6 +1,6 @@
 title = "Rent reservation"
-url = "/rent/reservation"
-layout = "userDefault"
+url = "/rent-reservation"
+layout = "default"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -9,6 +9,11 @@ robot_follow = "follow"
 localeUrl[az] = "/rent-reservation"
 
 [RentReservation]
+
+[account]
+redirect = 0
+paramCode = "code"
+forceSecure = 0
 ==
 <!-- Reservation car modal -->
 <main class="bg-white">
@@ -21,7 +26,13 @@ localeUrl[az] = "/rent-reservation"
                     <input type="hidden" name="seller_id" value="{{ car.user_id }}">
                     <input type="hidden" name="start_date" value="{{ startDate }}">
                     <input type="hidden" name="end_date" value="{{ endDate }}">
-                    <input type="hidden" name="user_id" value="{{ user.id }}">
+                    <input type="hidden" name="rent_method" value="{{ rent_method }}">
+
+                    <input type="hidden" name="car_rent_price" value="{{ price/((this.theme.service_tax/100)+1) }}">
+                    <input type="hidden" name="service_tax" value="{{ this.theme.service_tax}}">
+                    <input type="hidden" name="total_amount_payable" value="{{ price }}">
+                    <input type="hidden" name="day" value="{{ days }}">
+
                     <div class="row">
                         <div class="col-sm-6 col-lg-6">
                             <div class="car-preview">
@@ -35,6 +46,22 @@ localeUrl[az] = "/rent-reservation"
                             <h4 class="title">{{ 'Payment details'|_ }}</h4>
 
                             <ul class="list-unstyled result-dates">
+
+                                <li class="clearfix">
+                                    <span class="pull-left">{{ 'Rent Method'|_ }}:</span>
+                                    <span class="pull-right">
+                        <b id="startR">
+                            {% if rent_method=="1" %}
+                                {{ '   Rent City'|_ }}
+                            {% elseif rent_method=="2" %}
+                                {{ ' Rent City Driver'|_ }}
+                            {% elseif rent_method=="3" %}
+                                {{ '   Rent Region'|_ }}
+                            {% elseif rent_method=="4" %}
+                                {{ '  Rent Region Driver'|_ }}
+                            {% endif %}</b>
+                      </span>
+                                </li>
                                 <li class="clearfix">
                                     <span class="pull-left">{{ 'Dates'|_ }}:</span>
                                     <span class="pull-right">
@@ -50,19 +77,15 @@ localeUrl[az] = "/rent-reservation"
                                     <span class="pull-left">{{ 'Price per day'|_ }}:</span>
                                     <span class="pull-right">
 
-                        <b id="dayP">{{ '&dollar;'|_ }}{{ (price/days) | round(2) }}</b>
+                        <b id="dayP">&dollar; {{ (price/days) | round(2) }}</b>
                       </span>
                                 </li>
                                 <li class="clearfix">
                                     <span class="pull-left">{{ 'Total'|_ }}:</span>
                                     <span class="pull-right">
 
-                                    <input type="hidden" name="car_rent_price" value="{{ price - (price*18)/100 }}">
-                                    <input type="hidden" name="service_tax" value="{{ (price *0)/100 }}">
-                                        <input type="hidden" name="edv" value="{{ (price*18)/100 }}">
-                                        <input type="hidden" name="total_amount_payable" value="{{ price }}">
-                                        <input type="hidden" name="day" value="{{ days }}">
-                        <b id="totDayP">{{ '&dollar;'|_ }}{{ price }}</b>
+
+                        <b id="totDayP">&dollar; {{ price }}</b>
                       </span>
                                 </li>
                             </ul>
@@ -70,28 +93,68 @@ localeUrl[az] = "/rent-reservation"
                         <div class="col-sm-12 col-lg-12">
                             <hr class="separator">
                         </div>
-                        <div class="col-sm-12 col-lg-12">
-                            <h4 class="title">{{ 'Contact information'|_ }}</h4>
-                            <div class="form-group col-sm-6">
-                                <label>{{ 'Full name'|_ }}</label>
-                                <input type="text" class="form-control" name="name"
-                                       value="{{ user.name }} ">
+                        {% if user %}
+
+
+                            <div class="col-sm-12 col-lg-12">
+                                <h4 class="title">{{ 'Contact information'|_ }}</h4>
+                                <div class="form-group col-sm-6">
+                                    <label>{{ 'Full name'|_ }}</label>
+                                    <input type="text" class="form-control" name="name"
+                                           value="{{ user.name }} ">
+                                </div>
+
+                                <div class="form-group col-sm-6 ">
+                                    <label>{{ 'Phone number'|_ }}</label>
+                                    <input type="tel" name="phone" class="form-control" value="{{ user.mobile }}"
+                                           placeholder="phone">
+                                </div>
+
+                                <div class="form-group col-sm-12">
+                                    <label>{{ 'Address'|_ }}</label>
+                                    <textarea name="address" class="form-control"
+                                              placeholder="Please write address">{{ user.street_addr }} {{ user.city }} </textarea>
+
+                                </div>
                             </div>
+                        {% else %}
 
-                            <div class="form-group col-sm-6 ">
-                                <label>{{ 'Phone number'|_ }}</label>
-                                <input type="tel" name="phone" class="form-control" value="{{ user.phone }}"
-                                       placeholder="phone">
+                            <div class="col-sm-12 col-lg-12">
+                                <h4 class="title">{{ 'Register '|_ }}</h4>
+                                <div class="form-group col-sm-6">
+                                    <label>{{ 'Full name'|_ }}</label>
+                                    <input type="text" id="name" class="form-control" name="name">
+                                </div>
+
+                                <div class="form-group  col-lg-6">
+                                    <label>{{ 'Mobile Phone'|_ }}</label>
+                                    <input id="username" name="username" type="text"
+                                           class="form-control text-capitalize"
+                                           placeholder="Mobile">
+                                    <p class="error-p visible" data-validate-for="mobile"></p>
+                                    <input type="hidden" name="mobile" id="mobile">
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    <label>{{ 'Password'|_ }}</label>
+                                    <input name="password" type="password" id="password" class="form-control">
+                                    <p class="error-p visible" data-validate-for="password"></p>
+                                </div>
+                                <div class="form-group   col-lg-6">
+                                    <label>{{ 'Repeat password'|_ }}</label>
+                                    <input name="password_confirmation" id="password_confirmation" type="password"
+                                           class="form-control">
+                                    <p class="error-p visible" data-validate-for="password_confirmation"></p>
+                                </div>
+
+                                <div class="form-group col-sm-12">
+                                    <label>{{ 'Address'|_ }}</label>
+                                    <textarea name="address" class="form-control" id="street_addr"
+                                              placeholder="Please write address">{{ user.street_addr }} {{ user.city }} </textarea>
+
+                                </div>
                             </div>
-
-                            <div class="form-group col-sm-12">
-                                <label>{{ 'Address'|_ }}</label>
-                                <textarea name="address" class="form-control"
-                                          placeholder="Please write address">{{ user.street_addr }} {{ user.city }} </textarea>
-
-                            </div>
-                        </div>
-
+                            <input type="hidden" name="phone" id="phone">
+                        {% endif %}
                         <div class="col-sm-12 col-lg-12">
                             <hr class="separator">
                         </div>
@@ -112,38 +175,63 @@ localeUrl[az] = "/rent-reservation"
 
     </div>
 
+
 </main>
 <!-- /.Reservation car modal -->
 {% put scripts %}
     <script>
-        // $(function () {
-        //
-        //     $('form').on('click', '.reserveBtn', function (e) {
-        //
-        //         console.log("dfds");
-        //         // $.oc.stripeLoadIndicator.show()
-        //         // $('form').request('onSave', {
-        //         //
-        //         //     complete: function () {
-        //         //         caruselUpdate();
-        //         //         jQuery(".preloader").fadeOut();
-        //         //     }
-        //         // });
-        //     });
-        // })
+
         $(function () {
             $(document).on('click', '.reserveBtn', function (e) {
-                console.log("dfds");
                 $.oc.stripeLoadIndicator.show()
+                {% if user %}
 
                 $('form').request('onSave', {
 
                     complete: function () {
-                         window.location.href = "{{ 'profile'|page }}";
+                        window.location.href = "{{ 'profile-my-order'|page }}";
                     }
 
 
                 });
+                {% else %}
+
+                var username = $('#username').val(),
+                    name = $('#name').val(),
+                    mobile = username,
+                    street_addr = $('#street_addr').val(),
+                    pasword = $('#password').val(),
+                    password_confirmation = $('#password_confirmation').val();
+                $('#phone').val(username);
+
+                $.request('onRegister', {
+                    data: {
+                        username: username,
+                        name: name,
+                        mobile: mobile,
+                        street_addr: street_addr,
+                        password: pasword,
+                        password_confirmation: password_confirmation
+                    },
+
+                    complete: function () {
+
+                        $('form').request('onSave', {
+
+                            complete: function () {
+                                window.location.href = "{{ 'profile-my-order'|page }}";
+                            }
+
+
+                        });
+                    }
+
+
+                });
+
+                {% endif %}
+
+
 
             });
         })

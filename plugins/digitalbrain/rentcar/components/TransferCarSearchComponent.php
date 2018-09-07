@@ -2,6 +2,7 @@
 
 use Cms\Classes\ComponentBase;
 use DigitalBrain\RentCar\Models\Car;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 use Lang;
 use Cms\Classes\Page;
@@ -250,6 +251,15 @@ class TransferCarSearchComponent extends ComponentBase
 
     protected function prepareVars()
     {
+
+        if (Cache::has('usd')) {
+
+            $this->page['usd'] = Cache::get('usd');
+        } else {
+            $connect_web = simplexml_load_file('https://www.cbar.az/other/xml-azn-rates/');
+            $usd = $connect_web->ValType[1]->Valute[44]->Value->__toString();
+            $this->page['usd'] = $usd;
+        }
         $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');
 
         $this->detailsKeyColumn = $this->page['detailsKeyColumn'] = $this->property('detailsKeyColumn');

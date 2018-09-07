@@ -20,8 +20,9 @@ redirect = "login"
               data-request-validate
               data-request-flash
               data-request-files
+              data-request-redirect="{{ 'profile-my-car-listing'|page }}"
               id="mainform"
-             {# data-request-redirect="{{ 'profile-my-car-listing'|page }}"#}>
+                {# data-request-redirect="{{ 'profile-my-car-listing'|page }}"#}>
             <input type="hidden" name="user_id" value="{{ user.id }}">
             <div class="row">
                 <!-- sidebar -->
@@ -136,7 +137,7 @@ redirect = "login"
                                             <option value="" disabled selected>{{ 'Any'|_ }}</option>
                                             {% for engine_volume in engine_volumes %}
                                                 <option
-                                                    value="{{ engine_volume.id }}">{{ engine_volume.volume }}</option>
+                                                        value="{{ engine_volume.id }}">{{ engine_volume.volume }}</option>
                                             {% endfor %}
                                         </select>
                                         <p class="error-p" data-validate-for="engine_volume_id"></p>
@@ -162,7 +163,7 @@ redirect = "login"
                                         <div class="col-lg-6">
                                             <h5 class="text-center">{{ 'VIP'|_ }}</h5>
                                             <div
-                                                class="custom-checkbox custom-selector text-center shadow rounded bg-white">
+                                                    class="custom-checkbox custom-selector text-center shadow rounded bg-white">
                                                 <label>
                                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -249,7 +250,7 @@ redirect = "login"
                                         <div class="col-lg-6">
                                             <h5 class="text-center">{{ 'Econom'|_ }}</h5>
                                             <div
-                                                class="custom-checkbox custom-selector text-center shadow rounded bg-white">
+                                                    class="custom-checkbox custom-selector text-center shadow rounded bg-white">
                                                 <label>
                                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -1306,55 +1307,128 @@ redirect = "login"
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="rent">
                                     <div class="add-car-form form-inline">
-                                        <div class="form-group width50" style="height: 1px">
-                                            <label>{{ 'One Day'|_ }}</label>
-                                            <input name="one_day" type="text" class="form-control rent__input"
+                                        <div class="form-group width25" style="height: 1px">
+                                            <label>{{ '1 Day'|_ }}</label>
+                                            <input name="one_day" id="one_day" type="text"
+                                                     class="form-control rent__input"
                                                    placeholder="Price ">
                                             <p class="error-p" data-validate-for="one_day"></p>
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'One Day Driver'|_ }}</label>
-                                            <input name="one_day_driver" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '1 Day Driver'|_ }}</label>
+                                            <input id="one_day_driver" name="one_day_driver" type="text"
+                                                   class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Three Day'|_ }}</label>
-                                            <input name="three_day" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '1 Day Region'|_ }}</label>
+                                            <input name="one_day_region" id="one_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                            <p class="error-p" data-validate-for="one_day_region"></p>
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '1 Day Region Driver'|_ }}</label>
+                                            <input name="one_day_region_driver" id="one_day_region_driver" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                            <p class="error-p" data-validate-for="one_day_region_driver"></p>
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '3 Day'|_ }}</label>
+                                            <input name="three_day" id="three_day" type="text"
+                                                   class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Three Day Driver'|_ }}</label>
-                                            <input name="three_day_driver" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '3 Day Driver'|_ }}</label>
+                                            <input name="three_day_driver" id="three_day_driver" type="text"
+                                                   class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Seven Day '|_ }}</label>
-                                            <input name="seven_day" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '3 Day Region'|_ }}</label>
+                                            <input name="three_day_region" id="three_day_region" type="text"
+                                                   class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Seven Day Driver'|_ }}</label>
-                                            <input name="seven_day_driver" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '3 Day Region Driver'|_ }}</label>
+                                            <input name="three_day_region_driver" id="three_day_region_driver"
+                                                   type="text" class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Thirty Day'|_ }}</label>
-                                            <input name="thirty_day" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '7 Day '|_ }}</label>
+                                            <input name="seven_day" id="seven_day" type="text"
+                                                   class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Thirty Day Driver'|_ }}</label>
-                                            <input name="thirty_day_driver" type="text" class="form-control rent__input"
+
+                                        <div class="form-group width25">
+                                            <label>{{ '7 Day Driver'|_ }}</label>
+                                            <input name="seven_day_driver" id="seven_day_driver" type="text"
+                                                   class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Over Thirty Day '|_ }}</label>
-                                            <input name="over_thirty_day" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '7 Day Region'|_ }}</label>
+                                            <input name="seven_day_region" id="seven_day_region" type="text"
+                                                   class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Over Thirty Driver'|_ }}</label>
-                                            <input name="over_thirty_day_driver" type="text"
+                                        <div class="form-group width25">
+                                            <label>{{ '7 Day Region Driver'|_ }}</label>
+                                            <input name="seven_day_region_driver" id="seven_day_region_driver"
+                                                   type="text" class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30 Day'|_ }}</label>
+                                            <input name="thirty_day" id="thirty_day" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30 Day Driver'|_ }}</label>
+                                            <input name="thirty_day_driver" id="thirty_day_driver" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30 Day Region'|_ }}</label>
+                                            <input name="thirty_day_region" id="thirty_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30 Day Region Driver'|_ }}</label>
+                                            <input name="thirty_day_region_driver" id="thirty_day_region_driver"
+                                                   type="text" class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30+ Day '|_ }}</label>
+                                            <input name="over_thirty_day" id="over_thirty_day" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30+ Driver'|_ }}</label>
+                                            <input name="over_thirty_day_driver" id="over_thirty_day_driver" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30+ Day Region'|_ }}</label>
+                                            <input name="over_thirty_day_region" id="over_thirty_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   placeholder="Price ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '30+ Day Region Driver '|_ }}</label>
+                                            <input name="over_thirty_day_region_driver"
+                                                   id="over_thirty_day_region_driver" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
@@ -1537,7 +1611,8 @@ redirect = "login"
                                     <div class="custom-checkbox width52">
                                         <div class="form-group ">
 
-                                            <label class="addEquipment"><i class="fa fa-plus"></i> {{ 'Add Equipment'|_ }}</label>
+                                            <label class="addEquipment"><i
+                                                        class="fa fa-plus"></i> {{ 'Add Equipment'|_ }}</label>
 
                                         </div>
                                     </div>
@@ -1552,13 +1627,14 @@ redirect = "login"
                                     <label>
                                         <input name="kasko" type="checkbox">
                                         <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                       {{ ' I have a kasko'|_ }}
+                                        {{ ' I have a kasko'|_ }}
                                     </label>
                                     <p class="error-p" data-validate-for="kasko"></p>
                                     <label style="margin-top: 10px; width: 100%">
-                                        <input name="term"  type="checkbox">
+                                        <input name="term" type="checkbox">
                                         <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                       {{ ' I agree with the'|_ }} <a href="#">{{ 'Terms &amp; Conditions'|_ }}</a>{{ ' of this website.'|_ }}
+                                        {{ ' I agree with the'|_ }} <a
+                                                href="#">{{ 'Terms &amp; Conditions'|_ }}</a>{{ ' of this website.'|_ }}
                                     </label>
                                     <p class="error-p" data-validate-for="term"></p>
                                 </div>
@@ -1590,8 +1666,8 @@ redirect = "login"
             swal({
                 title: 'Yüklənir...',
                 html:
-                '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
-                ' <span class="sr-only">Loading...</span>',
+                    '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+                    ' <span class="sr-only">Loading...</span>',
                 showCloseButton: false,
                 showCancelButton: false,
                 showConfirmButton: false,
@@ -1618,8 +1694,8 @@ redirect = "login"
             swal({
                 title: 'Yüklənir...',
                 html:
-                '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
-                ' <span class="sr-only">Loading...</span>',
+                    '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+                    ' <span class="sr-only">Loading...</span>',
                 showCloseButton: false,
                 showCancelButton: false,
                 showConfirmButton: false,
@@ -1725,22 +1801,22 @@ redirect = "login"
         }
     });
 
-/*    $(document).ready(function () {
+    /*    $(document).ready(function () {
 
-        $(document).on("click", ".myRent", function () {
-            $(".transfer__input").val("");
-            $(".is_rent").val('1');
-            $(".is_transfer").val('0');
-        });
+            $(document).on("click", ".myRent", function () {
+                $(".transfer__input").val("");
+                $(".is_rent").val('1');
+                $(".is_transfer").val('0');
+            });
 
-        $(document).on("click", ".myTransfer", function () {
-            $(".rent__input").val("");
-            $(".is_rent").val('0');
-            $(".is_transfer").val('1');
-        });
+            $(document).on("click", ".myTransfer", function () {
+                $(".rent__input").val("");
+                $(".is_rent").val('0');
+                $(".is_transfer").val('1');
+            });
 
 
-    });*/
+        });*/
 
     $(document).ready(function () {
         $(".transfer__input").prop('disabled', true);
@@ -1762,5 +1838,47 @@ redirect = "login"
 
 
     });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#one_day').on('change', function () {
+            var one = $(this).val();
+            console.log(one);
+            $("#three_day").val(one * 3);
+            $("#seven_day").val(one * 7);
+            $("#thirty_day").val(one * 30);
+            $("#over_thirty_day").val(one);
+        });
+
+        $('#one_day_driver').on('change', function () {
+            var one_driver = $(this).val();
+            console.log(one_driver);
+            $("#three_day_driver").val(one_driver * 3);
+            $("#seven_day_driver").val(one_driver * 7);
+            $("#thirty_day_driver").val(one_driver * 30);
+            $("#over_thirty_day_driver").val(one_driver);
+        });
+
+        $('#one_day_region').on('change', function () {
+            var one_region = $(this).val();
+            console.log(one_region);
+            $("#three_day_region").val(one_region * 3);
+            $("#seven_day_region").val(one_region * 7);
+            $("#thirty_day_region").val(one_region * 30);
+            $("#over_thirty_day_region").val(one_region);
+        });
+
+        $("#one_day_region_driver").on('change', function () {
+            var one_region_driver = $(this).val();
+            console.log(one_region_driver);
+            $("#three_day_region_driver").val(one_region_driver * 3);
+            $("#seven_day_region_driver").val(one_region_driver * 7);
+            $("#thirty_day_region_driver").val(one_region_driver * 30);
+            $("#over_thirty_day_region_driver").val(one_region_driver);
+        });
+    });
+
 </script>
 

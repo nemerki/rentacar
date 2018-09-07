@@ -179,7 +179,7 @@ take = 8
                   </g>
               </svg>
             <h6 class="heading text-uppercase">{{ 'Number 1 car dealer in town'|_ }}</h6>
-            <h1 class="heading">Let’s find the perfect one</h1>
+            <h1 class="heading">{{ 'Let’s find the perfect one'|_ }} </h1>
         </div>
     </div>
     <!-- search box form -->
@@ -236,7 +236,7 @@ take = 8
                     </div>
                     <div class="form-group custom-range">
                         <p>
-                            <label for="priceUp">Price up to <span>&euro;</span></label>
+                            <label for="priceUp">Price up to <span>	&#8380;</span></label>
                             <input type="text" name="price" id="priceUp" readonly class="pull-left">
                         </p>
                         <div id="priceUpRange" class="pull-right"></div>
@@ -260,7 +260,7 @@ take = 8
                     <div class="form-group">
                         <!-- <button type="submit" class="btn btn-default">Search through  <span id="cd-cars-nr-list">2236</span> cars</button> -->
                         <a href="javascript:void(0) " id="filterBtn" class="btn btn-default">Search through <span
-                                id="cd-cars-nr-list">2236</span> cars</a>
+                                    id="cd-cars-nr-list">2236</span> cars</a>
                     </div>
                     <div class="clearfix"></div>
                 </form>
@@ -427,9 +427,11 @@ take = 8
                                 <h4 class="heading"> {{ record.brand.name }} {{ record.mdl.name }} {{ record.trim.name }}  {{ record.year.year }}
                                 </h4>
                                 {% if record.is_rent==1 %}
-                                    <h4 class="cd-price price">&dollar;{{ record.rental_value.one_day }} </h4>
+                                    <h4 class="cd-price price">
+                                           {{ (record.rental_value.one_day/usd) |round }} &dollar; /  {{ record.rental_value.one_day }} &#8380;
+                                    </h4>
                                 {% else %}
-                                    <h4 class="cd-price price">&dollar;{{ record.transfer_value.city }}</h4>
+                                    <h4 class="cd-price price">{{ (record.transfer_value.city / usd) }} &dollar; / {{ record.transfer_value.city }} &#8380;</h4>
                                 {% endif %}
 
 
@@ -617,14 +619,14 @@ take = 8
                                 <span class="cd-car-spec">{{ latestRent.engine_volume.volume/1000 }}
                                     L {{ latestRent.fuel.name }}  {{ latestRent.transmision.name }}</span>
                                 <hr class="separator">
-                                <h4 class="cd-price price pull-left">&dollar;{{ latestRent.rental_value.one_day }}</h4>
+                                <h4 class="cd-price price pull-left">{{ (latestRent.rental_value.one_day/usd)|round }}&dollar; / {{ latestRent.rental_value.one_day }} &#8380;</h4>
                                 <div class="clearfix"></div>
                                 {% spaceless %}
                                     {% if latestAddRents.detailsPage %}
                                         <a class="btn btn-default pull-left" href="{{ latestAddRents.detailsPage|page({ (detailsUrlParameter): latestRent.slug }) }}">
                                     {% endif %}
                                     View details <i
-                                    class="fa fa-angle-right"></i>
+                                        class="fa fa-angle-right"></i>
                                     {% if latestAddRents.detailsPage %}
                                         </a>
                                     {% endif %}
@@ -648,7 +650,7 @@ take = 8
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center section-intro">
-                    <h1 class="heading">Transfer Hot offers</h1>
+                    <h1 class="heading">{{ 'Transfer Hot offers'|_ }}</h1>
                     <span>Save big on these special selected deals!.</span>
                 </div>
             </div>
@@ -793,9 +795,9 @@ take = 8
                                 <h4 class="heading"> {{ record.brand.name }} {{ record.mdl.name }} {{ record.trim.name }}  {{ record.year.year }}
                                 </h4>
                                 {% if record.is_rent==1 %}
-                                    <h4 class="cd-price price">&dollar;{{ record.rental_value.one_day }} </h4>
+                                    <h4 class="cd-price price">{{ (record.rental_value.one_day/usd)|round }} &dollar; / {{ record.rental_value.one_day }} &#8380;</h4>
                                 {% else %}
-                                    <h4 class="cd-price price">&dollar;{{ record.transfer_value.city }}</h4>
+                                    <h4 class="cd-price price">{{ (record.transfer_value.city/usd)|round }} &dollar; / {{ record.transfer_value.city }} &#8380;</h4>
                                 {% endif %}
 
 
@@ -817,8 +819,8 @@ take = 8
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center section-intro">
-                    <h1 class="heading">Latest Transfer Additions</h1>
-                    <span>Check out our latest marketplace vehicle offers additions. We're sure you'll find what you're looking for.</span>
+                    <h1 class="heading">{{ 'Latest Transfer Additions'|_ }}</h1>
+                    <span>{{ "Check out our latest marketplace vehicle offers additions. We're sure you'll find what you're looking for."|_ }}</span>
                 </div>
             </div>
 
@@ -983,14 +985,14 @@ take = 8
                                 <span class="cd-car-spec">{{ latestTrans.engine_volume.volume/1000 }}
                                     L {{ latestTrans.fuel.name }}  {{ latestTrans.transmision.name }}</span>
                                 <hr class="separator">
-                                <h4 class="cd-price price pull-left">&dollar;{{ latestTrans.transfer_value.city }}</h4>
+                                <h4 class="cd-price price pull-left">{{ (latestTrans.transfer_value.city/usd)|round }} &dollar; / {{ latestTrans.transfer_value.city }} &#8380;</h4>
                                 <div class="clearfix"></div>
                                 {% spaceless %}
                                     {% if latestAddTransfer.detailsPage %}
                                         <a class="btn btn-default pull-left" href="{{ latestAddTransfer.detailsPage|page({ (detailsUrlParameter): latestTrans.slug }) }}">
                                     {% endif %}
                                     View details <i
-                                    class="fa fa-angle-right"></i>
+                                        class="fa fa-angle-right"></i>
                                     {% if latestAddTransfer.detailsPage %}
                                         </a>
                                     {% endif %}
@@ -1029,7 +1031,8 @@ take = 8
                                 <div class="panel-heading" role="tab" id="headingOne">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#faq-accordion"
-                                           href="#collapse{{ loop.index }}" aria-expanded="true" aria-controls="collapseOne">
+                                           href="#collapse{{ loop.index }}" aria-expanded="true"
+                                           aria-controls="collapseOne">
                                             <span class="pull-left">{{ record.question }}</span>
                                             <span class="clearfix"></span>
                                         </a>
@@ -1039,7 +1042,7 @@ take = 8
                                      aria-labelledby="headingOne">
                                     <div class="panel-body">
                                         <p>
-                                          {{ record.answer }}
+                                            {{ record.answer }}
                                         </p>
 
                                     </div>

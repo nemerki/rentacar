@@ -129,7 +129,8 @@
             <span class="cd-car-spec">{{ record.year.year }} {{ record.engine_volume.volume/1000 }}
                 L {{ record.fuel.name }}  {{ record.transmision.name }} </span>
             <hr class="separator">
-            <h4 class="cd-price price pull-left">&dollar;{{ record.transfer_value.city }}</h4>
+            <h4 class="cd-price price pull-left">
+                {{( (record.transfer_value.city+ ((record.transfer_value.city*this.theme.service_tax)/100 ))/usd) |round}}  &dollar; / {{ (record.transfer_value.city+ ((record.transfer_value.city*this.theme.service_tax)/100 ))  |round}} 	&#8380;</h4>
             <div class="clearfix"></div>
 
             {% spaceless %}

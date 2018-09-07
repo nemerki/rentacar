@@ -381,8 +381,11 @@ notFoundMessage = "Record not found"
                     <ul class="list-inline cd-price-list">
                         <li>
 
-                            <h2 class="cd-price ">{{ '$'|_ }} <span class="myPrice">{{ record.transfer_value.city }}</span></h2>
-                            <input type="hidden" name="price" value="{{ record.transfer_value.city }}"
+                            <h2 class="cd-price ">{{ '$'|_ }} <span
+                                        class="myPrice">{{ (record.transfer_value.city+( record.transfer_value.city *this.theme.service_tax)/100)|round }}</span>
+                            </h2>
+                            <input type="hidden" name="price"
+                                   value="{{ (record.transfer_value.city+( record.transfer_value.city *this.theme.service_tax)/100 )|round }}"
                                    class="inputPrice">
                             <input type="hidden" name="is_city" class="is_city" value="1">
                         </li>
@@ -390,8 +393,40 @@ notFoundMessage = "Record not found"
                             <span class="period priceText">{{ 'City Center'|_ }}</span>
                         </li>
                     </ul>
-                    <span class="text-uppercase  money-save city">{{ 'Local'|_ }}</span>
-                    <span class="text-uppercase money-discount money-save airport">{{ 'Airport to Hotel'|_ }}</span>
+                    <span style="padding: 0;" class="text-uppercase money-discount money-save airport">
+                                 <div style="margin: 0;" class="custom-checkbox radio">
+                            <label style="height: 100%;width: 100%;padding: 12px; margin-bottom: 0;">
+                                <input type="radio" value="1" name="rent_method" id="cityRent">
+                                <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                Airport
+                            </label>
+
+                        </div>
+                        </span>
+
+                    <span style="padding: 0;" class="text-uppercase  money-save city">
+                                <div style="margin: 0;" class="custom-checkbox radio">
+                            <label style="height: 100%;width: 100%;padding: 12px; margin-bottom: 0;">
+                                <input type="radio" value="1" name="rent_method" id="cityRent"
+                                       checked="checked">
+                                <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                City
+                            </label>
+
+                        </div>
+                    </span>
+
+                    <span style="padding: 0;" class="text-uppercase money-discount money-save other">
+                        <div style="margin: 0;" class="custom-checkbox radio">
+                            <label style="height: 100%;width: 100%;padding: 12px; margin-bottom: 0;">
+                                <input type="radio" value="1" name="rent_method" id="cityRent">
+                                <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
+                                Other
+                            </label>
+
+                        </div>
+                    </span>
+
                     <div class="clearfix"></div>
 
                     <!-- rent widget -->
@@ -726,25 +761,39 @@ notFoundMessage = "Record not found"
             $(document).on('click', '.airport', function () {
                 $(this).removeClass('money-discount');
                 $('.city').addClass('money-discount');
-                $('.myPrice').html('{{ record.transfer_value.airport }}');
+                $('.other').addClass('money-discount');
+                $('.myPrice').html('{{ ( record.transfer_value.airport+( record.transfer_value.airport *this.theme.service_tax)/100 )|round }}');
                 $('.priceText').html('Airport to Hotel');
-                $('.inputPrice').val('{{ record.transfer_value.airport }}');
+                $('.inputPrice').val('{{ ( record.transfer_value.airport+( record.transfer_value.airport *this.theme.service_tax)/100 )|round }}');
                 $('.is_city').val('0');
                 is_city = $('.is_city').val();
                 price = $('.inputPrice').val();
 
-            })
+            });
+            $(document).on('click', '.other', function () {
+                $(this).removeClass('money-discount');
+                $('.city').addClass('money-discount');
+                $('.airport').addClass('money-discount');
+                $('.myPrice').html('');
+                $('.priceText').html('We will call you');
+                $('.inputPrice').val('0');
+                $('.is_city').val('2');
+                is_city = $('.is_city').val();
+                price = $('.inputPrice').val();
+
+            });
 
             $(document).on('click', '.city', function () {
                 $(this).removeClass('money-discount');
                 $('.airport').addClass('money-discount');
-                $('.myPrice').html('{{ record.transfer_value.city }}');
+                $('.other').addClass('money-discount');
+                $('.myPrice').html('{{ (record.transfer_value.city+( record.transfer_value.city *this.theme.service_tax)/100)|round }}');
                 $('.priceText').html('City Center');
-                $('.inputPrice').val('{{ record.transfer_value.city }}');
+                $('.inputPrice').val('{{ (record.transfer_value.city+( record.transfer_value.city *this.theme.service_tax)/100 )|round }}');
                 $('.is_city').val('1');
                 is_city = $('.is_city').val();
                 price = $('.inputPrice').val();
-            })
+            });
 
 
         });

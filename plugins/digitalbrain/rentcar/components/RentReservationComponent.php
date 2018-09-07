@@ -29,6 +29,7 @@ class RentReservationComponent extends ComponentBase
         $this->page['endDate'] = Session::get('endDate');
         $this->page['days'] = Session::get('days');
         $this->page['price'] = Session::get('price');
+        $this->page['rent_method'] = Session::get('rent_method');
     }
 
     protected function listCar()
@@ -41,8 +42,9 @@ class RentReservationComponent extends ComponentBase
 
     public function onSave()
     {
-        $data = Input::only('car_id', 'start_date', 'end_date', 'user_id', 'name', 'phone', 'address', 'remarks','seller_id');
-        $invoice = Input::only('car_rent_price', 'service_tax', 'edv', 'total_amount_payable', 'day');
+        $data = Input::only('car_id', 'start_date', 'end_date', 'name', 'phone', 'address', 'remarks', 'seller_id', 'rent_method');
+        $data['user_id'] = Auth::getUser()->id;
+        $invoice = Input::only('car_rent_price', 'service_tax', 'total_amount_payable', 'day');
 
 
         $model = Rental::create($data);

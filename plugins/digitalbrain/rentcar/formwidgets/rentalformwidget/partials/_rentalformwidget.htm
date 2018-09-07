@@ -13,7 +13,8 @@
         <?php if($model->car()->withTrashed()->first()->user->company) {?>
         <p>Company: <?= $model->car->user->company ?></p>
         <?php }?>
-        <p>Phone : <?= $model->car()->withTrashed()->first()->user->mobile ?></p>
+        <p>Mobile Phone : <?= $model->car()->withTrashed()->first()->user->mobile ?></p>
+        <p>Office Phone : <?= $model->car()->withTrashed()->first()->user->phone ?></p>
         <p>City : <?= $model->car()->withTrashed()->first()->location()->withTrashed()->first()->city->name ?></p>
         <p>Address : <?= $model->car()->withTrashed()->first()->location()->withTrashed()->first()->street_address ?></p>
     </div>

@@ -1,12 +1,24 @@
 fields:
     confirm:
         label: 'digitalbrain.rentcar::lang.all.status'
-        span: auto
         options:
             - 'Wait Confirmation'
             - Confirmed
             - Rejected
+        span: full
         type: dropdown
+    rejected_comment:
+        label: 'digitalbrain.rentcar::lang.all.rejected_comment'
+        size: ''
+        span: full
+        disabled: 0
+        hidden: 0
+        trigger:
+            action: show
+            field: confirm
+            condition: 'value[2]'
+        cssClass: hide
+        type: textarea
     transfer:
         span: full
         type: transfer

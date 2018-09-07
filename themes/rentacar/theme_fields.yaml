@@ -100,12 +100,12 @@ tabs:
             tab: Contact informations
             span: auto
 
-        default_alternate_text:
-            label: Default alternate text
-            comment: Default alternate text for common use
+        service_tax:
+            label: Service Tax
             tab: Others
-            default: Rent a car
+            default: 15
             span: auto
+
 
 
 

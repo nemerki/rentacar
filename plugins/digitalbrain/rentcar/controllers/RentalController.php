@@ -17,6 +17,6 @@ class RentalController extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('DigitalBrain.RentCar', 'main-menu-item4');
+        BackendMenu::setContext('DigitalBrain.RentCar', 'main-menu-item3');
     }
 }

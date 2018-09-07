@@ -33,6 +33,7 @@ class Plugin extends PluginBase
             'DigitalBrain\RentCar\Components\TransferCarSearchComponent' => 'TransferCarSearch',
             'DigitalBrain\RentCar\Components\SaleAndReportComponent' => 'SaleAndReport',
             'DigitalBrain\RentCar\Components\ProfileMyOrderComponent' => 'ProfileMyOrder',
+            'DigitalBrain\RentCar\Components\LayoutComponent' => 'LayoutComponent',
         ];
     }
 

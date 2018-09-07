@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use DigitalBrain\RentCar\Models\Car;
 use DigitalBrain\RentCar\Models\Transfer;
+use RainLab\User\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 
@@ -41,8 +42,10 @@ class TransferReservationComponent extends ComponentBase
     public function onSave()
     {
 
-        $data = Input::only('car_id', 'start_date', 'user_id', 'name', 'phone', 'address', 'remarks', 'seller_id');
-        $invoice = Input::only('car_transfer_price', 'service_tax', 'edv', 'total_amount_payable', 'is_city', 'is_airport');
+
+        $data = Input::only('car_id', 'start_date', 'name', 'phone', 'address', 'remarks', 'seller_id');
+        $data['user_id'] = Auth::getUser()->id;
+        $invoice = Input::only('car_transfer_price', 'service_tax', 'edv', 'total_amount_payable', 'is_city', 'is_airport','is_other');
 
 
         $model = Transfer::create($data);

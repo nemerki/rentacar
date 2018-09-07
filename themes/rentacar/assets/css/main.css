@@ -474,7 +474,7 @@ main{
 .money-save,
 .money-discount{
     float: left;
-    width: 50%;
+    width: 33%;
     text-align: center;
     letter-spacing: 1.1px;
     line-height: 30px;

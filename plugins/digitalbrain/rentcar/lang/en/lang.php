@@ -123,6 +123,7 @@
         'category' => 'Category',
         'created_at' => 'Add date',
         'seller_name' => 'Seller Name',
+        'rejected_comment' => 'Rejected Comment',
     ],
     'tab' => [
         'info' => 'Info',
@@ -131,6 +132,7 @@
     'all' => [
         'status' => 'Status',
         'name' => 'Name',
+        'rejected_comment' => 'Rejected Comment',
     ],
     'rental' => [
         'title' => 'Title',

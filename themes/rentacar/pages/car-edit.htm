@@ -22,7 +22,7 @@ localeUrl[az] = "/car-edit"
                 <!-- sidebar -->
                 <aside class="col-md-4 col-lg-4">
                     <div class="cd-sidebar">
-                        <h2 class="heading title">{{ 'Add new vehicle'|_ }}</h2>
+                        <h2 class="heading title">{{ 'Edit vehicle'|_ }}</h2>
 
                         <!-- add car make model, trim & year -->
                         <div class="cd-widget bg-white shadow rounded">
@@ -1313,15 +1313,15 @@ localeUrl[az] = "/car-edit"
                                 <div role="tabpanel"
                                      class="tab-pane fade  {% if car.is_rent == 1 %} in active  {% endif %}" id="rent">
                                     <div class="add-car-form form-inline">
-                                        <div class="form-group width50" style="height: 1px">
-                                            <label>{{ 'One Day'|_ }}</label>
+                                        <div class="form-group width25" style="height: 1px">
+                                            <label>{{ '1 Day'|_ }}</label>
                                             <input name="one_day" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.one_day }}  {% endif %}"
                                                    {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
                                             <p class="error-p" data-validate-for="one_day"></p>
                                         </div>
                                         <div class="form-group width50">
-                                            <label>{{ 'One Day Driver'|_ }}</label>
+                                            <label>{{ '1 Day Driver'|_ }}</label>
                                             <input name="one_day_driver" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.one_day_driver }}  {% endif %}"
                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">

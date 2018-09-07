@@ -275,6 +275,7 @@ class RentCatalogComponent extends ComponentBase
 
     public function onFilterResultPagination()
     {
+
         $this->prepareVars();
         $model = Car::with(['location', 'rental_value', 'engine_volume', 'year']);
         $model = $model->where('confirm', '1')->where('is_published', '1')->where('is_rent', '1');
@@ -328,6 +329,14 @@ class RentCatalogComponent extends ComponentBase
 
     protected function prepareVars()
     {
+        if (Cache::has('usd')) {
+
+            $this->page['usd'] = Cache::get('usd');
+        } else {
+            $connect_web = simplexml_load_file('https://www.cbar.az/other/xml-azn-rates/');
+            $usd = $connect_web->ValType[1]->Valute[44]->Value->__toString();
+            $this->page['usd'] = $usd;
+        }
         $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');
 
         $this->detailsKeyColumn = $this->page['detailsKeyColumn'] = $this->property('detailsKeyColumn');

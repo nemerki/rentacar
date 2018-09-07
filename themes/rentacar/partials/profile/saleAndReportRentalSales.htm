@@ -33,7 +33,7 @@
                 <div  class="modal-body">
                     <!-- form -->
                     <div  class="row">
-                        <div  class="col-sm-4 col-lg-4">
+                        <div  class="col-md-6">
                             <div class="car-preview">
                                 <h4 class="title modal__title">Car details</h4>
                                 <img src="{{ record.car.image.thumb(310,166) }}"
@@ -43,7 +43,7 @@
                             </div>
 
                         </div>
-                        <div  class="col-sm-4 col-lg-4">
+                        <div  class=" col-md-6">
                             <h4 class="title modal__title">Order details</h4>
 
 
@@ -52,6 +52,22 @@
                                     <span class="pull-left">Total Days:</span>
                                     <span class="pull-right">
                         <b id="startR">{{ record.rental_invoice.day }}</b>
+                      </span>
+                                </li>
+                                <li class="clearfix">
+                                    <span class="pull-left">{{ 'Rent Method'|_ }}:</span>
+                                    <span class="pull-right">
+                        <b id="startR">
+                         {% if record.rent_method=="1" %}
+                             {{ '   Rent City'|_ }}
+                         {% elseif record.rent_method=="2" %}
+                             {{ ' Rent City Driver'|_ }}
+                         {% elseif record.rent_method=="3" %}
+                             {{ '   Rent Region'|_ }}
+                         {% elseif record.rent_method=="4" %}
+                             {{ '  Rent Region Driver'|_ }}
+                         {% endif %}
+                        </b>
                       </span>
                                 </li>
                                 <li class="clearfix">
@@ -76,9 +92,9 @@
                       </span>
                                 </li>
                                 <li class="clearfix">
-                                    <span class="pull-left">EDV :</span>
+                                    <span class="pull-left">{{ 'Service Tax'|_ }} :</span>
                                     <span class="pull-right">
-                        <b id="dayP">&dollar;{{ record.rental_invoice.edv }}</b>
+                        <b id="dayP">&dollar;{{ record.rental_invoice.service_tax }}</b>
                       </span>
                                 </li>
                                 <li class="clearfix">
@@ -89,7 +105,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div  class="col-sm-4 col-lg-4">
+                    {#    <div  class="col-sm-4 col-lg-4">
                             <h4 class="title modal__title">Custemer information</h4>
                             <ul class="list-unstyled result-dates">
                                 <li class="clearfix">
@@ -115,7 +131,7 @@
 
 
                             </ul>
-                        </div>
+                        </div>#}
                     </div>
                 </div>
             </div>

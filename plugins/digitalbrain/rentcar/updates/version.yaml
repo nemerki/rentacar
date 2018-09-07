@@ -228,3 +228,21 @@
 1.0.77:
     - 'Drop table digitalbrain_rentcar_aadeneme'
     - builder_table_delete_digitalbrain_rentcar_aadeneme.php
+1.0.78:
+    - 'Updated table digitalbrain_rentcar_cars'
+    - builder_table_update_digitalbrain_rentcar_cars_15.php
+1.0.79:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals_8.php
+1.0.80:
+    - 'Updated table digitalbrain_rentcar_transfers'
+    - builder_table_update_digitalbrain_rentcar_transfers_11.php
+1.0.81:
+    - 'Updated table digitalbrain_rentcar_rental_values'
+    - builder_table_update_digitalbrain_rentcar_rental_values_2.php
+1.0.82:
+    - 'Updated table digitalbrain_rentcar_rentals'
+    - builder_table_update_digitalbrain_rentcar_rentals_9.php
+1.0.83:
+    - 'Updated table digitalbrain_rentcar_transfer_invoices'
+    - builder_table_update_digitalbrain_rentcar_transfer_invoices.php

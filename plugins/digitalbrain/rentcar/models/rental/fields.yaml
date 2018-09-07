@@ -5,8 +5,19 @@ fields:
             - Waiting
             - Confirmated
             - Rejected
-        span: auto
+        span: full
         type: dropdown
+    textarea1:
+        label: 'digitalbrain.rentcar::lang.all.rejected_comment'
+        size: ''
+        span: full
+        disabled: 1
+        trigger:
+            action: show
+            field: confirm
+            condition: 'value[2]'
+        cssClass: hide
+        type: textarea
     rental:
         span: full
         type: rental
