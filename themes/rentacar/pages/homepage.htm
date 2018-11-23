@@ -6,7 +6,7 @@ robot_index = "index"
 robot_follow = "follow"
 
 [viewBag]
-localeUrl[az] = "/homepage"
+localeUrl[az] = "/"
 
 [Homepage]
 
@@ -47,7 +47,7 @@ whereKey3 = 1
 whereColumn4 = "is_published"
 whereOperator4 = "="
 whereKey4 = 1
-take = 10
+take = 16
 
 [RecordList isTransferHot]
 modelClass = "DigitalBrain\RentCar\Models\Car"
@@ -73,7 +73,7 @@ whereKey3 = 1
 whereColumn4 = "is_published"
 whereOperator4 = "="
 whereKey4 = 1
-take = 10
+take = 16
 
 [RecordList latestAddRents]
 modelClass = "DigitalBrain\RentCar\Models\Car"
@@ -96,7 +96,7 @@ whereKey2 = 1
 whereColumn3 = "is_published"
 whereOperator3 = "="
 whereKey3 = 1
-take = 8
+take = 16
 
 [RecordList latestAddTransfer]
 modelClass = "DigitalBrain\RentCar\Models\Car"
@@ -119,7 +119,7 @@ whereKey2 = 1
 whereColumn3 = "is_published"
 whereOperator3 = "="
 whereKey3 = 1
-take = 8
+take = 16
 ==
 <!-- top main search -->
 <div class="container flexbox cd-top-container homeSlide"
@@ -178,37 +178,37 @@ take = 8
                       </path>
                   </g>
               </svg>
-            <h6 class="heading text-uppercase">{{ 'Number 1 car dealer in town'|_ }}</h6>
-            <h1 class="heading">{{ 'Let’s find the perfect one'|_ }} </h1>
+            <h6 class="heading text-uppercase">{{ 'home--> Number 1 car dealer in town'|_ }}</h6>
+            <h1 class="heading">{{ 'home--> Let’s find the perfect one'|_ }} </h1>
         </div>
     </div>
     <!-- search box form -->
     <div class="row">
-        <div class="col-lg-offset-3 col-lg-6">
+        <div class="col-lg-offset-2 col-lg-8">
             <div class="cd-top-search bg-white">
                 <div class="intro bg-info">
-                    <h4 class="pull-left heading">Perfect car fit search tool</h4>
+                    <h4 class="pull-left heading">{{ 'home--> Perfect car fit search tool'|_ }}</h4>
 
                     <div class="clearfix"></div>
                 </div>
                 <form class="form-inline" id="homeSearchForm">
                     <div class="form-group">
-                        <label for="cd-carmodel">{{ 'Ban'|_ }}</label>
+                        <label for="cd-carmodel">{{ 'home-- >Ban'|_ }}</label>
                         <select name="ban_id" class="cd-select js-example-basic-single sendForm"
                                 style="width: 100%;">
-                            <option value="" disabled selected>Select</option>
-                            <option value="">Any</option>
+                            <option value="" disabled selected>{{ 'Select'|_ }}</option>
+                            <option value=""></option>{{ 'Any'|_ }}
                             {% for ban in bans %}
                                 <option value="{{ ban.id }}">{{ ban.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="userPhone">City</label>
+                        <label for="userPhone">{{ 'home--> City'|_ }}</label>
                         <select name="city_id"
                                 class="cd-select js-example-basic-single sendForm"
                                 style="width: 100%">
-                            <option value="" disabled selected>Select make</option>
+                            <option value="" disabled selected>{{ 'Select make'|_ }}</option>
                             {% for city in cities %}
                                 <option value="{{ city.id }}">{{ city.name }}</option>
                             {% endfor %}
@@ -216,18 +216,18 @@ take = 8
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="cd-carmake">Brand</label>
+                        <label for="cd-carmake">{{ 'home--> Brand'|_ }}</label>
                         <select class="cd-select js-example-basic-single brand__select sendForm"
                                 id="cd-carmake"
                                 name="brand_id" style="width: 100%">
-                            <option value="" disabled selected>Any</option>
+                            <option value="" disabled selected>{{ 'Any'|_ }}</option>
                             {% for brand in brands %}
                                 <option value="{{ brand.id }}">{{ brand.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="cd-carmodel">Model</label>
+                        <label for="cd-carmodel">{{ 'home--> Model'|_ }}</label>
                         <select class="cd-select js-example-basic-single models_select sendForm"
                                 name="mdl_id"
                                 id="cd-carmodel" style="width: 100%">
@@ -236,7 +236,7 @@ take = 8
                     </div>
                     <div class="form-group custom-range">
                         <p>
-                            <label for="priceUp">Price up to <span>	&#8380;</span></label>
+                            <label for="priceUp">{{ 'home--> Price up to'|_ }} <span>	&#8380;</span></label>
                             <input type="text" name="price" id="priceUp" readonly class="pull-left">
                         </p>
                         <div id="priceUpRange" class="pull-right"></div>
@@ -248,19 +248,18 @@ take = 8
                         <label>
                             <input type="radio" value="1" name="is_rent" checked="">
                             <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                            Rent
+                            {{ 'home--> Rent'|_ }}
                         </label>
                         <label>
                             <input type="radio" value="0" name="is_rent">
                             <span class="cr"><i class="cr-icon fa fa-circle"></i></span>
-                            Transfer
+                            {{ 'home--> Transfer'|_ }}
                         </label>
                     </div>
 
                     <div class="form-group">
                         <!-- <button type="submit" class="btn btn-default">Search through  <span id="cd-cars-nr-list">2236</span> cars</button> -->
-                        <a href="javascript:void(0) " id="filterBtn" class="btn btn-default">Search through <span
-                                    id="cd-cars-nr-list">2236</span> cars</a>
+                        <a href="javascript:void(0) " id="filterBtn" class="btn btn-default">{{ 'home--> Search through cars'|_ }}  </a>
                     </div>
                     <div class="clearfix"></div>
                 </form>
@@ -276,7 +275,7 @@ take = 8
 <main style="margin-top: 0 !important;">
 
 
-    <!--  hot offers Rent -->
+   {# <!--  hot offers Rent -->
     <section class="bg-white pb30">
         <div class="container">
             <div class="row">
@@ -428,10 +427,12 @@ take = 8
                                 </h4>
                                 {% if record.is_rent==1 %}
                                     <h4 class="cd-price price">
-                                           {{ (record.rental_value.one_day/usd) |round }} &dollar; /  {{ record.rental_value.one_day }} &#8380;
+                                        {{ (record.rental_value.one_day/usd) |round }} &dollar;
+                                        / {{ record.rental_value.one_day }} &#8380;
                                     </h4>
                                 {% else %}
-                                    <h4 class="cd-price price">{{ (record.transfer_value.city / usd) }} &dollar; / {{ record.transfer_value.city }} &#8380;</h4>
+                                    <h4 class="cd-price price">{{ (record.transfer_value.city / usd) }} &dollar;
+                                        / {{ record.transfer_value.city }} &#8380;</h4>
                                 {% endif %}
 
 
@@ -446,16 +447,407 @@ take = 8
             </div>
         </div>
     </section>
+    <!-- /.hot offers -->#}
+
+    <!--  hot offers Rent -->
+    <section class="bg-white pb30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center section-intro">
+                    <h1 class="heading">{{ 'home--> Rent Hot offers'|_ }}</h1>
+                </div>
+            </div>
+
+            <!-- blocks with grey bg & big sale icon -->
+            <div class="row">
+                {% for rec in isRentHot.records %}
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="cd-offer-blk thumbnail bg-grey sale-offer" data-lat="40.729423"
+                             data-long="-73.985040"
+                             data-thumb="http://via.placeholder.com/650x350"
+                             data-pin="{{ 'assets/images/map-icon.png'|theme }}"
+                             data-type="for rent" data-link="car-sale-item.html" data-title=" ">
+                            <div class="cd-offer-img">
+                                {% if rec.is_vip == '1' %}
+                                    <div class="sale-wrapper">
+                                        <span class="cd-sale-info">{{ 'home--> VİP'|_ }}</span>
+                                    </div>
+
+                                {% endif %}
+
+                                <img src="{{ rec.image.path }}" alt="car-photos" class="img-responsive">
+                                <!-- hover images gallery -->
+                                <div class="cd-hover-gal owl-carousel no-overlay">
+
+                                    {% if  rec.gallery1.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery1.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery2.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery2.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+                                    {% if  rec.gallery3.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery3.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+                                    {% if  rec.gallery3.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery3.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+                                    {% if  rec.gallery4.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery4.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery5.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery5.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery6.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery6.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery7.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery7.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery8.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery8.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery9.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery9.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery10.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery10.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery11.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery11.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery12.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery12.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery13.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery13.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery14.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery14.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery15.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery15.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                                {% spaceless %}
+                                    {% if isRentHot.detailsPage %}
+                                        <a class="cd-offer-lnk" href="{{ isRentHot.detailsPage|page({ (detailsUrlParameter): rec.slug }) }}">
+                                    {% endif %}
+
+                                    {% if isRentHot.detailsPage %}
+                                        </a>
+                                    {% endif %}
+                                {% endspaceless %}
+
+                            </div>
+                            <div class="cd-offer-meta">
+                                <h4 class="heading">
+                                    {% spaceless %}
+                                        {% if isRentHot.detailsPage %}
+                                            <a href="{{ isRentHot.detailsPage|page({ (detailsUrlParameter): rec.slug }) }}">
+                                        {% endif %}
+                                        {{ rec.brand.name }} {{ rec.mdl.name }} {{ rec.trim.name }}
+                                        <br><span class="productYear">{{ rec.year.year }}</span>
+                                        {% if isRentHot.detailsPage %}
+                                            </a>
+                                        {% endif %}
+                                    {% endspaceless %}
+
+
+                                </h4>
+                                <span class="cd-car-spec">{{ rec.engine_volume.volume/1000 }}
+                                    L {{ rec.fuel.name }}  {{ rec.transmision.name }}</span>
+                                <hr class="separator">
+                                <h4 class="cd-price price pull-left">{{ (rec.rental_value.one_day/usd)|round }}&dollar;
+                                    / {{ rec.rental_value.one_day }} &#8380;</h4>
+                                <div class="clearfix"></div>
+                                {% spaceless %}
+                                    {% if isRentHot.detailsPage %}
+                                        <a class="btn btn-default pull-left" href="{{ isRentHot.detailsPage|page({ (detailsUrlParameter): rec.slug }) }}">
+                                    {% endif %}
+                                    View details <i
+                                        class="fa fa-angle-right"></i>
+                                    {% if isRentHot.detailsPage %}
+                                        </a>
+                                    {% endif %}
+                                {% endspaceless %}
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+            <!-- /.blocks with grey bg & big sale icon -->
+
+        </div>
+    </section>
     <!-- /.hot offers -->
 
+    <!--  hot  offers Transfer-->
+    <section class="bg-white pb30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center section-intro">
+                    <h1 class="heading">{{ 'home--> Transfer Hot offers'|_ }}</h1>
+                </div>
+            </div>
+
+            <!-- blocks with grey bg & big sale icon -->
+            <div class="row">
+                {% for rec in isTransferHot.records %}
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="cd-offer-blk thumbnail bg-grey sale-offer" data-lat="40.729423"
+                             data-long="-73.985040"
+                             data-thumb="http://via.placeholder.com/650x350"
+                             data-pin="{{ 'assets/images/map-icon.png'|theme }}"
+                             data-type="for rent" data-link="car-sale-item.html" data-title=" ">
+                            <div class="cd-offer-img">
+                                {% if rec.is_vip == '1' %}
+                                    <div class="sale-wrapper">
+                                        <span class="cd-sale-info">{{ 'home--> VİP'|_ }}</span>
+                                    </div>
+
+                                {% endif %}
+
+                                <img src="{{ rec.image.path }}" alt="car-photos" class="img-responsive">
+                                <!-- hover images gallery -->
+                                <div class="cd-hover-gal owl-carousel no-overlay">
+
+                                    {% if  rec.gallery1.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery1.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery2.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery2.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+                                    {% if  rec.gallery3.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery3.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+                                    {% if  rec.gallery3.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery3.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+                                    {% if  rec.gallery4.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery4.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery5.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery5.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery6.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery6.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery7.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery7.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery8.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery8.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery9.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery9.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery10.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery10.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery11.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery11.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery12.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery12.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery13.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery13.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery14.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery14.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                    {% if  rec.gallery15.path %}
+                                        <div>
+                                            <img src="{{ rec.gallery15.path|resize(650, 350) }}" alt="car-image"
+                                                 class="img-responsive">
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+                                {% spaceless %}
+                                    {% if isTransferHot.detailsPage %}
+                                        <a class="cd-offer-lnk" href="{{ isTransferHot.detailsPage|page({ (detailsUrlParameter): rec.slug }) }}">
+                                    {% endif %}
+
+                                    {% if isTransferHot.detailsPage %}
+                                        </a>
+                                    {% endif %}
+                                {% endspaceless %}
+
+                            </div>
+                            <div class="cd-offer-meta">
+                                <h4 class="heading">
+                                    {% spaceless %}
+                                        {% if isTransferHot.detailsPage %}
+                                            <a href="{{ isTransferHot.detailsPage|page({ (detailsUrlParameter): rec.slug }) }}">
+                                        {% endif %}
+                                        {{ rec.brand.name }} {{ rec.mdl.name }} {{ rec.trim.name }}
+                                        <br><span class="productYear">{{ rec.year.year }}</span>
+                                        {% if isTransferHot.detailsPage %}
+                                            </a>
+                                        {% endif %}
+                                    {% endspaceless %}
+
+
+                                </h4>
+                                <span class="cd-car-spec">{{ rec.engine_volume.volume/1000 }}
+                                    L {{ rec.fuel.name }}  {{ rec.transmision.name }}</span>
+                                <hr class="separator">
+                                <h4 class="cd-price price pull-left">{{ (rec.rental_value.one_day/usd)|round }}&dollar;
+                                    / {{ rec.rental_value.one_day }} &#8380;</h4>
+                                <div class="clearfix"></div>
+                                {% spaceless %}
+                                    {% if isTransferHot.detailsPage %}
+                                        <a class="btn btn-default pull-left" href="{{ isTransferHot.detailsPage|page({ (detailsUrlParameter): rec.slug }) }}">
+                                    {% endif %}
+                                    {{ 'home--> View details'|_ }} <i
+                                        class="fa fa-angle-right"></i>
+                                    {% if isTransferHot.detailsPage %}
+                                        </a>
+                                    {% endif %}
+                                {% endspaceless %}
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+            <!-- /.blocks with grey bg & big sale icon -->
+
+        </div>
+    </section>
+    <!-- /.hot offers -->
 
     <!-- latest additions -->
     <section class="bg-white pb30" id="demoCars">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center section-intro">
-                    <h1 class="heading">Latest Rent Additions</h1>
-                    <span>Check out our latest marketplace vehicle offers additions. We're sure you'll find what you're looking for.</span>
+                    <h1 class="heading">{{ 'home--> Latest Rent Additions'|_ }}</h1>
+                    <span>{{ "home--> Check out our latest marketplace vehicle offers additions. We're sure you'll find what you're looking for."|_ }}</span>
                 </div>
             </div>
 
@@ -619,13 +1011,15 @@ take = 8
                                 <span class="cd-car-spec">{{ latestRent.engine_volume.volume/1000 }}
                                     L {{ latestRent.fuel.name }}  {{ latestRent.transmision.name }}</span>
                                 <hr class="separator">
-                                <h4 class="cd-price price pull-left">{{ (latestRent.rental_value.one_day/usd)|round }}&dollar; / {{ latestRent.rental_value.one_day }} &#8380;</h4>
+                                <h4 class="cd-price price pull-left">
+                                    {{ (latestRent.rental_value.one_day/usd)|round }}&dollar;
+                                    / {{ latestRent.rental_value.one_day }} &#8380;</h4>
                                 <div class="clearfix"></div>
                                 {% spaceless %}
                                     {% if latestAddRents.detailsPage %}
                                         <a class="btn btn-default pull-left" href="{{ latestAddRents.detailsPage|page({ (detailsUrlParameter): latestRent.slug }) }}">
                                     {% endif %}
-                                    View details <i
+                                    {{ 'home--> View details'|_ }} <i
                                         class="fa fa-angle-right"></i>
                                     {% if latestAddRents.detailsPage %}
                                         </a>
@@ -645,182 +1039,14 @@ take = 8
     </section>
     <!-- /.latest additions -->
 
-    <!--  hot  offers Transfer-->
-    <section class="bg-white pb30">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center section-intro">
-                    <h1 class="heading">{{ 'Transfer Hot offers'|_ }}</h1>
-                    <span>Save big on these special selected deals!.</span>
-                </div>
-            </div>
-            <div class="row">
-                <!-- cars offer block image -->
-                <div class="owl-carousel owl-theme hotoffer_carusel">
-                    {% for record in isTransferHot.records %}
-                        <div class="cd-offer-blk card thumbnail overlayed sale-offer">
-                            <div class="cd-offer-img overlayed1">
-                                {% if record.is_vip == '1' %}
-                                    <div class="sale-type1">
-                                        <div class="sale-type1">
-                                            <span class="cd-sale-info">{{ 'VİP'|_ }}</span>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                                <img src="{{ record.image.path }}" alt="car-photos" class="img-responsive">
-                                <!-- hover images gallery -->
-                                <div class="cd-hover-gal owl-carousel">
-                                    {% if  record.gallery1.path %}
-                                        <div>
-                                            <img src="{{ record.gallery1.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery2.path %}
-                                        <div>
-                                            <img src="{{ record.gallery2.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-                                    {% if  record.gallery3.path %}
-                                        <div>
-                                            <img src="{{ record.gallery3.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-                                    {% if  record.gallery3.path %}
-                                        <div>
-                                            <img src="{{ record.gallery3.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-                                    {% if  record.gallery4.path %}
-                                        <div>
-                                            <img src="{{ record.gallery4.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery5.path %}
-                                        <div>
-                                            <img src="{{ record.gallery5.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery6.path %}
-                                        <div>
-                                            <img src="{{ record.gallery6.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery7.path %}
-                                        <div>
-                                            <img src="{{ record.gallery7.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery8.path %}
-                                        <div>
-                                            <img src="{{ record.gallery8.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery9.path %}
-                                        <div>
-                                            <img src="{{ record.gallery9.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery10.path %}
-                                        <div>
-                                            <img src="{{ record.gallery10.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery11.path %}
-                                        <div>
-                                            <img src="{{ record.gallery11.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery12.path %}
-                                        <div>
-                                            <img src="{{ record.gallery12.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery13.path %}
-                                        <div>
-                                            <img src="{{ record.gallery13.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery14.path %}
-                                        <div>
-                                            <img src="{{ record.gallery14.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                    {% if  record.gallery15.path %}
-                                        <div>
-                                            <img src="{{ record.gallery15.path|resize(650, 350) }}" alt="car-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    {% endif %}
-
-                                </div>
-                                {% spaceless %}
-                                    {% if isTransferHot.detailsPage %}
-                                        <a class="cd-offer-lnk" href="{{ isTransferHot.detailsPage|page({ (detailsUrlParameter): record.slug }) }}">
-                                    {% endif %}
-
-                                    {% if isTransferHot.detailsPage %}
-                                        </a>
-                                    {% endif %}
-                                {% endspaceless %}
-
-                            </div>
-                            <div class="cd-offer-meta">
-                                <h4 class="heading"> {{ record.brand.name }} {{ record.mdl.name }} {{ record.trim.name }}  {{ record.year.year }}
-                                </h4>
-                                {% if record.is_rent==1 %}
-                                    <h4 class="cd-price price">{{ (record.rental_value.one_day/usd)|round }} &dollar; / {{ record.rental_value.one_day }} &#8380;</h4>
-                                {% else %}
-                                    <h4 class="cd-price price">{{ (record.transfer_value.city/usd)|round }} &dollar; / {{ record.transfer_value.city }} &#8380;</h4>
-                                {% endif %}
-
-
-                            </div>
-                        </div>
-                    {% endfor %}
-
-
-                </div>
-
-                <!-- /.cars offer block image -->
-            </div>
-        </div>
-    </section>
-    <!-- /.hot offers -->
 
     <!-- latest additions -->
     <section class="bg-white pb30" id="demoCars">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center section-intro">
-                    <h1 class="heading">{{ 'Latest Transfer Additions'|_ }}</h1>
-                    <span>{{ "Check out our latest marketplace vehicle offers additions. We're sure you'll find what you're looking for."|_ }}</span>
+                    <h1 class="heading">{{ 'home--> Latest Transfer Additions'|_ }}</h1>
+                    <span>{{ "home--> Check out our latest marketplace vehicle offers additions. We're sure you'll find what you're looking for."|_ }}</span>
                 </div>
             </div>
 
@@ -985,13 +1211,14 @@ take = 8
                                 <span class="cd-car-spec">{{ latestTrans.engine_volume.volume/1000 }}
                                     L {{ latestTrans.fuel.name }}  {{ latestTrans.transmision.name }}</span>
                                 <hr class="separator">
-                                <h4 class="cd-price price pull-left">{{ (latestTrans.transfer_value.city/usd)|round }} &dollar; / {{ latestTrans.transfer_value.city }} &#8380;</h4>
+                                <h4 class="cd-price price pull-left">{{ (latestTrans.transfer_value.city/usd)|round }}
+                                    &dollar; / {{ latestTrans.transfer_value.city }} &#8380;</h4>
                                 <div class="clearfix"></div>
                                 {% spaceless %}
                                     {% if latestAddTransfer.detailsPage %}
                                         <a class="btn btn-default pull-left" href="{{ latestAddTransfer.detailsPage|page({ (detailsUrlParameter): latestTrans.slug }) }}">
                                     {% endif %}
-                                    View details <i
+                                    {{ 'home--> View details'|_ }} <i
                                         class="fa fa-angle-right"></i>
                                     {% if latestAddTransfer.detailsPage %}
                                         </a>
@@ -1018,8 +1245,8 @@ take = 8
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center section-intro">
-                    <h1 class="heading">{{ 'FAQ'|_ }}</h1>
-                    <span>{{ 'Answers to the most frequently asked questions'|_ }}</span>
+                    <h1 class="heading">{{ 'home--> FAQ'|_ }}</h1>
+                    <span>{{ 'home--> Answers to the most frequently asked questions'|_ }}</span>
                 </div>
             </div>
             <!-- faq accordion -->

@@ -1,0 +1,15 @@
+title: CustomerController
+modelClass: DigitalBrain\RentCar\Models\User
+list: $/digitalbrain/rentcar/models/user/columns.yaml
+recordUrl: 'digitalbrain/rentcar/customercontroller/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+defaultSort:
+    column: count
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

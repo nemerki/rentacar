@@ -39,7 +39,7 @@ localeUrl[az] = "/car-edit"
 
                                             {% for brand in brands %}
                                                 <option {% if brand.id ==car.brand.id %} selected  {% endif %}
-                                                    value="{{ brand.id }}">{{ brand.name }}</option>
+                                                        value="{{ brand.id }}">{{ brand.name }}</option>
                                             {% endfor %}
 
                                         </select>
@@ -71,7 +71,7 @@ localeUrl[az] = "/car-edit"
                                             </option>
                                             {% for year in years %}
                                                 <option {% if year.id ==car.year.id %} selected  {% endif %}
-                                                    value="{{ year.id }}">{{ year.year }}</option>
+                                                        value="{{ year.id }}">{{ year.year }}</option>
                                             {% endfor %}
                                         </select>
                                         <p class="error-p" data-validate-for="year_id"></p>
@@ -94,7 +94,7 @@ localeUrl[az] = "/car-edit"
                                             <option value="" disabled selected>Any</option>
                                             {% for fuel in fuels %}
                                                 <option {% if fuel.id ==car.fuel.id %} selected  {% endif %}
-                                                    value="{{ fuel.id }}">{{ fuel.name }}</option>
+                                                        value="{{ fuel.id }}">{{ fuel.name }}</option>
                                             {% endfor %}
                                         </select>
                                         <p class="error-p" data-validate-for="fuel_id"></p>
@@ -108,7 +108,7 @@ localeUrl[az] = "/car-edit"
                                             <option value="" disabled selected>{{ 'Any'|_ }}</option>
                                             {% for transmision in transmisions %}
                                                 <option {% if transmision.id ==car.transmision.id %} selected  {% endif %}
-                                                    value="{{ transmision.id }}">{{ transmision.name }}</option>
+                                                        value="{{ transmision.id }}">{{ transmision.name }}</option>
                                             {% endfor %}
                                         </select>
                                         <p class="error-p" data-validate-for="transmision_id"></p>
@@ -122,7 +122,7 @@ localeUrl[az] = "/car-edit"
                                             <option value="" disabled selected>{{ 'Any'|_ }}</option>
                                             {% for wheel in wheels %}
                                                 <option {% if wheel.id ==car.wheel.id %} selected  {% endif %}
-                                                    value="{{ wheel.id }}">{{ wheel.name }}</option>
+                                                        value="{{ wheel.id }}">{{ wheel.name }}</option>
                                             {% endfor %}
                                         </select>
                                         <p class="error-p" data-validate-for="wheel_id"></p>
@@ -136,7 +136,7 @@ localeUrl[az] = "/car-edit"
                                             <option value="" disabled selected>{{ 'Any'|_ }}</option>
                                             {% for engine_volume in engine_volumes %}
                                                 <option {% if engine_volume.id ==car.engine_volume.id %} selected  {% endif %}
-                                                    value="{{ engine_volume.id }}">{{ engine_volume.volume }}</option>
+                                                        value="{{ engine_volume.id }}">{{ engine_volume.volume }}</option>
                                             {% endfor %}
                                         </select>
                                         <p class="error-p" data-validate-for="engine_volume_id"></p>
@@ -162,7 +162,7 @@ localeUrl[az] = "/car-edit"
                                         <div class="col-lg-6">
                                             <h5 class="text-center">{{ 'VIP'|_ }}</h5>
                                             <div
-                                                class="custom-checkbox custom-selector text-center shadow rounded bg-white">
+                                                    class="custom-checkbox custom-selector text-center shadow rounded bg-white">
                                                 <label>
                                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -250,7 +250,7 @@ localeUrl[az] = "/car-edit"
                                         <div class="col-lg-6">
                                             <h5 class="text-center">{{ 'Econom'|_ }}</h5>
                                             <div
-                                                class="custom-checkbox custom-selector text-center shadow rounded bg-white">
+                                                    class="custom-checkbox custom-selector text-center shadow rounded bg-white">
                                                 <label>
                                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
                                                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -380,7 +380,8 @@ localeUrl[az] = "/car-edit"
                                                 style="width: 100%">
                                             <option value="" disabled selected>{{ 'Select make'|_ }}</option>
                                             {% for city in cities %}
-                                                <option {% if city.id ==car.location.city_id %} selected  {% endif %} value="{{ city.id }}">{{ city.name }}</option>
+                                                <option {% if city.id ==car.location.city_id %} selected  {% endif %}
+                                                        value="{{ city.id }}">{{ city.name }}</option>
                                             {% endfor %}
 
                                         </select>
@@ -1255,7 +1256,7 @@ localeUrl[az] = "/car-edit"
                           c-2.5,0-4.4-2-4.4-4.4s2-4.4,4.4-4.4s4.5,2,4.5,4.4S65.9,51.6,63.4,51.6z"/>
                       </g>
                       </svg>
-                                    <input  type="file" id="img15" name="gallery15">
+                                    <input type="file" id="img15" name="gallery15">
                                     <span class="hover-blk text-center">
                         <i class="fa fa-cloud-upload"></i>
                         Upload photo
@@ -1295,18 +1296,21 @@ localeUrl[az] = "/car-edit"
                                        name="is_rent" class="is_rent">
                                 <input type="hidden" value="{% if car.is_transfer == 1 %}1{% else %}0{% endif %}"
                                        name="is_transfer" class="is_transfer">
+                                {% if car.is_rent == 1 %}
                                 <li role="presentation" class=" {% if car.is_rent == 1 %} active  {% endif %} ">
                                     <a href="#rent" aria-controls="rent" role="tab" data-toggle="tab"
                                        class="custom-radio myRent">
                                         <span>{{ 'Rent'|_ }}</span>
                                     </a>
                                 </li>
+                                {% else %}
                                 <li role="presentation" class=" {% if car.is_transfer == 1 %} active  {% endif %}">
                                     <a href="#transfer" aria-controls="transfer" role="tab" data-toggle="tab"
                                        class="custom-radio myTransfer">
                                         <span>{{ 'Transfer'|_ }}</span>
                                     </a>
                                 </li>
+                                {% endif %}
                             </ul>
                             <div class="clearfix"></div>
                             <div class="tab-content">
@@ -1315,65 +1319,146 @@ localeUrl[az] = "/car-edit"
                                     <div class="add-car-form form-inline">
                                         <div class="form-group width25" style="height: 1px">
                                             <label>{{ '1 Day'|_ }}</label>
-                                            <input name="one_day" type="text" class="form-control rent__input"
+                                            <input id="one_day" name="one_day" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.one_day }}  {% endif %}"
-                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                             <p class="error-p" data-validate-for="one_day"></p>
                                         </div>
-                                        <div class="form-group width50">
+                                        <div class="form-group width25">
                                             <label>{{ '1 Day Driver'|_ }}</label>
-                                            <input name="one_day_driver" type="text" class="form-control rent__input"
+                                            <input  id="one_day_driver"  name="one_day_driver" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.one_day_driver }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }}">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Three Day'|_ }}</label>
-                                            <input name="three_day" type="text" class="form-control rent__input"
+
+                                        <div class="form-group width25">
+                                            <label>{{ '1 Day Region'|_ }}</label>
+                                            <input name="one_day_region" id="one_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.one_day_region }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %}
+                                                   placeholder="{{ 'Price'|_ }} ">
+                                            <p class="error-p" data-validate-for="one_day_region"></p>
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ '1 Day Region Driver'|_ }}</label>
+                                            <input name="one_day_region_driver" id="one_day_region_driver" type="text"
+                                                   class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.one_day_region_driver }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }}">
+                                            <p class="error-p" data-validate-for="one_day_region_driver"></p>
+                                        </div>
+
+                                        <div class="form-group width25">
+                                            <label>{{ '3 Day'|_ }}</label>
+                                            <input name="three_day" type="text" id="three_day" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.three_day }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Three Day Driver'|_ }}</label>
-                                            <input name="three_day_driver" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '3 Day Driver'|_ }}</label>
+                                            <input name="three_day_driver" id="three_day_driver" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.three_day_driver }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Seven Day '|_ }}</label>
-                                            <input name="seven_day" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ ' 3 Day Region'|_ }}</label>
+                                            <input name="three_day_region" id="three_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.three_day_region }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ ' 3 Day Region Driver'|_ }}</label>
+                                            <input name="three_day_region_driver" id="three_day_region_driver"
+                                                   type="text" class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.three_day_region_driver }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+
+                                        <div class="form-group width25">
+                                            <label>{{ '7 Day '|_ }}</label>
+                                            <input name="seven_day" id="seven_day" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.seven_day }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Seven Day Driver'|_ }}</label>
-                                            <input name="seven_day_driver" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '7 Day Driver'|_ }}</label>
+                                            <input name="seven_day_driver" id="seven_day_driver" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.seven_day_driver }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Thirty Day'|_ }}</label>
-                                            <input name="thirty_day" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ ' 7 Day Region'|_ }}</label>
+                                            <input name="seven_day_region" id="seven_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.seven_day_region }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ ' 7 Day Region Driver'|_ }}</label>
+                                            <input name="seven_day_region_driver" id="seven_day_region_driver"
+                                                   type="text" class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.seven_day_region_driver }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+
+
+                                        <div class="form-group width25">
+                                            <label>{{ '30 Day'|_ }}</label>
+                                            <input name="thirty_day" id="thirty_day" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.thirty_day }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Thirty Day Driver'|_ }}</label>
-                                            <input name="thirty_day_driver" type="text" class="form-control rent__input"
+                                        <div class="form-group width25">
+                                            <label>{{ '30 Day Driver'|_ }}</label>
+                                            <input name="thirty_day_driver" id="thirty_day_driver" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.thirty_day_driver }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Over Thirty Day '|_ }}</label>
-                                            <input name="over_thirty_day" type="text" class="form-control rent__input"
+
+                                        <div class="form-group width25">
+                                            <label>{{ ' 30 Day Region'|_ }}</label>
+                                            <input name="thirty_day_region" id="thirty_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.thirty_day_region }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ ' 30 Day Region Driver'|_ }}</label>
+                                            <input name="thirty_day_region_driver" id="thirty_day_region_driver"
+                                                   type="text" class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.thirty_day_region_driver }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+
+                                        <div class="form-group width25">
+                                            <label>{{ '30+ Day '|_ }}</label>
+                                            <input name="over_thirty_day" id="over_thirty_day" type="text" class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.over_thirty_day }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
-                                        <div class="form-group width50">
-                                            <label>{{ 'Over Thirty Driver'|_ }}</label>
-                                            <input name="over_thirty_day_driver" type="text"
+                                        <div class="form-group width25">
+                                            <label>{{ '30+ Driver'|_ }}</label>
+                                            <input name="over_thirty_day_driver" id="over_thirty_day_driver" type="text"
                                                    class="form-control rent__input"
                                                    value="{% if car.is_rent == 1 %} {{ car.rental_value.over_thirty_day_driver }}  {% endif %}"
-                                                  {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ ' 30+ Day Region'|_ }}</label>
+                                            <input name="over_thirty_day_region" id="over_thirty_day_region" type="text"
+                                                   class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.over_thirty_day_region }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
+                                        </div>
+                                        <div class="form-group width25">
+                                            <label>{{ ' 30+ Day Region Driver '|_ }}</label>
+                                            <input name="over_thirty_day_region_driver"
+                                                   id="over_thirty_day_region_driver" type="text"
+                                                   class="form-control rent__input"
+                                                   value="{% if car.is_rent == 1 %} {{ car.rental_value.over_thirty_day_region_driver }}  {% endif %}"
+                                                   {% if  car.is_rent == 0 %}disabled {% endif %} placeholder="{{ 'Price'|_ }} ">
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -1387,15 +1472,17 @@ localeUrl[az] = "/car-edit"
                                             <label>{{ 'City'|_ }}</label>
                                             <input name="city" type="text" class="form-control transfer__input"
                                                    value="{% if car.is_transfer == 1 %} {{ car.transfer_value.city }}  {% endif %}"
-                                                   {% if  car.is_transfer == 0 %}disabled {% endif %} placeholder="Price ">
+                                                   {% if  car.is_transfer == 0 %}disabled {% endif %}
+                                                   placeholder="{{ 'Price'|_ }} ">
                                             <p class="error-p" data-validate-for="city"></p>
                                         </div>
 
                                         <div class="form-group width50">
                                             <label>{{ 'Airport to Hotel'|_ }}</label>
                                             <input name="airport" type="text" class="form-control transfer__input"
-                                                   {% if  car.is_transfer == 0 %}disabled {% endif %}  value="{% if car.is_transfer== 1 %} {{ car.transfer_value.airport }}  {% endif %}"
-                                                   placeholder="Price ">
+                                                   {% if  car.is_transfer == 0 %}disabled {% endif %}
+                                                   value="{% if car.is_transfer== 1 %} {{ car.transfer_value.airport }}  {% endif %}"
+                                                   placeholder="{{ 'Price'|_ }} ">
                                         </div>
 
                                     </div>
@@ -1446,7 +1533,7 @@ localeUrl[az] = "/car-edit"
                                         <option value="" disabled selected>{{ 'Select'|_ }}</option>
                                         {% for ban in bans %}
                                             <option {% if ban.id ==car.ban.id %} selected  {% endif %}
-                                                value="{{ ban.id }}">{{ ban.name }}</option>
+                                                    value="{{ ban.id }}">{{ ban.name }}</option>
                                         {% endfor %}
                                     </select>
                                     <p class="error-p" data-validate-for="ban_id"></p>
@@ -1458,7 +1545,7 @@ localeUrl[az] = "/car-edit"
                                         <option value="" disabled selected>{{ 'Select'|_ }}</option>
                                         {% for color in colors %}
                                             <option {% if color.id ==car.color.id %} selected  {% endif %}
-                                                value="{{ color.id }}">{{ color.name }}</option>
+                                                    value="{{ color.id }}">{{ color.name }}</option>
                                         {% endfor %}
                                     </select>
                                     <p class="error-p" data-validate-for="color_id"></p>
@@ -1470,7 +1557,7 @@ localeUrl[az] = "/car-edit"
                                         <option value="" disabled selected>{{ 'Select'|_ }}</option>
                                         {% for seat in seats %}
                                             <option {% if seat.id ==car.seat.id %} selected  {% endif %}
-                                                value="{{ seat.id }}">{{ seat.number }}</option>
+                                                    value="{{ seat.id }}">{{ seat.number }}</option>
                                         {% endfor %}
                                     </select>
                                     <p class="error-p" data-validate-for="seat_id"></p>
@@ -1530,8 +1617,8 @@ localeUrl[az] = "/car-edit"
                                                 <li class="custom-checkbox">
                                                     <label>
                                                         <input {% if equipment.id in equipments %} checked  {% endif %}
-                                                            name="equipment_id[]" value="{{ equipment.id }}"
-                                                            type="checkbox">
+                                                                name="equipment_id[]" value="{{ equipment.id }}"
+                                                                type="checkbox">
                                                         <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                                         {{ equipment.name }}
                                                     </label>
@@ -1565,7 +1652,8 @@ localeUrl[az] = "/car-edit"
                                     <div class="custom-checkbox width52">
                                         <div class="form-group ">
 
-                                            <label class="addEquipment"><i class="fa fa-plus"></i> {{ 'Add Equipment'|_ }}</label>
+                                            <label class="addEquipment"><i
+                                                        class="fa fa-plus"></i> {{ 'Add Equipment'|_ }}</label>
 
                                         </div>
                                     </div>
@@ -1578,7 +1666,7 @@ localeUrl[az] = "/car-edit"
                             <div class="flex-between">
                                 <div class="custom-checkbox pull-left">
                                     <label>
-                                        <input name="kasko"  type="checkbox">
+                                        <input name="kasko" type="checkbox">
                                         <span class="cr"><i class="cr-icon fa fa-check"></i></span>
                                         {{ 'I have a kasko'|_ }}
                                     </label>
@@ -1586,7 +1674,8 @@ localeUrl[az] = "/car-edit"
                                     <label style="margin-top: 10px; width: 100%">
                                         <input name="term" type="checkbox">
                                         <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                      {{ '  I agree with the'|_ }} <a href="#">{{ 'Terms &amp; Conditions'|_ }}</a> {{ 'of this website.'|_ }}
+                                        {{ '  I agree with the'|_ }} <a
+                                                href="#">{{ 'Terms &amp; Conditions'|_ }}</a> {{ 'of this website.'|_ }}
                                     </label>
                                     <p class="error-p" data-validate-for="term"></p>
                                 </div>
@@ -1618,8 +1707,8 @@ localeUrl[az] = "/car-edit"
             swal({
                 title: 'Yüklənir...',
                 html:
-                '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
-                ' <span class="sr-only">Loading...</span>',
+                    '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+                    ' <span class="sr-only">Loading...</span>',
                 showCloseButton: false,
                 showCancelButton: false,
                 showConfirmButton: false,
@@ -1646,8 +1735,8 @@ localeUrl[az] = "/car-edit"
             swal({
                 title: 'Yüklənir...',
                 html:
-                '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
-                ' <span class="sr-only">Loading...</span>',
+                    '<i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>' +
+                    ' <span class="sr-only">Loading...</span>',
                 showCloseButton: false,
                 showCancelButton: false,
                 showConfirmButton: false,
@@ -1772,3 +1861,46 @@ localeUrl[az] = "/car-edit"
 
     });
 </script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#one_day').on('change', function () {
+            var one = $(this).val();
+            console.log(one);
+            $("#three_day").val(one * 3);
+            $("#seven_day").val(one * 7);
+            $("#thirty_day").val(one * 30);
+            $("#over_thirty_day").val(one);
+        });
+
+        $('#one_day_driver').on('change', function () {
+            var one_driver = $(this).val();
+            console.log(one_driver);
+            $("#three_day_driver").val(one_driver * 3);
+            $("#seven_day_driver").val(one_driver * 7);
+            $("#thirty_day_driver").val(one_driver * 30);
+            $("#over_thirty_day_driver").val(one_driver);
+        });
+
+        $('#one_day_region').on('change', function () {
+            var one_region = $(this).val();
+            console.log(one_region);
+            $("#three_day_region").val(one_region * 3);
+            $("#seven_day_region").val(one_region * 7);
+            $("#thirty_day_region").val(one_region * 30);
+            $("#over_thirty_day_region").val(one_region);
+        });
+
+        $("#one_day_region_driver").on('change', function () {
+            var one_region_driver = $(this).val();
+            console.log(one_region_driver);
+            $("#three_day_region_driver").val(one_region_driver * 3);
+            $("#seven_day_region_driver").val(one_region_driver * 7);
+            $("#thirty_day_region_driver").val(one_region_driver * 30);
+            $("#over_thirty_day_region_driver").val(one_region_driver);
+        });
+    });
+
+</script>
+

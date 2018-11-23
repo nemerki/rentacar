@@ -4,11 +4,15 @@
             <aside class="col-xs-12 col-md-4 col-lg-4">
                 <div class="cd-sidebar">
                     <h2 class="product-year"><?= $model->year->year ?></h2>
-                    <h2 class="product-title"><?= $model->brand->name ." ". $model->mdl->name ." ". $model->trim->name
-                        ?></h2>
+                    <?php if($model->trim == null){ ?>
+                    <h2 class="product-title"><?= $model->brand->name ." ". $model->mdl->name  ?></h2>
+                    <?php }else{ ?>
+                    <h2 class="product-title"><?= $model->brand->name ." ". $model->mdl->name ." ". $model->trim->name ?></h2>
+                    <?php } ?>
                     <div class="text-uppercase sidebar-car-meta">
                         <div class="car-color" style="background:<?= $model->color->color_code ?>; "></div>
-                        <p style="font-size: 14px"><?= $model->color->name ." COUPLE ". $model->seat->number ." SEATS ". $model->ban->name?></p>
+                        <p style="font-size: 14px"><?= $model->color->name ." COUPLE ". $model->seat->number ." SEATS ".
+                            $model->ban->name?></p>
                     </div>
                     <div class="cd-short-descripiton">
                         <span style="font-size: 18px"><?= $model->engine_volume->volume/1000 ." L ".$model->fuel->name." ". $model->wheel->name ?></span>

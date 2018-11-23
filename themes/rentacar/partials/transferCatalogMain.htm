@@ -137,7 +137,7 @@
                 {% if detailsPage %}
                     <a class="btn btn-default" href="{{ detailsPage|page({ (detailsUrlParameter): record.slug }) }}">
                 {% endif %}
-                View details <i class="fa fa-angle-right"></i>
+               {{ ' View details'|_ }} <i class="fa fa-angle-right"></i>
                 {% if detailsPage %}
                     </a>
                 {% endif %}

@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-6">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Rental Count</th>
+                <th scope="col">Rent Total Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $a=0; foreach($model->count_rent as $c){ $a++;?>
+            <tr>
+                <th scope="row"><?php echo $a; ?></th>
+                <td><?php echo $c->full_name; ?></td>
+                <td><?php echo $c->username; ?></td>
+                <td><?php echo $c->rentals->count(); ?></td>
+                <td><?php echo $c->rent_total_price; ?> 	&#8380;</td>
+            </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+
+
+    </div>
+    <div class="col-md-6">
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Transfer Count</th>
+                <th scope="col">Transfer Total price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php $a=0; foreach($model->count_transfer as $transfer){ $a++;?>
+            <tr>
+                <th scope="row"><?php echo $a; ?></th>
+                <td><?php echo $transfer->full_name; ?></td>
+                <td><?php echo $transfer->username; ?></td>
+                <td><?php echo $transfer->transfers()->count(); ?></td>
+                <td><?php echo $transfer->transfer_total_price; ?> 	&#8380;</td>
+            </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

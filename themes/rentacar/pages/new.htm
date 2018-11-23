@@ -28,21 +28,21 @@ redirect = "login"
                 <!-- sidebar -->
                 <aside class="col-md-4 col-lg-4">
                     <div class="cd-sidebar">
-                        <h2 class="heading title">{{ 'Add new vehicle'|_ }}</h2>
+                        <h2 class="heading title">{{ 'add-car--> Add new vehicle'|_ }}</h2>
 
                         <!-- add car make model, trim & year -->
                         <div class="cd-widget bg-white shadow rounded">
                             <div class="cd-widget-title paddinglr30">
-                                <h4 class="heading">{{ 'Brand, model, trim &amp; year'|_ }}</h4>
+                                <h4 class="heading">{{ 'add-car--> Brand, model, trim &amp; year'|_ }}</h4>
                             </div>
                             <div class="cd-widget-content paddinglr30">
                                 <div class="add-car-form">
                                     <div class="form-group">
-                                        <label>{{ 'Brand'|_ }}</label>
+                                        <label>{{ 'add-car--> Brand'|_ }}</label>
                                         <select name="brand_id" id="brand__select"
                                                 class="cd-select js-example-basic-single"
                                                 style="width: 100%">
-                                            <option value="" disabled selected>{{ 'Select make'|_ }}</option>
+                                            <option value="" disabled selected>{{ 'add-car--> Select make'|_ }}</option>
                                             {% for brand in brands %}
                                                 <option value="{{ brand.id }}">{{ brand.name }}</option>
                                             {% endfor %}
@@ -51,7 +51,7 @@ redirect = "login"
                                         <p class="error-p" data-validate-for="brand_id"></p>
                                     </div>
                                     <div class="form-group">
-                                        <label>{{ 'Model'|_ }}</label>
+                                        <label>{{ 'add-car--> Model'|_ }}</label>
                                         <select id="models_select" name="mdl_id"
                                                 class="cd-select js-example-basic-single"
                                                 style="width: 100%">
@@ -61,7 +61,7 @@ redirect = "login"
                                         <input type="hidden" name="my_slug" id="my_slug">
                                     </div>
                                     <div class="form-group">
-                                        <label>{{ 'Trim'|_ }}</label>
+                                        <label>{{ 'add-car--> Trim'|_ }}</label>
                                         <select name="trim_id" id="trim_select"
                                                 class="cd-select js-example-basic-single"
                                                 style="width: 100%">
@@ -69,10 +69,10 @@ redirect = "login"
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label>{{ 'Year'|_ }}</label>
+                                        <label>{{ 'add-car--> Year'|_ }}</label>
                                         <select name="year_id" class="cd-select js-example-basic-single"
                                                 style="width: 100%">
-                                            <option value="" disabled selected>{{ 'Select year'|_ }}
+                                            <option value="" disabled selected>{{ 'add-car--> Select year'|_ }}
                                             </option>
                                             {% for year in years %}
                                                 <option value="{{ year.id }}">{{ year.year }}</option>
@@ -87,15 +87,15 @@ redirect = "login"
                         <!-- add car engine and transmition properties -->
                         <div class="cd-widget bg-white shadow rounded">
                             <div class="cd-widget-title paddinglr30">
-                                <h4 class="heading">{{ 'Engine and transmission'|_ }}</h4>
+                                <h4 class="heading">{{ 'add-car--> Engine and transmission'|_ }}</h4>
                             </div>
                             <div class="cd-widget-content paddinglr30 row">
                                 <div class="add-car-form form-inline pbottom0">
                                     <div class="form-group width50">
-                                        <label for="cd-fuel">{{ 'Fuel type'|_ }}</label>
+                                        <label for="cd-fuel">{{ 'add-car--> Fuel type'|_ }}</label>
                                         <select name="fuel_id" class="cd-select js-example-basic-single" id="cd-fuel"
                                                 style="width: 100%;">
-                                            <option value="" disabled selected>{{ 'Any'|_ }}</option>
+                                            <option value="" disabled selected>{{ 'add-car--> Any'|_ }}</option>
                                             {% for fuel in fuels %}
                                                 <option value="{{ fuel.id }}">{{ fuel.name }}</option>
                                             {% endfor %}
@@ -104,11 +104,11 @@ redirect = "login"
                                     </div>
 
                                     <div class="form-group width50">
-                                        <label for="cd-transmission-type">{{ 'Transmision'|_ }}</label>
+                                        <label for="cd-transmission-type">{{ 'add-car--> Transmision'|_ }}</label>
                                         <select name="transmision_id" class="cd-select js-example-basic-single"
                                                 id="cd-transmission-type"
                                                 style="width: 100%;">
-                                            <option value="" disabled selected>{{ 'Any'|_ }}</option>
+                                            <option value="" disabled selected>{{ 'add-car--> Any'|_ }}</option>
                                             {% for transmision in transmisions %}
                                                 <option value="{{ transmision.id }}">{{ transmision.name }}</option>
                                             {% endfor %}
@@ -117,11 +117,11 @@ redirect = "login"
                                     </div>
 
                                     <div class="form-group width50">
-                                        <label for="cd-drive-type">{{ 'Wheel Drive'|_ }}</label>
+                                        <label for="cd-drive-type">{{ 'add-car--> Wheel Drive'|_ }}</label>
                                         <select name="wheel_id" class="cd-select js-example-basic-single"
                                                 id="cd-drive-type"
                                                 style="width: 100%;">
-                                            <option value="" disabled selected>{{ 'Any'|_ }}</option>
+                                            <option value="" disabled selected>{{ 'add-car--> Any'|_ }}</option>
                                             {% for wheel in wheels %}
                                                 <option value="{{ wheel.id }}">{{ wheel.name }}</option>
                                             {% endfor %}
@@ -130,11 +130,11 @@ redirect = "login"
                                     </div>
 
                                     <div class="form-group width50 error">
-                                        <label for="cd-drive-type">{{ 'Engine Volumes'|_ }}</label>
+                                        <label for="cd-drive-type">{{ 'add-car--> Engine Volumes'|_ }}</label>
                                         <select name="engine_volume_id" class="cd-select js-example-basic-single"
                                                 id="cd-drive-type"
                                                 style="width: 100%;">
-                                            <option value="" disabled selected>{{ 'Any'|_ }}</option>
+                                            <option value="" disabled selected>{{ 'add-car--> Any'|_ }}</option>
                                             {% for engine_volume in engine_volumes %}
                                                 <option
                                                         value="{{ engine_volume.id }}">{{ engine_volume.volume }}</option>
@@ -154,14 +154,14 @@ redirect = "login"
                         <!-- add car vip or econom properties -->
                         <div class="cd-widget bg-white shadow rounded">
                             <div class="cd-widget-title paddinglr30">
-                                <h4 class="heading">{{ 'Chose the category'|_ }}</h4>
+                                <h4 class="heading">{{ 'add-car--> Chose the category'|_ }}</h4>
                             </div>
                             <div class="cd-widget-content paddinglr30 row">
                                 <div class="add-car-form form-inline pbottom0">
 
                                     <div class="car-categories row">
                                         <div class="col-lg-6">
-                                            <h5 class="text-center">{{ 'VIP'|_ }}</h5>
+                                            <h5 class="text-center">{{ 'add-car--> VIP'|_ }}</h5>
                                             <div
                                                     class="custom-checkbox custom-selector text-center shadow rounded bg-white">
                                                 <label>
@@ -248,7 +248,7 @@ redirect = "login"
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
-                                            <h5 class="text-center">{{ 'Econom'|_ }}</h5>
+                                            <h5 class="text-center">{{ 'add-car--> Econom'|_ }}</h5>
                                             <div
                                                     class="custom-checkbox custom-selector text-center shadow rounded bg-white">
                                                 <label>
@@ -349,34 +349,34 @@ redirect = "login"
                         <div class="cd-widget location_widget bg-white shadow paddinglr30 rounded"
                              style="padding-bottom: 2px;">
                             <div class="cd-widget-title">
-                                <h3 class="heading">{{ 'Location &amp; contact info'|_ }}</h3>
+                                <h3 class="heading">{{ 'add-car--> Location &amp; contact info'|_ }}</h3>
                             </div>
                             <div class="cd-widget-content padding0">
                                 <div class="contact-form">
                                     <div class="form-group">
-                                        <label for="userName">{{ 'Your Name / Company Name'|_ }}</label>
+                                        <label for="userName">{{ 'add-car--> Your Name / Company Name'|_ }}</label>
                                         <input disabled type="text" class="form-control" id="userName"
                                                value="{% if  user.company %}{{ user.company }}{% else %}{{ user.name }}{% endif %}"
                                         >
                                     </div>
                                     <div class="form-group">
-                                        <label for="userMobile"></label>{{ 'Mobile phone number'|_ }}
+                                        <label for="userMobile"></label>{{ 'add-car--> Mobile phone number'|_ }}
                                         <input disabled type="text" class="form-control" id="userMobile"
                                                value="{{ user.mobile }}"
                                         >
                                     </div>
                                     <div class="form-group">
-                                        <label for="userPhone">{{ 'Phone number'|_ }}</label>
+                                        <label for="userPhone">{{ 'add-car--> Phone number'|_ }}</label>
                                         <input disabled type="text" class="form-control" id="userPhone"
                                                value="{{ user.phone }}">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="userPhone">{{ 'City'|_ }}</label>
+                                        <label for="userPhone">{{ 'add-car--> City'|_ }}</label>
                                         <select name="city_id"
                                                 class="cd-select js-example-basic-single"
                                                 style="width: 100%">
-                                            <option value="" disabled selected>{{ 'Select make'|_ }}</option>
+                                            <option value="" disabled selected>{{ 'add-car--> Select make'|_ }}</option>
                                             {% for city in cities %}
                                                 <option value="{{ city.id }}">{{ city.name }}</option>
                                             {% endfor %}
@@ -386,7 +386,7 @@ redirect = "login"
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="userLocation">{{ 'Street'|_ }}</label>
+                                        <label for="userLocation">{{ 'add-car--> Street'|_ }}</label>
                                         <input name="street_address" type="text" class="form-control" id="userLocation"
                                                placeholder="Full Addres" value="{{ user.street_addr }}">
                                         <p class="error-p" data-validate-for="street_address"></p>
@@ -411,8 +411,8 @@ redirect = "login"
 
                     <!-- add photos to gallery -->
                     <div class="cd-gallery-upload">
-                        <h4 class="heading">{{ 'Image'|_ }}</h4>
-                        <span>{{ 'Please take your time and upload the photos properly. Use the placeholders below as a guideline.'|_ }}</span>
+                        <h4 class="heading">{{ 'add-car--> Image'|_ }}</h4>
+                        <span>{{ 'add-car--> Please take your time and upload the photos properly. Use the placeholders below as a guideline.'|_ }}</span>
                         <ul class="list-inline upload-list" id="upload-list">
                             <li style="width: 100%">
                                 <label style="width: 100%; height: 300px" class="upload-blk bg-white rounded shadow">
@@ -481,8 +481,8 @@ redirect = "login"
 
                     <!-- add photos to gallery -->
                     <div class="cd-gallery-upload">
-                        <h4 class="heading">{{ 'Photo gallery'|_ }}</h4>
-                        <span>{{ 'Please take your time and upload the photos properly. Use the placeholders below as a guideline.'|_ }}</span>
+                        <h4 class="heading">{{ 'add-car--> Photo gallery'|_ }}</h4>
+                        <span>{{ 'add-car--> Please take your time and upload the photos properly. Use the placeholders below as a guideline.'|_ }}</span>
                         <ul class="list-inline upload-list" id="upload-list">
                             <li>
                                 <label class="upload-blk bg-white rounded shadow">
@@ -1268,7 +1268,7 @@ redirect = "login"
                     <!-- add car price -->
                     <div class="add-condition-blk bg-white shadow">
                         <div class="blk-title">
-                            <h4 class="heading pull-left">{{ 'Price'|_ }}</h4>
+                            <h4 class="heading pull-left">{{ 'add-car--> Price'|_ }}</h4>
                             <svg class="svg-icon grey pull-right" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 12.1 7.2"
                                  style="enable-background:new 0 0 12.1 7.2;" xml:space="preserve">
@@ -1293,13 +1293,13 @@ redirect = "login"
                                 <li role="presentation" class=" active">
                                     <a href="#rent" aria-controls="rent" role="tab" data-toggle="tab"
                                        class="custom-radio myRent">
-                                        <span>{{ 'Rent'|_ }}</span>
+                                        <span>{{ 'add-car--> Rent'|_ }}</span>
                                     </a>
                                 </li>
                                 <li role="presentation">
                                     <a href="#transfer" aria-controls="transfer" role="tab" data-toggle="tab"
                                        class="custom-radio myTransfer">
-                                        <span>{{ 'Transfer'|_ }}</span>
+                                        <span>{{ 'add-car--> Transfer'|_ }}</span>
                                     </a>
                                 </li>
                             </ul>
@@ -1308,125 +1308,125 @@ redirect = "login"
                                 <div role="tabpanel" class="tab-pane fade in active" id="rent">
                                     <div class="add-car-form form-inline">
                                         <div class="form-group width25" style="height: 1px">
-                                            <label>{{ '1 Day'|_ }}</label>
+                                            <label>{{ 'add-car--> 1 Day'|_ }}</label>
                                             <input name="one_day" id="one_day" type="text"
                                                      class="form-control rent__input"
                                                    placeholder="Price ">
                                             <p class="error-p" data-validate-for="one_day"></p>
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '1 Day Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 1 Day Driver'|_ }}</label>
                                             <input id="one_day_driver" name="one_day_driver" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '1 Day Region'|_ }}</label>
+                                            <label>{{ 'add-car--> 1 Day Region'|_ }}</label>
                                             <input name="one_day_region" id="one_day_region" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                             <p class="error-p" data-validate-for="one_day_region"></p>
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '1 Day Region Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 1 Day Region Driver'|_ }}</label>
                                             <input name="one_day_region_driver" id="one_day_region_driver" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                             <p class="error-p" data-validate-for="one_day_region_driver"></p>
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '3 Day'|_ }}</label>
+                                            <label>{{ 'add-car--> 3 Day'|_ }}</label>
                                             <input name="three_day" id="three_day" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '3 Day Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 3 Day Driver'|_ }}</label>
                                             <input name="three_day_driver" id="three_day_driver" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '3 Day Region'|_ }}</label>
+                                            <label>{{ 'add-car--> 3 Day Region'|_ }}</label>
                                             <input name="three_day_region" id="three_day_region" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '3 Day Region Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 3 Day Region Driver'|_ }}</label>
                                             <input name="three_day_region_driver" id="three_day_region_driver"
                                                    type="text" class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '7 Day '|_ }}</label>
+                                            <label>{{ 'add-car--> 7 Day '|_ }}</label>
                                             <input name="seven_day" id="seven_day" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
 
                                         <div class="form-group width25">
-                                            <label>{{ '7 Day Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 7 Day Driver'|_ }}</label>
                                             <input name="seven_day_driver" id="seven_day_driver" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '7 Day Region'|_ }}</label>
+                                            <label>{{ 'add-car--> 7 Day Region'|_ }}</label>
                                             <input name="seven_day_region" id="seven_day_region" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '7 Day Region Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 7 Day Region Driver'|_ }}</label>
                                             <input name="seven_day_region_driver" id="seven_day_region_driver"
                                                    type="text" class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30 Day'|_ }}</label>
+                                            <label>{{ 'add-car--> 30 Day'|_ }}</label>
                                             <input name="thirty_day" id="thirty_day" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30 Day Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 30 Day Driver'|_ }}</label>
                                             <input name="thirty_day_driver" id="thirty_day_driver" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30 Day Region'|_ }}</label>
+                                            <label>{{ 'add-car--> 30 Day Region'|_ }}</label>
                                             <input name="thirty_day_region" id="thirty_day_region" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30 Day Region Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 30 Day Region Driver'|_ }}</label>
                                             <input name="thirty_day_region_driver" id="thirty_day_region_driver"
                                                    type="text" class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30+ Day '|_ }}</label>
+                                            <label>{{ 'add-car--> 30+ Day '|_ }}</label>
                                             <input name="over_thirty_day" id="over_thirty_day" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30+ Driver'|_ }}</label>
+                                            <label>{{ 'add-car--> 30+ Driver'|_ }}</label>
                                             <input name="over_thirty_day_driver" id="over_thirty_day_driver" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30+ Day Region'|_ }}</label>
+                                            <label>{{ 'add-car--> 30+ Day Region'|_ }}</label>
                                             <input name="over_thirty_day_region" id="over_thirty_day_region" type="text"
                                                    class="form-control rent__input"
                                                    placeholder="Price ">
                                         </div>
                                         <div class="form-group width25">
-                                            <label>{{ '30+ Day Region Driver '|_ }}</label>
+                                            <label>{{ 'add-car--> 30+ Day Region Driver '|_ }}</label>
                                             <input name="over_thirty_day_region_driver"
                                                    id="over_thirty_day_region_driver" type="text"
                                                    class="form-control rent__input"
@@ -1439,14 +1439,14 @@ redirect = "login"
                                 <div role="tabpanel" class="tab-pane fade" id="transfer">
                                     <div class="add-car-form form-inline">
                                         <div class="form-group width50">
-                                            <label>{{ 'City'|_ }}</label>
+                                            <label>{{ 'add-car--> City'|_ }}</label>
                                             <input name="city" type="text" class="form-control transfer__input"
                                                    placeholder="Price ">
                                             <p class="error-p" data-validate-for="city"></p>
                                         </div>
 
                                         <div class="form-group width50">
-                                            <label>{{ 'Airport to Hotel'|_ }}</label>
+                                            <label>{{ 'add-car--> Airport to Hotel'|_ }}</label>
                                             <input name="airport" type="text" class="form-control transfer__input"
                                                    placeholder="Price ">
                                             <p class="error-p" data-validate-for="airport"></p>
@@ -1462,7 +1462,7 @@ redirect = "login"
                     <!-- add car characteristics -->
                     <div class="add-caracteristic-blk bg-white shadow">
                         <div class="blk-title">
-                            <h4 class="heading pull-left">{{ 'Characteristics'|_ }}</h4>
+                            <h4 class="heading pull-left">{{ 'add-car--> Characteristics'|_ }}</h4>
                             <svg class="svg-icon grey pull-right" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  viewbox="0 0 14 15.1" style="enable-background:new 0 0 14 15.1;" xml:space="preserve">
@@ -1494,10 +1494,10 @@ redirect = "login"
 
                             <ul class="list-inline row">
                                 <li class="width33">
-                                    <h5 class="heading">{{ 'Ban'|_ }}</h5>
+                                    <h5 class="heading">{{ 'add-car--> Ban'|_ }}</h5>
                                     <select name="ban_id" class="cd-select js-example-basic-single"
                                             style="width: 100%;">
-                                        <option value="" disabled selected>{{ 'Select'|_ }}</option>
+                                        <option value="" disabled selected>{{ 'add-car--> Select'|_ }}</option>
                                         {% for ban in bans %}
                                             <option value="{{ ban.id }}">{{ ban.name }}</option>
                                         {% endfor %}
@@ -1505,10 +1505,10 @@ redirect = "login"
                                     <p class="error-p" data-validate-for="ban_id"></p>
                                 </li>
                                 <li class="width33">
-                                    <h5 class="heading">{{ 'Color'|_ }}</h5>
+                                    <h5 class="heading">{{ 'add-car--> Color'|_ }}</h5>
                                     <select name="color_id" class="cd-select js-example-basic-single"
                                             style="width: 100%;">
-                                        <option value="" disabled selected>{{ 'Select'|_ }}</option>
+                                        <option value="" disabled selected>{{ 'add-car--> Select'|_ }}</option>
                                         {% for color in colors %}
                                             <option value="{{ color.id }}">{{ color.name }}</option>
                                         {% endfor %}
@@ -1516,10 +1516,10 @@ redirect = "login"
                                     <p class="error-p" data-validate-for="color_id"></p>
                                 </li>
                                 <li class="width33">
-                                    <h5 class="heading">{{ 'Seats'|_ }}</h5>
+                                    <h5 class="heading">{{ 'add-car--> Seats'|_ }}</h5>
                                     <select name="seat_id" class="cd-select js-example-basic-single"
                                             style="width: 100%;">
-                                        <option value="" disabled selected>{{ 'Select'|_ }}</option>
+                                        <option value="" disabled selected>{{ 'add-car--> Select'|_ }}</option>
                                         {% for seat in seats %}
                                             <option value="{{ seat.id }}">{{ seat.number }}</option>
                                         {% endfor %}
@@ -1535,7 +1535,7 @@ redirect = "login"
                     <!-- add car listing description -->
                     <div class="cd-listing-description bg-white shadow">
                         <div class="blk-title">
-                            <h4 class="heading pull-left">{{ 'Listing description'|_ }}</h4>
+                            <h4 class="heading pull-left">{{ 'add-car--> Listing description'|_ }}</h4>
                             <svg class="svg-icon grey pull-right" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewbox="0 0 16.8 13.9"
                                  style="enable-background:new 0 0 16.8 13.9;" xml:space="preserve">
@@ -1560,14 +1560,14 @@ redirect = "login"
                         </div>
                         <div class="listing-content">
                             <div class="form-group">
-                                <label>{{ 'Description'|_ }}</label>
+                                <label>{{ 'add-car--> Description'|_ }}</label>
                                 <textarea name="description" class="form-control" cols="30" rows="10"
                                           placeholder="Write down your vehicle's description here..."></textarea>
                             </div>
 
                         </div>
                         <div class="listing-content">
-                            <h3 class="heading">{{ 'Vehicles features and specification'|_ }}</h3>
+                            <h3 class="heading">{{ 'add-car--> Vehicles features and specification'|_ }}</h3>
                             <div class="row columns-content">
                                 {% for equipmentCategory  in equipmentCategories %}
                                     <!-- safety -->
@@ -1595,13 +1595,13 @@ redirect = "login"
                                 <div class="col-sm-12 col-lg-12 column-blk">
                                     <div class="title">
 
-                                        <h4 class="heading">{{ 'Other'|_ }}</h4>
+                                        <h4 class="heading">{{ 'add-car--> Other'|_ }}</h4>
                                     </div>
                                     <ul class="list-inline equipment-app">
 
                                         <li class="custom-checkbox width49">
                                             <div class="form-group ">
-                                                <label>{{ 'Equipment Name'|_ }}</label>
+                                                <label>{{ 'add-car--> Equipment Name'|_ }}</label>
                                                 <input type="text" class="form-control" name="other_equipment[]">
                                             </div>
 
@@ -1612,7 +1612,7 @@ redirect = "login"
                                         <div class="form-group ">
 
                                             <label class="addEquipment"><i
-                                                        class="fa fa-plus"></i> {{ 'Add Equipment'|_ }}</label>
+                                                        class="fa fa-plus"></i> {{ 'add-car--> Add Equipment'|_ }}</label>
 
                                         </div>
                                     </div>
@@ -1627,20 +1627,20 @@ redirect = "login"
                                     <label>
                                         <input name="kasko" type="checkbox">
                                         <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                        {{ ' I have a kasko'|_ }}
+                                        {{ 'add-car-->  I have a kasko'|_ }}
                                     </label>
                                     <p class="error-p" data-validate-for="kasko"></p>
                                     <label style="margin-top: 10px; width: 100%">
                                         <input name="term" type="checkbox">
                                         <span class="cr"><i class="cr-icon fa fa-check"></i></span>
-                                        {{ ' I agree with the'|_ }} <a
-                                                href="#">{{ 'Terms &amp; Conditions'|_ }}</a>{{ ' of this website.'|_ }}
+                                        {{ 'add-car-->  I agree with the'|_ }} <a
+                                                href="#">{{ 'add-car--> Terms &amp; Conditions'|_ }}</a>{{ 'add-car-->  of this website.'|_ }}
                                     </label>
                                     <p class="error-p" data-validate-for="term"></p>
                                 </div>
 
 
-                                <button class="btn btn-default pull-right" type="submit">{{ 'Submit'|_ }}</button>
+                                <button class="btn btn-default pull-right" type="submit">{{ 'add-car--> Submit'|_ }}</button>
                             </div>
                         </div>
                     </div>

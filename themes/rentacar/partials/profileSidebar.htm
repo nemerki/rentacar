@@ -1,24 +1,24 @@
 <div class="col-sm-6 col-md-3 col-lg-3">
     <div class="bg-white shadow rounded account-control">
-        <h4 class="heading">My account</h4>
+        <h4 class="heading">{{ 'profile-sidebar--> My account'|_ }}</h4>
         <ul class="list-unstyled">
             <li class="{{ this.page.id== 'profile-my-order'? 'active' : '' }} ">
                 <a href="{{ 'profile-my-order'|page }}" class="btn btn-link">
-                    <i class="fa fa-car"></i>My Orders
+                    <i class="fa fa-car"></i>{{ 'profile-sidebar--> My Orders'|_ }}
 
                 </a>
             </li>
             {% if user.cars|length >0 %}
                 <li class="{{ this.page.id== 'profile-my-car-listing'? 'active' : '' }} ">
                     <a href="{{ 'profile-my-car-listing'|page }}" class="btn btn-link">
-                        <i class="fa fa-car"></i>My car listings
+                        <i class="fa fa-car"></i>{{ 'profile-sidebar--> My car listings'|_ }}
 
                     </a>
                 </li>
 
                 <li class="{{ this.page.id== 'profile-saleand-report'? 'active' : '' }} ">
                     <a href="{{ 'profile-saleand-report'|page }}" class="btn btn-link">
-                        <i class="fa fa-bar-chart"></i>Sales &amp; reports
+                        <i class="fa fa-bar-chart"></i>{{ 'profile-sidebar--> Sales &amp; reports'|_ }}
                     </a>
                 </li>
             {% endif %}
@@ -37,13 +37,13 @@
              </li>#}
             <li class="{{ this.page.id== 'profile-setting' ? 'active' : '' }} ">
                 <a href="{{ 'profile-setting'|page }}" class="btn btn-link">
-                    <i class="fa fa-cog"></i>My account settings
+                    <i class="fa fa-cog"></i>{{ 'profile-sidebar--> My account settings'|_ }}
                 </a>
             </li>
 
             <li>
                 <a class="btn btn-link" data-request="onLogout" data-request-data="redirect: '/'">
-                    <i class="fa fa-sign-out"></i>Sign out
+                    <i class="fa fa-sign-out"></i>{{ 'profile-sidebar--> Sign out'|_ }}
                 </a>
             </li>
 

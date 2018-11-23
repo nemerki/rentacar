@@ -177,14 +177,25 @@ navigation:
         permissions:
             - manage_car
     main-menu-item3:
-        label: 'digitalbrain.rentcar::lang.menu.rental'
+        label: 'digitalbrain.rentcar::lang.menu.rezervation'
         url: digitalbrain/rentcar/rentalcontroller
         icon: icon-car
         permissions:
             - manage_rental
+        sideMenu:
+            side-menu-item2:
+                label: 'digitalbrain.rentcar::lang.menu.rental'
+                url: digitalbrain/rentcar/rentalcontroller
+                icon: icon-car
+                permissions:
+                    - rentacar
+            side-menu-item:
+                label: 'digitalbrain.rentcar::lang.menu.transfer'
+                url: digitalbrain/rentcar/transfercontroller
+                icon: icon-bus
+                permissions:
+                    - manage_transfer
     main-menu-item4:
-        label: 'digitalbrain.rentcar::lang.menu.transfer'
-        url: digitalbrain/rentcar/transfercontroller
-        icon: icon-bus
-        permissions:
-            - manage_transfer
+        label: 'digitalbrain.rentcar::lang.menu.customer'
+        url: digitalbrain/rentcar/customercontroller/create
+        icon: icon-dollar

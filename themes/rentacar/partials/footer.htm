@@ -5,9 +5,9 @@
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-widget">
 
-                    <h4 class="heading">About us</h4>
+                    <h4 class="heading">{{ 'footer--> About us'|_ }}</h4>
                     <p>
-                        Car Dojo User Interface is the ultimate resource for car industry related websites.
+                       {{ 'footer-->  Car Dojo User Interface is the ultimate resource for car industry related websites.'|_ }}
                     </p>
 
 
@@ -15,8 +15,8 @@
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-widget">
-                    <h4 class="heading">Subscribe to car deals</h4>
-                    <p>Be among the first ones to find out about our rentable deals.</p>
+                    <h4 class="heading">{{ 'footer--> Subscribe to car deals'|_ }}</h4>
+                    <p>{{ 'footer--> Be among the first ones to find out about our rentable deals.'|_ }}</p>
                     <form class="subscribe-form" name="form-subscribe-andradedev" id="form-subscribe-andradedev"
                           class="subscribeForm"
                           data-request="{{ formSubscribe }}::onAddSubscriber"
@@ -24,11 +24,11 @@
                           data-request-success="$('.successModals').fadeIn()" data-request-validate
                           data-request-flash>
                         <div class="form-group">
-                            <label>E-mail address</label>
+                            <label>{{ 'footer--> E-mail address'|_ }}</label>
                             <input type="email" name="email" class="form-control" placeholder="youremail@address.com">
                             <p class="error-p" data-validate-for="email"></p>
                         </div>
-                        <button class="btn btn-default" type="submit">Subscribe now <i class="fa fa-angle-right"></i>
+                        <button class="btn btn-default" type="submit">{{ 'footer--> Subscribe now'|_ }} <i class="fa fa-angle-right"></i>
                         </button>
                     </form>
 
@@ -36,23 +36,23 @@
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-widget">
-                    <h4 class="heading">Contact</h4>
+                    <h4 class="heading">{{ 'footer--> Contact'|_ }}</h4>
                     <address>
                         {{ this.theme.address }}
                     </address>
                     <ul class="list-unstyled phone-nrs">
                         <li>
-                            <span class="pull-left">Mobile</span>
-                            <a href="callto:+102091823098" class="pull-right">  {{ this.theme.telephone }}</a>
+                            <span class="pull-left">{{ 'footer--> Mobile'|_ }}</span>
+                            <a href="callto:{{ this.theme.telephone }}" class="pull-right">  {{ this.theme.telephone }}</a>
                         </li>
                         <li class="clearfix"></li>
                         <li>
-                            <span class="pull-left">Office</span>
-                            <a href="callto:+102091823099" class="pull-right">  {{ this.theme.office_number }}</a>
+                            <span class="pull-left">{{ 'footer--> Office'|_ }}</span>
+                            <a href="callto:{{ this.theme.office_number }}" class="pull-right">  {{ this.theme.office_number }}</a>
                         </li>
                         <li class="clearfix"></li>
                     </ul>
-                    <h4 class="heading">Social media links</h4>
+                    <h4 class="heading">{{ 'footer--> Social media links'|_ }}</h4>
                     <ul class="list-inline socials">
                         {% if this.theme.facebook %}
                             <li>
@@ -109,7 +109,7 @@
             </div>
             <div class="col-sm-6 col-lg-3">
                 <div class="footer-widget">
-                    <h4 class="heading">Useful links</h4>
+                    <h4 class="heading">{{ 'footer--> Useful links'|_ }}</h4>
                     <ul class="list-unstyled">
                         {% partial "layout/footerNav" items=footer.menuItems %}
                     </ul>

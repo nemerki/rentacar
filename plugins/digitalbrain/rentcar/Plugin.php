@@ -57,6 +57,10 @@ class Plugin extends PluginBase
                 'label' => 'My Car Confirmation',
                 'code' => 'mycar'
             ],
+            'DigitalBrain\RentCar\FormWidgets\CustomerWidget' => [
+                'label' => 'CustomerWidget',
+                'code' => 'customer'
+            ],
 
         ];
     }

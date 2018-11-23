@@ -83,7 +83,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/" data-bg="{{ 'assets/images/logo.png'|theme }}"></a>
+                <a class="navbar-brand" href="/" ><img src="{{ this.theme.site_logo.path }}" class="img-responsive" alt=""></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="cd-main-menu">
@@ -91,13 +91,13 @@
                     {% if header.menuItems %}
                         {% partial "layout/nav" items=header.menuItems %}
                     {% endif %}
-                    <li><a href="{{ 'new'|page }}" class="btn btn-default">Add new car</a></li>
+                    <li><a href="{{ 'new'|page }}" class="btn btn-default">{{ 'nav--> Add new car'|_ }}</a></li>
                     {% if user %}
-                        <li><a href="{{ 'profile-my-car-listing'|page }}" class="btn btn-danger">Profile</a></li>
-                        <li><a  class="btn btn-danger" data-request="onLogout" data-request-data="redirect: '/'">Sign out</a></li>
-
+                        <li><a href="{{ 'profile-my-car-listing'|page }}" class="btn btn-danger">{{ 'nav--> Profile'|_ }}</a></li>
+                       {# <li><a  class="btn btn-danger" data-request="onLogout" data-request-data="redirect: '/'">{{ 'nav--> Sign out'|_ }}</a></li>
+#}
                     {% else %}
-                        <li><a href="/login" class="btn btn-danger">Login</a></li>
+                        <li><a href="/login" class="btn btn-danger">{{ 'nav--> Login'|_ }}</a></li>
 
                     {% endif %}
 

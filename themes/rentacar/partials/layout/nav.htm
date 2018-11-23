@@ -11,7 +11,7 @@
                 </a>
             {% else %}
                 <a href="javascript:void(0)"
-                   class="no-link  {{ item.isActive or item.isChildActive ? 'active' : '' }}"> {{ item.title }}  <i class="fa fa-angle-down"></i></a>
+                   class="no-link  {{ item.isActive or item.isChildActive ? 'active' : '' }}"> {{ ('nav--> ' ~ item.code)|_ }}  <i class="fa fa-angle-down"></i></a>
             {% endif %}
 
             {% if item.items %}
@@ -28,11 +28,11 @@
             {% if item.url %}
                 <a class="menu-text {{ item.isActive or item.isChildActive ? 'active' : '' }}"
                    href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
-                    {{ item.title }}
+                    {{ ('nav--> ' ~ item.code)|_ }}
                 </a>
             {% else %}
                 <a href="javascript:void(0)"
-                   class="menu-text no-link  {{ item.isActive or item.isChildActive ? 'active' : '' }}"> {{ item.title }}</a>
+                   class="menu-text no-link  {{ item.isActive or item.isChildActive ? 'active' : '' }}"> {{ ('nav--> ' ~ item.code)|_ }}</a>
             {% endif %}
 
             {% if item.items %}

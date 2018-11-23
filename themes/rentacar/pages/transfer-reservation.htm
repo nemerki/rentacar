@@ -65,11 +65,11 @@ forceSecure = 0
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-6">
-                            <h4 class="title">Payment details</h4>
+                            <h4 class="title">{{ 'transfer-reservation--> Payment details'|_ }}</h4>
 
                             <ul class="list-unstyled result-dates">
                                 <li class="clearfix">
-                                    <span class="pull-left">{{ 'Dates'|_ }}:</span>
+                                    <span class="pull-left">{{ 'transfer-reservation--> Dates'|_ }}:</span>
                                     <span class="pull-right">
                         <b id="startR">{{ startDate }}</b>
                       </span>
@@ -77,25 +77,25 @@ forceSecure = 0
 
 
                                 <li class="clearfix">
-                                    <span class="pull-left">Where to Transfer:</span>
+                                    <span class="pull-left">{{ 'transfer-reservation--> Where to Transfer'|_ }}:</span>
                                     <span class="pull-right">
 
                         <b id="dayP">
                             {% if is_city=="0" %}
-                                Airport to Hotel
+                               {{ 'transfer-reservation--> Airport to Hotel'|_ }}
                             {% elseif is_city=="1" %}
-                                City Center
+                               {{ 'transfer-reservation--> City Center'|_ }}
                             {% elseif is_city=="2" %}
-                                Other
+                              {{ 'transfer-reservation--> Other'|_ }}
                             {% endif %}</b>
                       </span>
                                 </li>
                                 <li class="clearfix">
-                                    <span class="pull-left">Total Amount: </span>
+                                    <span class="pull-left">{{ 'transfer-reservation--> Total Amount'|_ }}: </span>
                                     <span class="pull-right">
 
 
-                                        <b id="totDayP">&dollar;{{ price }}</b>
+                                        <b id="totDayP">{{ (price/usd) |round}} &dollar; / {{ price }} &#8380;</b>
                       </span>
                                 </li>
                             </ul>
@@ -107,59 +107,59 @@ forceSecure = 0
 
 
                             <div class="col-sm-12 col-lg-12">
-                                <h4 class="title">{{ 'Contact information'|_ }}</h4>
+                                <h4 class="title">{{ 'transfer-reservation--> Contact information'|_ }}</h4>
                                 <div class="form-group col-sm-6">
-                                    <label>{{ 'Full name'|_ }}</label>
+                                    <label>{{ 'transfer-reservation--> Full name'|_ }}</label>
                                     <input type="text" class="form-control" name="name"
                                            value="{{ user.name }} ">
                                 </div>
 
                                 <div class="form-group col-sm-6 ">
-                                    <label>{{ 'Phone number'|_ }}</label>
+                                    <label>{{ 'transfer-reservation--> Phone number'|_ }}</label>
                                     <input type="tel" name="phone" class="form-control" value="{{ user.mobile }}"
                                            placeholder="phone">
                                 </div>
 
                                 <div class="form-group col-sm-12">
-                                    <label>{{ 'Address'|_ }}</label>
+                                    <label>{{ 'transfer-reservation--> Address'|_ }}</label>
                                     <textarea name="address" class="form-control"
-                                              placeholder="Please write address">{{ user.street_addr }} {{ user.city }} </textarea>
+                                              placeholder="{{ 'transfer-reservation--> Please write address'|_ }}">{{ user.street_addr }}{{ user.city }}</textarea>
 
                                 </div>
                             </div>
                         {% else %}
 
                             <div class="col-sm-12 col-lg-12">
-                                <h4 class="title">{{ 'Register '|_ }}</h4>
+                                <h4 class="title">{{ 'transfer-reservation--> Register '|_ }}</h4>
                                 <div class="form-group col-sm-6">
-                                    <label>{{ 'Full name'|_ }}</label>
+                                    <label>{{ 'transfer-reservation--> Full name'|_ }}</label>
                                     <input type="text" id="name" class="form-control" name="name">
                                 </div>
 
                                 <div class="form-group  col-lg-6">
-                                    <label>{{ 'Mobile Phone'|_ }}</label>
-                                    <input id="username" name="username" type="text"
+                                    <label>{{ 'transfer-reservation--> Mobile Phone'|_ }}</label>
+                                    <input id="username"  onkeypress="return AllowNumbersOnly(event)" name="username" type="text"
                                            class="form-control text-capitalize"
                                            placeholder="Mobile">
                                     <p class="error-p visible" data-validate-for="mobile"></p>
                                     <input type="hidden" name="mobile" id="mobile">
                                 </div>
                                 <div class="form-group col-lg-6">
-                                    <label>{{ 'Password'|_ }}</label>
+                                    <label>{{ 'transfer-reservation--> Password'|_ }}</label>
                                     <input name="password" type="password" id="password" class="form-control">
                                     <p class="error-p visible" data-validate-for="password"></p>
                                 </div>
                                 <div class="form-group   col-lg-6">
-                                    <label>{{ 'Repeat password'|_ }}</label>
+                                    <label>{{ 'transfer-reservation--> Repeat password'|_ }}</label>
                                     <input name="password_confirmation" id="password_confirmation" type="password"
                                            class="form-control">
                                     <p class="error-p visible" data-validate-for="password_confirmation"></p>
                                 </div>
 
                                 <div class="form-group col-sm-12">
-                                    <label>{{ 'Address'|_ }}</label>
+                                    <label>{{ 'transfer-reservation--> Address'|_ }}</label>
                                     <textarea name="address" class="form-control" id="street_addr"
-                                              placeholder="Please write address">{{ user.street_addr }} {{ user.city }} </textarea>
+                                              placeholder="{{ 'transfer-reservation--> Please write address'|_ }}">{{ user.street_addr }} {{ user.city }} </textarea>
 
                                 </div>
                             </div>
@@ -171,14 +171,14 @@ forceSecure = 0
                         </div>
                         <div class="col-sm-12 col-lg-12">
                             <div class="form-group col-sm-12 col-lg-12">
-                                <label>{{ 'Additional notes and comments'|_ }}</label>
+                                <label>{{ 'transfer-reservation--> Additional notes and comments'|_ }}</label>
                                 <textarea name="remarks" class="form-control"
-                                          placeholder="Please write down all your questions or concerns and we’ll get back with an answer at the earliest convenience"></textarea>
+                                          placeholder="{{ 'transfer-reservation--> Please write down all your questions or concerns and we’ll get back with an answer at the earliest convenience'|_ }}"></textarea>
                             </div>
                         </div>
                     </div>
                     <div style="display: inline-block; float: right; margin-bottom: 32px;">
-                        <button type="button" class="reserveBtn btn btn-default">Reserve</button>
+                        <button type="button" class="reserveBtn btn btn-default">{{ 'transfer-reservation--> Reserve'|_ }}</button>
                     </div>
                 </form>
             </div>
@@ -248,5 +248,17 @@ forceSecure = 0
             });
         })
     </script>
+
+
+
+    <script>
+        function AllowNumbersOnly(e) {
+            var charCode = (e.which) ? e.which : e.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                e.preventDefault();
+            }
+        }
+    </script>
+
 
 {% endput %}

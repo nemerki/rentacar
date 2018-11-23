@@ -1,5 +1,6 @@
 <?php namespace DigitalBrain\RentCar\Components;
 
+use Carbon\Carbon;
 use Cms\Classes\ComponentBase;
 use DigitalBrain\RentCar\Models\Car;
 use Illuminate\Support\Facades\Cache;
@@ -252,12 +253,16 @@ class TransferCarSearchComponent extends ComponentBase
     protected function prepareVars()
     {
 
+
+        $date = Carbon::now()->format('d.m.Y');
+
+
         if (Cache::has('usd')) {
 
             $this->page['usd'] = Cache::get('usd');
         } else {
-            $connect_web = simplexml_load_file('https://www.cbar.az/other/xml-azn-rates/');
-            $usd = $connect_web->ValType[1]->Valute[44]->Value->__toString();
+            $connect_web = simplexml_load_file('https://www.cbar.az/currencies/' . $date . '.xml');
+            $usd = $connect_web->ValType[1]->Valute[0]->Value->__toString();
             $this->page['usd'] = $usd;
         }
         $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');
@@ -415,31 +420,7 @@ class TransferCarSearchComponent extends ComponentBase
             }
 
         }
-//        if (post('brand_id')) {
-//            $model = $model->where('brand_id', post('brand_id'));
-//        }
-//        if (post('mdl_id')) {
-//            $model = $model->where('mdl_id', post('mdl_id'));
-//        }
 //
-//        if (post('fuel_id')) {
-//            $model = $model->where('fuel_id', post('fuel_id'));
-//        }
-//        if (post('ban_id')) {
-//            $model = $model->where('ban_id', post('ban_id'));
-//        }
-//        if (post('color_id')) {
-//            $model = $model->where('color_id', post('color_id'));
-//        }
-//        if (post('seat_id')) {
-//            $model = $model->where('seat_id', post('seat_id'));
-//        }
-//        if (post('transmision_id')) {
-//            $model = $model->where('transmision_id', post('transmision_id'));
-//        }
-//        if (post('wheel_id')) {
-//            $model = $model->where('wheel_id', post('wheel_id'));
-//        }
         if (post('city_id')) {
             $city_id = post('city_id');
             $model = $model->whereHas('location', function ($q) use ($city_id) {

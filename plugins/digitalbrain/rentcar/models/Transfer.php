@@ -46,10 +46,11 @@ class Transfer extends Model
         }
         return $brand . " " . $model . " " . $trim;
     }
+
     public function getPriceAttribute()
     {
         $price = $this->transfer_invoice->total_amount_payable;
 
-        return $price ;
+        return $price;
     }
 }

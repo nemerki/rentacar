@@ -28,7 +28,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Rent a car',
+    'name' => 'Azcars.az',
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://azcars.az',
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Baku',
 
     /*
     |--------------------------------------------------------------------------

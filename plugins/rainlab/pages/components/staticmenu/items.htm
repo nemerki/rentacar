@@ -2,10 +2,10 @@
     <li role="presentation" class="{{ item.isActive ? 'active' : '' }} {{ item.isChildActive ? 'child-active' : '' }} {{ item.viewBag.cssClass }}">
         {% if item.url %}
             <a href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
-                {{ item.title }}
+                {{  ('nav--> ' ~ item.code)|_ }}
             </a>
         {% else %}
-            <span>{{ item.title }}</span>
+            <span>{{ ('nav--> ' ~ item.code)|_  }}</span>
         {% endif %}
 
         {% if item.items %}

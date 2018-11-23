@@ -106,19 +106,14 @@ main{
     }
     /*logo*/
     .navbar-brand{
-			height: 42px;
-			width: 65px;
+			height: 50px;
+			width: 200px;
       margin-left: 0 !important;
-      margin-top: 5px;
+      margin-top: 11px;
       padding: 0;
-      background-size: cover;
-      background-position: bottom;
-			transition: background-position .1s ease-in;
+
     }
-		.navbar-brand:hover{
-			background-position: top;
-			width: 65px;
-		}
+
     /*menu*/
     .cd-main-navigation .nav>li>a{
         font-size: 15px;
@@ -1416,7 +1411,7 @@ section.contact-info{margin-bottom: 30px;}
 	width: 100%;
 	margin-bottom: 3px;
 }
-.account-control ul li:first-child{margin-bottom: 17px;}
+/*.account-control ul li:first-child{margin-bottom: 17px;}*/
 .account-control li .btn{
 	width: 100%;
 	text-align: initial;

@@ -53,6 +53,7 @@
         'rental' => 'Rental Rezarvation',
         'faq' => 'Faq',
         'rezervation' => 'Rezarvation',
+        'customer' => 'Best Customer',
     ],
     'model' => [
         'brand' => 'Brand',

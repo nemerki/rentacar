@@ -1,0 +1,10 @@
+name: CustomerController
+form: $/digitalbrain/rentcar/models/user/fields.yaml
+modelClass: DigitalBrain\RentCar\Models\User
+defaultRedirect: digitalbrain/rentcar/customercontroller
+create:
+    redirect: 'digitalbrain/rentcar/customercontroller/update/:id'
+    redirectClose: digitalbrain/rentcar/customercontroller
+update:
+    redirect: digitalbrain/rentcar/customercontroller
+    redirectClose: digitalbrain/rentcar/customercontroller

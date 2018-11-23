@@ -13,45 +13,45 @@ formCode = "contact-form"
         <div class="row">
             <div class="col-sm-12 bg-white reservation-form-wrapp  shadow rounded">
                 <div class="blk-intro">
-                    <h4 class="pull-left">{{ 'CONTACT US'|_ }}</h4>
+                    <h4 class="pull-left">{{ 'contact--> CONTACT US'|_ }}</h4>
                     <div class="clearfix"></div>
                 </div>
                 <!-- form -->
 
                 <div class="col-sm-6 col-lg-6">
                     <form class="reservation-form row clearfix" id="contactForm">
-                        <h4 class="title">{{ 'Send Message'|_ }}</h4>
+                        <h4 class="title">{{ 'contact--> Send Message'|_ }}</h4>
                         <div class="form-group col-md-6">
-                            <label>{{ 'Name'|_ }}</label>
-                            <input type="text" name="name" class="form-control" placeholder="Name">
+                            <label>{{ 'contact--> Name'|_ }}</label>
+                            <input type="text" name="name" class="form-control" placeholder="{{ 'contact--> Name'|_ }}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>{{ 'Surname'|_ }}</label>
-                            <input type="text" name="surname" class="form-control" placeholder="Surname">
+                            <label>{{ 'contact--> Surname'|_ }}</label>
+                            <input type="text" name="surname" class="form-control" placeholder="{{ 'contact--> Surname'|_ }}">
                         </div>
                         <div class="form-group col-md-12">
-                            <label>{{ 'E-mail address'|_ }}</label>
-                            <input type="email" name="email" class="form-control" placeholder="youremail@address.com"
+                            <label>{{ 'contact--> E-mail address'|_ }}</label>
+                            <input type="email" name="email" class="form-control" placeholder="{{ 'contact--> youremail@address.com'|_ }}"
                             >
                         </div>
                         <div class="form-group col-md-12">
-                            <label>{{ 'Subject'|_ }}</label>
-                            <input type="text" class="form-control" name="subject" placeholder="Subject">
+                            <label>{{ 'contact--> Subject'|_ }}</label>
+                            <input type="text" class="form-control" name="subject" placeholder="{{ 'contact--> Subject'|_ }}">
                         </div>
                         <div class="form-group col-sm-12 col-lg-12">
-                            <label>{{ 'Message'|_ }}</label>
-                            <textarea name="message" class="form-control" placeholder="Message" value=""></textarea>
+                            <label>{{ 'contact--> Message'|_ }}</label>
+                            <textarea name="message" class="form-control" placeholder="{{ 'contact--> Message'|_ }}" value=""></textarea>
                         </div>
                         <div style="float: right;" class="form-group col-md-6 ">
                             <button type="button" id="sendContactForm" class="btn btn-primary">
-                                {{ 'Send Message'|_ }}
+                                {{ 'contact--> Send Message'|_ }}
                             </button>
                         </div>
                     </form>
                 </div>
                 <div class="col-sm-6 col-lg-6">
                     <div class="reservation-form">
-                        <h4 class="title">{{ 'Contact Info'|_ }}</h4>
+                        <h4 class="title">{{ 'contact--> Contact Info'|_ }}</h4>
                         <div id="map" style="height: 300px"></div>
                         <div class="contact_info">
                             <h5> <i class="fa fa-map-marker"></i>{{ this.theme.address }}</h5>

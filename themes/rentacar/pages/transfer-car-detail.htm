@@ -276,7 +276,7 @@ notFoundMessage = "Record not found"
                 <!-- listing description -->
                 <div class="cd-listing-description bg-white shadow">
                     <div class="listing-title">
-                        <h4 class="heading">{{ 'Vehicle description'|_ }}</h4>
+                        <h4 class="heading">{{ ' transfer-car-detail--> Vehicle description'|_ }}</h4>
                         <svg class="svg-icon grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewbox="0 0 16.8 13.9" style="enable-background:new 0 0 16.8 13.9;" xml:space="preserve">
@@ -303,7 +303,7 @@ notFoundMessage = "Record not found"
                     </div>
 
                     <div class="listing-content rent">
-                        <h3 class="heading">{{ 'Vehicles features and specification'|_ }}</h3>
+                        <h3 class="heading">{{ ' transfer-car-detail--> Vehicles features and specification'|_ }}</h3>
                         <div class="row columns-content">
                             {% for equipmentCategorie in equipmentCategories %}
                                 <div class="col-sm-6 col-lg-6">
@@ -334,7 +334,7 @@ notFoundMessage = "Record not found"
 
                                 <div class=" column-blk">
                                     <div class="title">
-                                        <h4 class="heading">{{ 'Other'|_ }}</h4>
+                                        <h4 class="heading">{{ ' transfer-car-detail--> Other'|_ }}</h4>
                                     </div>
                                     <ol class="list-unstyled">
                                         {% for equipment in record.other_equipment %}
@@ -368,7 +368,7 @@ notFoundMessage = "Record not found"
                     <!-- meta -->
                     <div class="text-uppercase sidebar-car-meta">
                         <div class="car-color" style="background: {{ record.color.color_code }}"></div>
-                        <p>{{ record.color.name }} {{ 'COUPE'|_ }}, {{ record.seat.number }} {{ 'SEATS'|_ }}
+                        <p>{{ record.color.name }}, {{ record.seat.number }} {{ ' transfer-car-detail--> SEATS'|_ }}
                             , {{ record.ban.name }} </p>
 
                     </div>
@@ -381,7 +381,7 @@ notFoundMessage = "Record not found"
                     <ul class="list-inline cd-price-list">
                         <li>
 
-                            <h2 class="cd-price ">{{ '$'|_ }} <span
+                            <h2 class="cd-price ">&#8380;<span
                                         class="myPrice">{{ (record.transfer_value.city+( record.transfer_value.city *this.theme.service_tax)/100)|round }}</span>
                             </h2>
                             <input type="hidden" name="price"
@@ -390,7 +390,7 @@ notFoundMessage = "Record not found"
                             <input type="hidden" name="is_city" class="is_city" value="1">
                         </li>
                         <li class="pull-right">
-                            <span class="period priceText">{{ 'City Center'|_ }}</span>
+                            <span class="period priceText">{{ ' transfer-car-detail--> City Center'|_ }}</span>
                         </li>
                     </ul>
                     <span style="padding: 0;" class="text-uppercase money-discount money-save airport">
@@ -432,7 +432,7 @@ notFoundMessage = "Record not found"
                     <!-- rent widget -->
                     <div class="rent-blk-rows bg-white shadow">
                         <div class="blk-intro">
-                            <h4 class="pull-left">{{ 'Select the transfer date'|_ }}</h4>
+                            <h4 class="pull-left">{{ ' transfer-car-detail--> Select the transfer date'|_ }}</h4>
 
                             <div class="clearfix"></div>
                         </div>
@@ -441,14 +441,14 @@ notFoundMessage = "Record not found"
                             <div class="col-sm-12 col-lg-12 total clearfix ">
 
                                 <div class="  form-group input-append ">
-                                    <label>{{ 'Pick-up date and time'|_ }}</label>
+                                    <label>{{ ' transfer-car-detail--> Pick-up date and time'|_ }}</label>
                                     <input style="max-width:100%;width: 100%;" placeholder="date" type="text"
                                            id="startDate">
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-lg-12">
-                                <a href="javascript:void(0);" class="btn btn-default" id="myBtn">{{ 'Continue to car
+                                <a href="javascript:void(0);" class="btn btn-default" id="myBtn">{{ ' transfer-car-detail--> Continue to car
                                     reservation '|_ }}<i
                                             class="fa fa-angle-right"></i></a>
                             </div>
@@ -459,7 +459,7 @@ notFoundMessage = "Record not found"
                     <!-- widget support -->
                     <div class="cd-widget bg-white shadow rounded">
                         <div class="cd-widget-title">
-                            <h4 class="heading">{{ 'Have a question? Get in touch!'|_ }}</h4>
+                            <h4 class="heading">{{ ' transfer-car-detail--> Have a question? Get in touch!'|_ }}</h4>
                             <svg class="svg-icon svg-icon-sm grey" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  viewbox="0 0 15.4 15.5" style="enable-background:new 0 0 15.4 15.5;"
@@ -486,13 +486,13 @@ notFoundMessage = "Record not found"
                                 <li>
                                     <a href="callto:+994{{ this.theme.telephone }}" class="pull-left">+994
                                         <span>{{ this.theme.telephone }}</span></a>
-                                    <span class="pull-right">{{ 'mobile'|_ }}</span>
+                                    <span class="pull-right">{{ ' transfer-car-detail--> mobile'|_ }}</span>
                                 </li>
                                 <li class="clearfix"></li>
                                 <li>
                                     <a href="callto:+994{{ this.theme.office_number }}" class="pull-left">+994
                                         <span>{{ this.theme.office_number }}</span></a>
-                                    <span class="pull-right">{{ 'office'|_ }}</span>
+                                    <span class="pull-right">{{ ' transfer-car-detail--> office'|_ }}</span>
                                 </li>
                                 <li class="clearfix"></li>
                             </ul>
@@ -763,7 +763,7 @@ notFoundMessage = "Record not found"
                 $('.city').addClass('money-discount');
                 $('.other').addClass('money-discount');
                 $('.myPrice').html('{{ ( record.transfer_value.airport+( record.transfer_value.airport *this.theme.service_tax)/100 )|round }}');
-                $('.priceText').html('Airport to Hotel');
+                $('.priceText').html("{{ 'transfer-car-detail--> Airport to Hotel'|_ }}");
                 $('.inputPrice').val('{{ ( record.transfer_value.airport+( record.transfer_value.airport *this.theme.service_tax)/100 )|round }}');
                 $('.is_city').val('0');
                 is_city = $('.is_city').val();
@@ -775,7 +775,7 @@ notFoundMessage = "Record not found"
                 $('.city').addClass('money-discount');
                 $('.airport').addClass('money-discount');
                 $('.myPrice').html('');
-                $('.priceText').html('We will call you');
+                $('.priceText').html("{{ 'transfer-car-detail--> We will call you'|_ }}");
                 $('.inputPrice').val('0');
                 $('.is_city').val('2');
                 is_city = $('.is_city').val();
@@ -788,7 +788,7 @@ notFoundMessage = "Record not found"
                 $('.airport').addClass('money-discount');
                 $('.other').addClass('money-discount');
                 $('.myPrice').html('{{ (record.transfer_value.city+( record.transfer_value.city *this.theme.service_tax)/100)|round }}');
-                $('.priceText').html('City Center');
+                $('.priceText').html("{{ 'transfer-car-detail--> City Center'|_ }}");
                 $('.inputPrice').val('{{ (record.transfer_value.city+( record.transfer_value.city *this.theme.service_tax)/100 )|round }}');
                 $('.is_city').val('1');
                 is_city = $('.is_city').val();

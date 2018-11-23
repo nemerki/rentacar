@@ -2,52 +2,36 @@ name: Header
 items:
     -
         title: Homepage
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: Hompage
         reference: homepage
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Rent
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: Rent
         reference: rent-catalog
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Transfer
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: Transfer
         reference: transfer-catalog
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Contact
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: Contact
         reference: contact
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -56,7 +40,7 @@ items:
         title: Youtube
         type: url
         url: /
-        code: ''
+        code: Youtube
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -66,7 +50,7 @@ items:
                 title: 'Youtub 1'
                 type: url
                 url: 'https://www.youtube.com/watch?v=N73sDPuxKQI&list=RDN73sDPuxKQI&start_radio=1'
-                code: ''
+                code: 'Youtub 1'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
@@ -75,7 +59,7 @@ items:
                 title: 'Youtube 2'
                 type: url
                 url: 'https://www.youtube.com/watch?v=wDjeBNv6ip0&index=9&list=PLiIZDdzHd92PXo1NnPD39iAgncCVBJ7Lb&t=0s'
-                code: ''
+                code: 'Youtube 2'
                 viewBag:
                     isHidden: '0'
                     cssClass: ''

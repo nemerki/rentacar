@@ -1,0 +1,4 @@
+fields:
+    custemer:
+        span: full
+        type: customer

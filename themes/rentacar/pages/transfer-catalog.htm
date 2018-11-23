@@ -71,18 +71,18 @@ whereKey3 = 1
 
                             <div class="new-vehicle">
                                 <div class="form-group">
-                                    <label for="cd-carmake">Make</label>
+                                    <label for="cd-carmake">{{ 'transfer-catalog--> Make'|_ }}</label>
                                     <select class="cd-select js-example-basic-single brand__select sendForm"
                                             id="cd-carmake"
                                             name="brand_id" style="width: 100%">
-                                        <option value="" disabled selected>Any</option>
+                                        <option value="" disabled selected>{{ 'transfer-catalog--> Any'|_ }}</option>
                                         {% for brand in brands %}
                                             <option value="{{ brand.id }}">{{ brand.name }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">Model</label>
+                                    <label for="cd-carmodel">{{ 'transfer-catalog--> Model'|_ }}</label>
                                     <select class="cd-select js-example-basic-single models_select sendForm"
                                             name="mdl_id"
                                             id="cd-carmodel" style="width: 100%">
@@ -97,7 +97,7 @@ whereKey3 = 1
                         <div class="aside-blk">
                             <div class="custom-range">
                                 <p class="years-range">
-                                    <label for="regYears3">Years</label>
+                                    <label for="regYears3">{{ 'transfer-catalog--> Years'|_ }}</label>
                                     <input type="text" id="regYears" name="year_min" readonly
                                            class="pull-left sendForm">
                                     <input type="text" id="regYears2" name="year_max" readonly
@@ -111,11 +111,11 @@ whereKey3 = 1
                         <div class="aside-blk">
 
                             <div class="form-group">
-                                <label for="userPhone">City</label>
+                                <label for="userPhone">{{ 'transfer-catalog--> City'|_ }}</label>
                                 <select name="city_id"
                                         class="cd-select js-example-basic-single sendForm"
                                         style="width: 100%">
-                                    <option value="" disabled selected>Select make</option>
+                                    <option value="" disabled selected>{{ 'transfer-catalog--> Any'|_ }}</option>
                                     {% for city in cities %}
                                         <option value="{{ city.id }}">{{ city.name }}</option>
                                     {% endfor %}
@@ -127,7 +127,7 @@ whereKey3 = 1
                         <div class="aside-blk">
                             <div class="custom-range">
                                 <p>
-                                    <label for="carPrice">Price range <span>in thousands of &euro;</span></label>
+                                    <label for="carPrice">{{ 'transfer-catalog--> Price range'|_ }}   &#8380; </label>
                                     <input type="text" id="carPrice" name="price_min" readonly
                                            class="pull-left sendForm">
                                     <input type="text" id="carPrice2" name="price_max" readonly
@@ -143,7 +143,7 @@ whereKey3 = 1
                         <div class="aside-blk">
                             <div class="custom-range">
                                 <p>
-                                    <label for="engineVol">Engine volume <span>in cubic cm</span></label>
+                                    <label for="engineVol">{{ 'transfer-catalog--> Engine volume'|_ }} <span>{{ 'transfer-catalog--> in cubic cm'|_ }}</span></label>
                                     <input type="text" id="engineVol" name="engine_volume_min" readonly
                                            class="pull-left sendForm">
                                     <input type="text" id="engineVol2" name="engine_volume_max" readonly
@@ -161,11 +161,11 @@ whereKey3 = 1
 
                             <div class="new-vehicle">
                                 <div class="form-group">
-                                    <label for="cd-fuel">{{ 'Fuel type'|_ }}</label>
+                                    <label for="cd-fuel">{{ 'transfer-catalog--> Fuel type'|_ }}</label>
                                     <select name="fuel_id" class="cd-select js-example-basic-single sendForm"
                                             id="cd-fuel"
                                             style="width: 100%;">
-                                        <option value="" disabled selected>Any</option>
+                                        <option value="" disabled selected>{{ 'transfer-catalog--> Any'|_ }}</option>
                                         {% for fuel in fuels %}
                                             <option value="{{ fuel.id }}">{{ fuel.name }}</option>
                                         {% endfor %}
@@ -173,11 +173,11 @@ whereKey3 = 1
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Ban'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-catalog--> Ban'|_ }}</label>
                                     <select name="ban_id" class="cd-select js-example-basic-single sendForm"
                                             style="width: 100%;">
                                         <option value="" disabled selected>Select</option>
-                                        <option value="">Any</option>
+                                        <option value="">{{ 'transfer-catalog--> Any'|_ }}</option>
                                         {% for ban in bans %}
                                             <option value="{{ ban.id }}">{{ ban.name }}</option>
                                         {% endfor %}
@@ -185,7 +185,7 @@ whereKey3 = 1
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Color'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-catalog--> Color'|_ }}</label>
                                     <select name="color_id" class="cd-select js-example-basic-single sendForm"
                                             style="width: 100%;">
                                         <option value="" disabled selected>Select</option>
@@ -195,7 +195,7 @@ whereKey3 = 1
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Seat'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-catalog--> Seat'|_ }}</label>
                                     <select name="seat_id" class="cd-select js-example-basic-single sendForm"
                                             style="width: 100%;">
                                         <option value="" disabled selected>Select</option>
@@ -205,29 +205,29 @@ whereKey3 = 1
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Transmision'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-catalog--> Transmision'|_ }}</label>
                                     <select name="transmision_id" class="cd-select js-example-basic-single sendForm"
                                             id="cd-transmission-type"
                                             style="width: 100%;">
-                                        <option value="" disabled selected>Any</option>
+                                        <option value="" disabled selected>{{ 'transfer-catalog--> Any'|_ }}</option>
                                         {% for transmision in transmisions %}
                                             <option value="{{ transmision.id }}">{{ transmision.name }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Wheel driver'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-catalog--> Wheel driver'|_ }}</label>
                                     <select name="wheel_id" class="cd-select js-example-basic-single sendForm"
                                             id="cd-drive-type"
                                             style="width: 100%;">
-                                        <option value="" disabled selected>Any</option>
+                                        <option value="" disabled selected>{{ 'transfer-catalog--> Any'|_ }}</option>
                                         {% for wheel in wheels %}
                                             <option value="{{ wheel.id }}">{{ wheel.name }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
                                 <button style="width: 100%" type="button" id="filterBtn" class="btn btn-default icon ">
-                                    Get Filter
+                                  {{ 'transfer-catalog--> Get Filter'|_ }}
                                     <i class="fa fa-angle-right"></i>
                                 </button>
 
@@ -245,7 +245,7 @@ whereKey3 = 1
     </div>
     <!-- end container -->
 
-
+{#
     <!-- search features -->
     <section id="cd-search-features" class="bg-white listing-content">
         <div class="container">
@@ -1340,7 +1340,7 @@ whereKey3 = 1
 
     <!-- map listings -->
     <section id="cd-locations" class="full-map"></section>
-    <!-- /.map listings -->
+    <!-- /.map listings -->#}
 </main>
 
 {% put scripts %}
@@ -1502,6 +1502,17 @@ whereKey3 = 1
         }
         ///// end .cd-search-sidebar ranges /////
     </script>
+
+    <script>
+        $(function () {
+            /////  initializing Select2.js /////////
+            jQuery('select').select2({
+                allowClear: true,
+                placeholder: "{{ 'transfer-reservation-->  Any'|_ }}",
+            });
+        })
+    </script>
+
 {% endput %}
 
 {% put styles %}

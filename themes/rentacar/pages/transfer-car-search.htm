@@ -50,7 +50,7 @@ pageNumber = "{{ :page }}"
 
                             <div class="new-vehicle">
                                 <div class="form-group">
-                                    <label for="cd-carmake">{{ 'Make'|_ }}</label>
+                                    <label for="cd-carmake">{{ 'transfer-car-search--> Make'|_ }}</label>
                                     <select class="cd-select js-example-basic-single brand__select sendForm"
                                             id="cd-carmake"
                                             name="brand_id" style="width: 100%">
@@ -61,7 +61,7 @@ pageNumber = "{{ :page }}"
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Model'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-car-search--> Model'|_ }}</label>
                                     <select class="cd-select js-example-basic-single models_select sendForm"
                                             name="mdl_id"
                                             id="cd-carmodel" style="width: 100%">
@@ -76,7 +76,7 @@ pageNumber = "{{ :page }}"
                         <div class="aside-blk">
                             <div class="custom-range">
                                 <p class="years-range">
-                                    <label for="regYears3">{{ 'Years'|_ }}</label>
+                                    <label for="regYears3">{{ 'transfer-car-search--> Years'|_ }}</label>
                                     <input type="text" id="regYears" name="year_min" readonly
                                            class="pull-left sendForm">
                                     <input type="text" id="regYears2" name="year_max" readonly
@@ -90,11 +90,11 @@ pageNumber = "{{ :page }}"
                         <div class="aside-blk">
 
                             <div class="form-group">
-                                <label for="userPhone">{{ 'City'|_ }}</label>
+                                <label for="userPhone">{{ 'transfer-car-search--> City'|_ }}</label>
                                 <select name="city_id"
                                         class="cd-select js-example-basic-single sendForm"
                                         style="width: 100%">
-                                    <option value="" disabled selected>{{ 'Select make'|_ }}</option>
+                                    <option value="" disabled selected>{{ 'transfer-car-search--> Select make'|_ }}</option>
                                     {% for city in cities %}
                                         <option value="{{ city.id }}">{{ city.name }}</option>
                                     {% endfor %}
@@ -106,7 +106,7 @@ pageNumber = "{{ :page }}"
                         <div class="aside-blk">
                             <div class="custom-range">
                                 <p>
-                                    <label for="carPrice">{{ 'Price range'|_ }} <span>{{ 'in thousands of'|_ }} {{ '&euro;'|_ }}</span></label>
+                                    <label for="carPrice">{{ 'transfer-car-search--> Price range'|_ }} <span>{{ 'transfer-car-search--> in thousands of'|_ }} &#8380; </span></label>
                                     <input type="text" id="carPrice" name="price_min" readonly
                                            class="pull-left sendForm">
                                     <input type="text" id="carPrice2" name="price_max" readonly
@@ -122,7 +122,7 @@ pageNumber = "{{ :page }}"
                         <div class="aside-blk">
                             <div class="custom-range">
                                 <p>
-                                    <label for="engineVol">{{ 'Engine volume'|_ }} <span>{{ 'in cubic cm'|_ }}</span></label>
+                                    <label for="engineVol">{{ 'transfer-car-search--> Engine volume'|_ }} <span>{{ 'transfer-car-search--> in cubic cm'|_ }}</span></label>
                                     <input type="text" id="engineVol" name="engine_volume_min" readonly
                                            class="pull-left sendForm">
                                     <input type="text" id="engineVol2" name="engine_volume_max" readonly
@@ -140,7 +140,7 @@ pageNumber = "{{ :page }}"
 
                             <div class="new-vehicle">
                                 <div class="form-group">
-                                    <label for="cd-fuel">{{ 'Fuel type'|_ }}</label>
+                                    <label for="cd-fuel">{{ 'transfer-car-search--> Fuel type'|_ }}</label>
                                     <select name="fuel_id" class="cd-select js-example-basic-single sendForm"
                                             id="cd-fuel"
                                             style="width: 100%;">
@@ -152,7 +152,7 @@ pageNumber = "{{ :page }}"
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Ban'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-car-search--> Ban'|_ }}</label>
                                     <select name="ban_id" class="cd-select js-example-basic-single sendForm"
                                             style="width: 100%;">
                                         <option value="" disabled selected>Select</option>
@@ -164,7 +164,7 @@ pageNumber = "{{ :page }}"
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Color'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-car-search--> Color'|_ }}</label>
                                     <select name="color_id" class="cd-select js-example-basic-single sendForm"
                                             style="width: 100%;">
                                         <option value="" disabled selected>Select</option>
@@ -174,7 +174,7 @@ pageNumber = "{{ :page }}"
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Seat'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-car-search--> Seat'|_ }}</label>
                                     <select name="seat_id" class="cd-select js-example-basic-single sendForm"
                                             style="width: 100%;">
                                         <option value="" disabled selected>Select</option>
@@ -184,7 +184,7 @@ pageNumber = "{{ :page }}"
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Transmision'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-car-search--> Transmision'|_ }}</label>
                                     <select name="transmision_id" class="cd-select js-example-basic-single sendForm"
                                             id="cd-transmission-type"
                                             style="width: 100%;">
@@ -195,7 +195,7 @@ pageNumber = "{{ :page }}"
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="cd-carmodel">{{ 'Wheel driver'|_ }}</label>
+                                    <label for="cd-carmodel">{{ 'transfer-car-search--> Wheel driver'|_ }}</label>
                                     <select name="wheel_id" class="cd-select js-example-basic-single sendForm"
                                             id="cd-drive-type"
                                             style="width: 100%;">

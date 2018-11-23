@@ -1,5 +1,6 @@
 <?php namespace DigitalBrain\RentCar\Components;
 
+use Carbon\Carbon;
 use Cms\Classes\ComponentBase;
 use DigitalBrain\RentCar\Models\Car;
 use Illuminate\Support\Facades\Cache;
@@ -252,12 +253,15 @@ class RentCarSearchComponent extends ComponentBase
     protected function prepareVars()
     {
 
+        $date = Carbon::now()->format('d.m.Y');
+
+
         if (Cache::has('usd')) {
 
             $this->page['usd'] = Cache::get('usd');
         } else {
-            $connect_web = simplexml_load_file('https://www.cbar.az/other/xml-azn-rates/');
-            $usd = $connect_web->ValType[1]->Valute[44]->Value->__toString();
+            $connect_web = simplexml_load_file('https://www.cbar.az/currencies/' . $date . '.xml');
+            $usd = $connect_web->ValType[1]->Valute[0]->Value->__toString();
             $this->page['usd'] = $usd;
         }
         $this->pageParam = $this->page['pageParam'] = $this->paramName('pageNumber');

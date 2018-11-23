@@ -2,78 +2,54 @@ name: Footer
 items:
     -
         title: Homepage
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: Homepage
         reference: homepage
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: 'Rent Catalog'
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: 'Rent Catalog'
         reference: rent-catalog
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: 'Transfer Catalog'
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: 'Transfer Catalog'
         reference: transfer-catalog
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: 'Add new car'
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: 'Add new car'
         reference: new
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Profile
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: Profile
         reference: profile
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: Contact
-        nesting: ''
         type: cms-page
-        url: ''
-        code: ''
+        code: Contact
         reference: contact
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -82,10 +58,8 @@ items:
         title: 'Terms & Conditions'
         nesting: '0'
         type: static-page
-        url: ''
-        code: ''
+        code: 'Terms & Conditions'
         reference: terms-conditions
-        cmsPage: ''
         replace: '0'
         viewBag:
             isHidden: '0'
@@ -95,7 +69,7 @@ items:
         title: Adwords
         nesting: '0'
         type: static-page
-        code: ''
+        code: Adwords
         reference: adwords
         replace: '0'
         viewBag:

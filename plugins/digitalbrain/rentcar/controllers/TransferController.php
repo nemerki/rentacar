@@ -5,18 +5,18 @@ use BackendMenu;
 
 class TransferController extends Controller
 {
-    public $implement = [        'Backend\Behaviors\ListController',        'Backend\Behaviors\FormController'    ];
-    
+    public $implement = ['Backend\Behaviors\ListController', 'Backend\Behaviors\FormController'];
+
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
-        'manage_transfer' 
+        'manage_transfer'
     ];
 
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('DigitalBrain.RentCar', 'main-menu-item4');
+        BackendMenu::setContext('DigitalBrain.RentCar', 'main-menu-item3','side-menu-item');
     }
 }

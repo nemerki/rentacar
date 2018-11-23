@@ -19,7 +19,7 @@ localeUrl[ru] = "/unsubscribe"
     <div class="container">
         <div class="row">
             <div class="col-lg-12 section-intro demo text-center">
-                <h1>Unsubcribe form</h1>
+                <h1>{{ 'Unsubcribe form'|_ }}</h1>
             </div>
         </div>
         <div class="row pb30">
@@ -27,7 +27,7 @@ localeUrl[ru] = "/unsubscribe"
 
                 <div class="elements">
                     <div class="form-group">
-                        <label for="userName">Your Mail</label>
+                        <label for="userName">{{ 'Your Mail'|_ }}</label>
                         <form name="form-unsubscribe-andradedev" id="form-unsubscribe-andradedev"
                               data-request="{{ formUnsubscribe }}::onRemoveSubscriber"
                               data-request-update="'{{ formUnsubscribe }}::alert': '#result'">
@@ -44,7 +44,7 @@ localeUrl[ru] = "/unsubscribe"
                     <div class="btn-group">
 
                         <button form="form-unsubscribe-andradedev"   class="btn btn-primary">
-                            Unsubscribe
+                            {{ 'Unsubscribe'|_ }}
                         </button>
 
                         <div id="result"></div>

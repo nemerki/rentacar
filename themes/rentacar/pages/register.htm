@@ -27,34 +27,34 @@ includeAssets = 1
                 <div class="col-sm-6 col-lg-6 col-lg-offset-3">
                     <div class="login-form-wrapp bg-white rounded shadow">
                         <div class="heading clearfix">
-                            <h4 class="pull-left">{{ 'Register form'|_ }}</h4>
-                            <h4 class="pull-right">{{ 'New account'|_ }}</h4>
+                            <h4 class="pull-left">{{ 'register-->  Register form'|_ }}</h4>
+                            <h4 class="pull-right">{{ 'register-->  New account'|_ }}</h4>
                         </div>
                         <div class="content">
                             <form class="login-form row" id="registerForm" data-request-validate>
                                 <div class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <label>{{ 'Full Name'|_ }}</label>
+                                    <label>{{ 'register-->  Full Name'|_ }}</label>
                                     <input name="name" type="text" class="form-control text-capitalize"
-                                           placeholder="{{ 'Full Name'|_ }}">
+                                           placeholder="{{ 'register-->  Full Name'|_ }}">
                                     <p class="error-p visible" data-validate-for="name"></p>
                                 </div>
 
 
                                 <div class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <label>{{ 'Mobile Phone'|_ }}</label>
-                                    <input id="username" name="username" type="text"
+                                    <label>{{ 'register-->  Mobile Phone'|_ }}</label>
+                                    <input id="username" onkeypress="return AllowNumbersOnly(event)" name="username" type="text"
                                            class="form-control text-capitalize"
                                            placeholder="Mobile">
                                     <p class="error-p visible" data-validate-for="mobile"></p>
                                     <input type="hidden" name="mobile" id="mobile">
                                 </div>
                                 <div class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <label>{{ 'Password'|_ }}</label>
+                                    <label>{{ 'register-->  Password'|_ }}</label>
                                     <input name="password" type="password" class="form-control">
                                     <p class="error-p visible" data-validate-for="password"></p>
                                 </div>
                                 <div class="form-group register__form-group col-sm-12 col-lg-6">
-                                    <label>{{ 'Repeat password'|_ }}</label>
+                                    <label>{{ 'register-->  Repeat password'|_ }}</label>
                                     <input name="password_confirmation" type="password" class="form-control">
                                     <p class="error-p visible" data-validate-for="password_confirmation"></p>
                                 </div>
@@ -62,7 +62,7 @@ includeAssets = 1
                                 <a href="{{ 'login'|page }}">
                                     <div style="margin-top: 20px"
                                          class="form-group register__form-group col-sm-12  col-lg-6">
-                                        <button type="button" class="btn btn-default">{{ 'Login here '|_ }}<i
+                                        <button type="button" class="btn btn-default">{{ 'register--> Login here '|_ }}<i
                                                     class="fa fa-angle-right"></i></button>
                                     </div>
                                 </a>
@@ -70,7 +70,7 @@ includeAssets = 1
                                 <div style="margin-top: 20px"
                                      class="form-group register__form-group col-sm-12 col-lg-6">
                                     <button type="button" id="sendRegisterForm"
-                                            class="btn btn-danger">{{ 'Register'|_ }} <i
+                                            class="btn btn-danger">{{ 'register--> Register'|_ }} <i
                                                 class="fa fa-angle-right"></i></button>
                                 </div>
 
@@ -103,6 +103,16 @@ includeAssets = 1
             });
         });
 
+    </script>
+
+
+    <script>
+        function AllowNumbersOnly(e) {
+            var charCode = (e.which) ? e.which : e.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                e.preventDefault();
+            }
+        }
     </script>
 
 {% endput %}

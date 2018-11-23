@@ -20,14 +20,14 @@ pageNumber = "{{ :page }}"
             <div class="col-sm-12 col-md-8 col-lg-9">
                 <div class="bg-white shadow rounded cd-my-list">
                     <div class="heading clearfix">
-                        <h4 class="pull-left">{{ 'Sales &amp; reports'|_ }}</h4>
-                        <h4 class="pull-right">{{ 'Regular account'|_ }}</h4>
+                        <h4 class="pull-left">{{ 'profile-sales-report--> Sales &amp; reports'|_ }}</h4>
+                        <h4 class="pull-right">{{ 'profile-sales-report--> Regular account'|_ }}</h4>
                     </div>
                     <div class="reports-content">
                         <ul class="list-inline row reports-numbers">
                             <li class="col-lg-4">
                                 <div class="bg-grey rounded info">
-                                    <span>{{ 'Total cars sold'|_ }}</span>
+                                    <span>{{ 'profile-sales-report--> Total cars sold'|_ }}</span>
                                     <h1>{{ cars|length }}</h1>
 
                                     <span class="icon icon-key"></span>
@@ -35,7 +35,7 @@ pageNumber = "{{ :page }}"
                             </li>
                             <li class="col-lg-4">
                                 <div class="bg-grey rounded info">
-                                    <span>{{ 'Total sales amount'|_ }}</span>
+                                    <span>{{ 'profile-sales-report--> Total sales amount'|_ }}</span>
                                     <h1>&dollar;{{ totla_sale_amount }}</h1>
 
                                     <span class="icon icon-wallet"></span>
@@ -43,7 +43,7 @@ pageNumber = "{{ :page }}"
                             </li>
                             <li class="col-lg-4">
                                 <div class="bg-grey rounded info">
-                                    <span>{{ 'Total sales'|_ }}</span>
+                                    <span>{{ 'profile-sales-report--> Total sales'|_ }}</span>
                                     <h1>{{ totalSales }}</h1>
 
                                     <span class="icon icon-profile-male"></span>
@@ -57,8 +57,8 @@ pageNumber = "{{ :page }}"
 
                 <div class="bg-white shadow rounded cd-my-list rentalDiv">
                     <div class="heading clearfix">
-                        <h4 class="pull-left">{{ 'Rental Sales '|_ }}</h4>
-                        <h4 class="pull-right">{{ 'Total'|_ }} <span> {{ totalRentalSales }}</span></h4>
+                        <h4 class="pull-left">{{ 'profile-sales-report--> Rental Sales '|_ }}</h4>
+                        <h4 class="pull-right">{{ 'profile-sales-report--> Total'|_ }} <span> {{ totalRentalSales }}</span></h4>
                     </div>
 
                     <div class="rentalMain">
@@ -73,8 +73,8 @@ pageNumber = "{{ :page }}"
 
                 <div class="bg-white shadow rounded cd-my-list transferDiv">
                     <div class="heading clearfix">
-                        <h4 class="pull-left">{{ 'Transfer Sales '|_ }}</h4>
-                        <h4 class="pull-right">{{ 'Total'|_ }} <span> {{ totalTransfersSales }}</span></h4>
+                        <h4 class="pull-left">{{ 'profile-sales-report--> Transfer Sales '|_ }}</h4>
+                        <h4 class="pull-right">{{ 'profile-sales-report--> Total'|_ }} <span> {{ totalTransfersSales }}</span></h4>
                     </div>
                     <div class="transferMain">
                         {% partial "profile/saleAndReportTransferSales"  partialsRecords = transfers %}
